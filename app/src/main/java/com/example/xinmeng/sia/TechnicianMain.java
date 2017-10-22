@@ -3,7 +3,7 @@ package com.example.xinmeng.sia;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.content.Intent;
 
 public class TechnicianMain extends AppCompatActivity {
 
@@ -17,11 +17,13 @@ public class TechnicianMain extends AppCompatActivity {
 
     public void tasks(View view)
     {
-
+        Intent intent = new Intent(TechnicianMain.this, TechnicianTasksMain.class);
+        startActivity(intent);
     }
 
     public void equipment(View view)
     {
-
+        Intent intent = new Intent(TechnicianMain.this, TechnicianEquipment.class);
+        startActivity(intent);
     }
 }

@@ -21,7 +21,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TechnicianMain"></activity>
+        <activity android:name=".TechnicianMain" />
+        <activity android:name=".TechnicianTasksMain" />
+        <activity android:name=".TechnicianTaskDetail" />
+        <activity android:name=".TechnicianEquipment"></activity>
     </application>
 
 </manifest>
