@@ -9,8 +9,11 @@ public class Defects {
     public String description;
     public int seatNumber;
     public int flightNumber;
+
+    //Assigned by planners/supervisors
     public String equipment;
     public int priority;
+    public String techID;
 
     public Defects(String name, String description, int seatNumber, int flightNumber)
     {
