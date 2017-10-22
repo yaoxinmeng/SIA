@@ -10,4 +10,7 @@ import java.util.List;
 public class Database {
     public static List defects = new ArrayList<Defects>();
     public static List planes = new ArrayList<Plane>();
+
+    //initialise defects first
+
 }
