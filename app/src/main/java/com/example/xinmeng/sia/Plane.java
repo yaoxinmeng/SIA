@@ -9,6 +9,8 @@ public class Plane {
     public String location;
     public float landingTime;
     public float takeoffTIme;
-
+    public int flightNumber;
     public Defects[] defects;
+
+
 }
