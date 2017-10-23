@@ -53,7 +53,7 @@ public class Plane {
         this.numberOfDefects = this.defects.size();
     }
 
-    public void assignTechnicians()
+    public void autoAssignTechnicians()
     {
         List technicians = new ArrayList<Technicians>(); //Creates a list of technicians for this plane
         for(Object child : Database.technicians)
@@ -75,6 +75,14 @@ public class Plane {
             }
         }
 
+        //assigns plane to each technician
+
+
         //assigns the defects to each technician
+    }
+
+    public void assignTechnicians(Technicians technician, Defects defect)
+    {
+        defect.techID = technician.ID;
     }
 }
