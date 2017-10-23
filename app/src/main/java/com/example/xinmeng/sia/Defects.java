@@ -5,10 +5,16 @@ package com.example.xinmeng.sia;
  */
 
 public class Defects {
-    public String name;
+    public String category;
     public String description;
-    public int seatNumber;
-    public int flightNumber;
+    public String flightNumber;
+    public int classCode;
+
+    //definitions for classCode
+    private static final int Economy = 0;
+    private static final int Premium = 1;
+    private static final int Business = 2;
+    private static final int First = 3;
 
     public boolean assigned;
     public boolean inProgress;
@@ -16,16 +22,16 @@ public class Defects {
     public boolean resolved;
 
     //Assigned by planners/supervisors
-    public String equipment;
+    public String parts;
+    public String action;
     public int priority;
 
     //Auto assigned
     public String techID;
 
-    public Defects(String name, String description, int seatNumber, int flightNumber) {
-        this.name = name;
+    public Defects(String category, String description, String flightNumber) {
+        this.category = category;
         this.description = description;
-        this.seatNumber = seatNumber;
         this.flightNumber = flightNumber;
         this.assigned = false;
         this.inProgress = false;
