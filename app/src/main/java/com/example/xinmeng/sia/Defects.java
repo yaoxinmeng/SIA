@@ -10,16 +10,24 @@ public class Defects {
     public int seatNumber;
     public int flightNumber;
 
+    public boolean assigned;
+    public boolean inProgress;
+    public boolean completed;
+
     //Assigned by planners/supervisors
     public String equipment;
     public int priority;
+
+    //Auto assigned
     public String techID;
 
-    public Defects(String name, String description, int seatNumber, int flightNumber)
-    {
+    public Defects(String name, String description, int seatNumber, int flightNumber) {
         this.name = name;
         this.description = description;
         this.seatNumber = seatNumber;
         this.flightNumber = flightNumber;
+        this.assigned = false;
+        this.inProgress = false;
+        this.completed = false;
     }
 }

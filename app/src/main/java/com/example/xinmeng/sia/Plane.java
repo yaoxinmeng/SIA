@@ -20,6 +20,9 @@ public class Plane {
     public List defects = new ArrayList<Defects>();
     public int numberOfDefects;
     public int numberOfTechnicians;
+    public boolean assigned;
+    public boolean inProgress;
+    public boolean completed;
 
     Plane(String location, Date landingTime, Date takeoffTIme, int flightNumber)
     {
