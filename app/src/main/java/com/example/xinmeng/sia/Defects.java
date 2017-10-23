@@ -13,6 +13,7 @@ public class Defects {
     public boolean assigned;
     public boolean inProgress;
     public boolean completed;
+    public boolean resolved;
 
     //Assigned by planners/supervisors
     public String equipment;
@@ -29,5 +30,6 @@ public class Defects {
         this.assigned = false;
         this.inProgress = false;
         this.completed = false;
+        this.resolved = true;
     }
 }

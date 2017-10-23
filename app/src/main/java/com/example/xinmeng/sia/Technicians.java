@@ -17,31 +17,24 @@ public class Technicians {
     public boolean onPlane; // checks whether the technician is handling any active planes
     //KPI
 
-    public void addTasks(Plane plane)
+    public void addPlane(Plane plane)
     {
         planes.add(plane);
         for (Object child : plane.defects)
         {
             Defects newChild = (Defects) child;
-            if (newChild.techID == ID)
+            if (newChild.techID.equals(ID))
+            {
                 allTasks.add(newChild);
+                newChild.assigned = true;
+            }
         }
     }
 
-    public void boardPlane()
-    {
+    public void boardPlane() {
         ((Plane) planes.element()).inProgress = true;
         onPlane = true;
-    }
-
-    public void startTask (Defects task)
-    {
-        int n = currentTasks.indexOf(task);
-    }
-
-    public void completeTasks()
-    {
-        planes.remove();
+        setCurrentTasks();
     }
 
     public void setCurrentTasks()
@@ -52,10 +45,40 @@ public class Technicians {
             for (Object child : currentPlane.defects)
             {
                 Defects newChild = (Defects) child;
-                if (newChild.techID == ID)
+                if (newChild.techID.equals(ID))
                     currentTasks.add(newChild);
             }
         }
+    }
+
+    public boolean leavePlane()
+    {
+        boolean allTasksCompleted = true;
+
+        for (Object child : ((Plane) planes.element()).defects)
+        {
+            Defects newChild = (Defects) child;
+            if (!newChild.completed)
+                allTasksCompleted = false;
+        }
+        planes.remove();
+        currentTasks.clear();
+        onPlane = false;
+
+        return allTasksCompleted;
+    }
+
+    public void startTask (Defects task)
+    {
+        task.inProgress = true;
+        onTask = true;
+    }
+
+    public void finishTask (Defects task, boolean resolved)
+    {
+        task.completed = true;
+        task.resolved = resolved;
+        onTask = false;
     }
 
     public Defects currentTask()
@@ -67,10 +90,5 @@ public class Technicians {
                 return newChild;
         }
         return null;
-    }
-
-    public void doTask(Defects task)
-    {
-        int n = currentTasks.indexOf(task);
     }
 }
