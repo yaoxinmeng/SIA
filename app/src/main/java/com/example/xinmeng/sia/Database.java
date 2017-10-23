@@ -10,7 +10,12 @@ import java.util.List;
 public class Database {
     public static List defects = new ArrayList<Defects>();
     public static List planes = new ArrayList<Plane>();
-
+    public static List technicians = new ArrayList<Technicians>();
+    //public static List supervisors = new ArrayList<Supervisors>();
+    //public static List planners = new ArrayList<Planners>();
+    public static List techIDs = new ArrayList<String>();
+    public static List supervisorIDs = new ArrayList<String>();
+    public static List plannerIDs = new ArrayList<String>();
     //initialise defects first
 
 }

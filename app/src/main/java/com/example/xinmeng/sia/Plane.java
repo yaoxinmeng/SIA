@@ -1,6 +1,7 @@
 package com.example.xinmeng.sia;
 
 
+import java.io.ObjectStreamException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
@@ -39,5 +40,16 @@ public class Plane {
                 this.defects.add(newChild);
         }
         this.numberOfDefects = this.defects.size();
+    }
+
+    public void assignTechnicians()
+    {
+        List technicians = new ArrayList<Technicians>();
+        for(Object child : Database.technicians)
+        {
+            Technicians newChild = (Technicians) child;
+
+
+        }
     }
 }

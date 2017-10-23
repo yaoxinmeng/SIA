@@ -15,7 +15,13 @@ public class Technicians {
     public List currentTasks = new ArrayList<Defects>(); // current tasks in current plane that is in progress
     public boolean onTask; // checks whether the technician has any active tasks
     public boolean onPlane; // checks whether the technician is handling any active planes
+    public int numberOfTasks;
     //KPI
+
+    public void refresh()
+    {
+        numberOfTasks = allTasks.size();
+    }
 
     public void addPlane(Plane plane)
     {
