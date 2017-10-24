@@ -10,6 +10,16 @@ import java.util.List;
 public class Database {
     public static List defects = new ArrayList<Defects>();
     public static List planes = new ArrayList<Plane>();
+    public static List technicians = new ArrayList<Technicians>();
+    public static List techIDs = new ArrayList<String>();
+    public static List supervisorIDs = new ArrayList<String>();
+    public static List plannerIDs = new ArrayList<String>();
+
+    //definitions for classCode
+    public static final int Economy = 0;
+    public static final int Premium = 1;
+    public static final int Business = 2;
+    public static final int First = 3;
 
     //initialise defects first
 

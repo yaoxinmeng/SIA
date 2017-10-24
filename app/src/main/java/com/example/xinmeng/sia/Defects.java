@@ -5,21 +5,29 @@ package com.example.xinmeng.sia;
  */
 
 public class Defects {
-    public String name;
+    public String category;
     public String description;
-    public int seatNumber;
-    public int flightNumber;
+    public String flightNumber;
+    public int classCode;
+
+    public boolean assigned;
+    public boolean inProgress;
+    public boolean resolved;
 
     //Assigned by planners/supervisors
-    public String equipment;
+    public String parts;
+    public String action;
     public int priority;
-    public String techID;
 
-    public Defects(String name, String description, int seatNumber, int flightNumber)
-    {
-        this.name = name;
+    public String techID; //techID assigned to this defect
+
+    public Defects(String category, String description, String flightNumber, int classCode) {
+        this.category = category;
         this.description = description;
-        this.seatNumber = seatNumber;
         this.flightNumber = flightNumber;
+        this.classCode = classCode;
+        this.assigned = false;
+        this.inProgress = false;
+        this.resolved = true;
     }
 }
