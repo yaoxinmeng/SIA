@@ -13,7 +13,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+<<<<<<< HEAD
         android:layout_marginTop="175dp" />
+=======
+        android:layout_marginTop="175dp"/>
+>>>>>>> a9745339e3d2779af1eb636c61ca439debf7278a
 
     <ImageView
         android:id="@+id/MainTitle"
