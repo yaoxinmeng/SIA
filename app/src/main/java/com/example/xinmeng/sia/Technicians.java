@@ -15,12 +15,23 @@ public class Technicians {
     public List currentTasks = new ArrayList<Defects>(); // current tasks in current plane that is in progress
     public boolean onTask; // checks whether the technician has any active tasks
     public boolean onPlane; // checks whether the technician is handling any active planes
-    public int numberOfTasks;
-    //KPI
+    public int numberOfTasks; //number of non-completed tasks in allTasks
 
     public void refresh()
     {
-        numberOfTasks = allTasks.size();
+        setNumberOfTasks();
+
+    }
+
+    public void setNumberOfTasks()
+    {
+        int n = 0;
+        for(Object child : allTasks)
+        {
+            if (!((Defects)child).completed)
+                n++;
+        }
+        numberOfTasks = n;
     }
 
     public void addPlane(Plane plane)
@@ -35,6 +46,7 @@ public class Technicians {
                 newChild.assigned = true;
             }
         }
+        numberOfTasks = allTasks.size();
     }
 
     public void boardPlane() {
@@ -80,10 +92,17 @@ public class Technicians {
         onTask = true;
     }
 
-    public void finishTask (Defects task, boolean resolved)
+    public void resolvedTask (Defects task)
     {
         task.completed = true;
-        task.resolved = resolved;
+        task.resolved = true;
+        onTask = false;
+    }
+
+    public void unresolvedTask (Defects task)
+    {
+        task.completed = true;
+        task.resolved = false;
         onTask = false;
     }
 
@@ -96,5 +115,17 @@ public class Technicians {
                 return newChild;
         }
         return null;
+    }
+
+    public List tasksArchive()
+    {
+        List tasksArchive = new ArrayList<Defects>();
+        for (Object child : Database.defects)
+        {
+            Defects newChild = (Defects) child;
+            if (newChild.resolved && newChild.techID.equals(this.ID))
+                tasksArchive.add(newChild);
+        }
+        return tasksArchive;
     }
 }
