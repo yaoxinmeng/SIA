@@ -39,15 +39,34 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-
     }
     public void LoginButton(){
+
+        username.setOnClickListener(
+                new View.OnClickListener(){
+
+                    @Override
+                    public void onClick(View view) {
+                        username.setText("");
+                    }
+                }
+        );
+
+        password.setOnClickListener(
+                new View.OnClickListener(){
+
+                    @Override
+                    public void onClick(View view) {
+                        password.setText("");
+                    }
+                }
+        );
 
         login_button.setOnClickListener(
                 new View.OnClickListener(){
                     @Override
                     public void onClick(View view) {
-                        if (username.getText().toString().equals("supervisor") && password.getText().toString().equals("password")) {
+                        if (username.getText().toString().equals("technician") && password.getText().toString().equals("password")) {
                             Intent i = new Intent(MainActivity.this, TechnicianMain.class);
                             startActivity(i);
                         }

@@ -20,23 +20,35 @@
         android:id="@+id/usernameField"
         android:layout_width="1.50in"
         android:layout_height="0.240in"
-        android:background="@drawable/username"
-        android:ems="10"
-        android:inputType="textEmailAddress"
         android:layout_alignTop="@+id/mainTitleLogo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="175dp" />
+        android:layout_marginTop="175dp"
+        android:background="@drawable/username"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/type_username"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        tools:clickable="false"
+        tools:onClick="usernameClick" />
 
     <EditText
         android:id="@+id/passwordField"
         android:layout_width="1.50in"
         android:layout_height="0.240in"
-        android:background="@drawable/password"
-        android:layout_marginTop="14dp"
-        android:ems="10"
-        android:inputType="textPassword"
+        android:layout_alignStart="@+id/usernameField"
         android:layout_below="@+id/usernameField"
-        android:layout_alignStart="@+id/usernameField" />
+        android:layout_marginTop="14dp"
+        android:background="@drawable/username"
+        android:ems="10"
+        android:inputType="textVisiblePassword"
+        android:text="@string/type_password"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/loginButton"
