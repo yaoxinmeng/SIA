@@ -8,18 +8,6 @@
     tools:context="com.example.xinmeng.sia.MainActivity">
 
     <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-<<<<<<< HEAD
-        android:layout_marginTop="175dp" />
-=======
-        android:layout_marginTop="175dp"/>
->>>>>>> a9745339e3d2779af1eb636c61ca439debf7278a
-
-    <ImageView
         android:id="@+id/MainTitle"
         android:layout_width="360dp"
         android:layout_height="200dp"
@@ -35,9 +23,9 @@
         android:background="@drawable/Username"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:layout_below="@+id/imageView4"
+        android:layout_alignTop="@+id/MainTitle"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="159dp" />
+        android:layout_marginTop="175dp" />
 
     <EditText
         android:id="@+id/editText2"
@@ -60,6 +48,4 @@
         android:layout_below="@+id/editText2"
         android:layout_centerHorizontal="true" />
 
-    //app:srcCompat="@drawable/Background_blue"
-    />
 </RelativeLayout>
