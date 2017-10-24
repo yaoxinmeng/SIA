@@ -18,7 +18,7 @@ public class Plane {
     public Date arrTime;
     public Date depTIme;
     public long timeLeft; //needs to be constantly updated in activity
-    public String region;
+    public String regn;
     public String type;
     public boolean delay;
 
@@ -86,26 +86,15 @@ public class Plane {
             Defects nextDefect = (Defects) child;
             if (n == technicians.size())
                 n = 0;
-            assignTechnicians((Technicians) technicians.get(n), nextDefect);
+            assignTechnicians((Technicians) technicians.get(n), nextDefect, this);
             n++;
-        }
-
-        //assigns plane to each technician
-        for(Object child : technicians)
-        {
-            Technicians newChild = (Technicians) child;
-            newChild.addPlane(this);
         }
         return true;
     }
 
-    public void assignTechnicians(Technicians technician, Defects defect)
+    public void assignTechnicians(Technicians technician, Defects defect, Plane plane)
     {
-        defect.techID = technician.ID;
-    }
-
-    public void displayDefects()
-    {
-
+        defect.techID = technician.ID; //assigns ID
+        technician.addPlane(plane); //assigns plane
     }
 }
