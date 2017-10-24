@@ -12,7 +12,6 @@ public class Defects {
 
     public boolean assigned;
     public boolean inProgress;
-    public boolean completed;
     public boolean resolved;
 
     //Assigned by planners/supervisors
@@ -29,7 +28,6 @@ public class Defects {
         this.classCode = classCode;
         this.assigned = false;
         this.inProgress = false;
-        this.completed = false;
         this.resolved = true;
     }
 }

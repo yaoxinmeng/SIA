@@ -28,7 +28,7 @@ public class Technicians {
         int n = 0;
         for(Object child : allTasks)
         {
-            if (!((Defects)child).completed)
+            if (!((Defects)child).resolved)
                 n++;
         }
         numberOfTasks = n;
@@ -69,21 +69,34 @@ public class Technicians {
         }
     }
 
-    public boolean leavePlane()
+    public boolean allTasksCompleted()
     {
         boolean allTasksCompleted = true;
 
+        //checks if all tasks on this plane have been completed
         for (Object child : ((Plane) planes.element()).defects)
         {
             Defects newChild = (Defects) child;
-            if (!newChild.completed)
+            if (newChild.techID.equals(ID) && !newChild.resolved)
                 allTasksCompleted = false;
         }
-        planes.remove();
-        currentTasks.clear();
-        onPlane = false;
 
         return allTasksCompleted;
+    }
+
+    public void leavePlane()
+    {
+        //removes tasks of this plane from allTasks
+        for (Object child : allTasks)
+        {
+            Defects newChild = (Defects) child;
+            if (newChild.flightNumber.equals(((Plane) planes.element()).flightNumber))
+                allTasks.remove(newChild);
+        }
+
+        planes.remove(); //remove
+        currentTasks.clear();
+        onPlane = false;
     }
 
     public void startTask (Defects task)
@@ -94,14 +107,12 @@ public class Technicians {
 
     public void resolvedTask (Defects task)
     {
-        task.completed = true;
         task.resolved = true;
         onTask = false;
     }
 
     public void unresolvedTask (Defects task)
     {
-        task.completed = true;
         task.resolved = false;
         onTask = false;
     }

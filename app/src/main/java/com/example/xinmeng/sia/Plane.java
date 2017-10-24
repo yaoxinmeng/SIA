@@ -18,7 +18,7 @@ public class Plane {
     public Date arrTime;
     public Date depTIme;
     public long timeLeft; //needs to be constantly updated in activity
-    public String region;
+    public String regn;
     public String type;
     public boolean delay;
 
