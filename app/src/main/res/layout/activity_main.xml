@@ -8,7 +8,7 @@
     tools:context="com.example.xinmeng.sia.MainActivity">
 
     <ImageView
-        android:id="@+id/MainTitle"
+        android:id="@+id/mainTitleLogo"
         android:layout_width="360dp"
         android:layout_height="200dp"
         android:layout_marginTop="146dp"
@@ -17,35 +17,34 @@
         android:layout_centerHorizontal="true" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/usernameField"
         android:layout_width="1.50in"
         android:layout_height="0.240in"
         android:background="@drawable/username"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:layout_alignTop="@+id/MainTitle"
+        android:layout_alignTop="@+id/mainTitleLogo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="175dp" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/passwordField"
         android:layout_width="1.50in"
         android:layout_height="0.240in"
         android:background="@drawable/password"
         android:layout_marginTop="14dp"
         android:ems="10"
         android:inputType="textPassword"
-        android:layout_below="@+id/editText"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText" />
+        android:layout_below="@+id/usernameField"
+        android:layout_alignStart="@+id/usernameField" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/loginButton"
         android:layout_width="0.7in"
         android:layout_height="0.240in"
-        android:background="@drawable/login"
+        android:layout_below="@+id/passwordField"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="38dp"
-        android:layout_below="@+id/editText2"
-        android:layout_centerHorizontal="true" />
+        android:background="@drawable/login" />
 
 </RelativeLayout>
