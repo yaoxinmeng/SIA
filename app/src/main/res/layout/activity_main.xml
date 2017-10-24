@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/Background_blue"
+    android:background="@drawable/bluebg"
     tools:context="com.example.xinmeng.sia.MainActivity">
 
     <ImageView
@@ -12,7 +12,7 @@
         android:layout_width="360dp"
         android:layout_height="200dp"
         android:layout_marginTop="146dp"
-        app:srcCompat="@drawable/Image"
+        app:srcCompat="@drawable/image"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
@@ -20,7 +20,7 @@
         android:id="@+id/editText"
         android:layout_width="1.50in"
         android:layout_height="0.240in"
-        android:background="@drawable/Username"
+        android:background="@drawable/username"
         android:ems="10"
         android:inputType="textEmailAddress"
         android:layout_alignTop="@+id/MainTitle"
@@ -31,7 +31,7 @@
         android:id="@+id/editText2"
         android:layout_width="1.50in"
         android:layout_height="0.240in"
-        android:background="@drawable/Password"
+        android:background="@drawable/password"
         android:layout_marginTop="14dp"
         android:ems="10"
         android:inputType="textPassword"
@@ -43,7 +43,7 @@
         android:id="@+id/button"
         android:layout_width="0.7in"
         android:layout_height="0.240in"
-        android:background="@drawable/Log_in"
+        android:background="@drawable/login"
         android:layout_marginTop="38dp"
         android:layout_below="@+id/editText2"
         android:layout_centerHorizontal="true" />
