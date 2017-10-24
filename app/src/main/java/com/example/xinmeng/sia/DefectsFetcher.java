@@ -1,5 +1,5 @@
 package com.example.xinmeng.sia;
-
+import com.google.gson.annotations.SerializedName;
 /**
  * Created by jrnew on 24/10/2017.
  */
@@ -23,6 +23,7 @@ public class DefectsFetcher {
     private Boolean resolved;
     private String technicianID;
 
+    @com.google.gson.annotations.SerializedName("regn")
     public String getRegn() {
         return regn;
     }
@@ -31,6 +32,7 @@ public class DefectsFetcher {
         this.regn = regn;
     }
 
+    @com.google.gson.annotations.SerializedName("fleet")
     public String getFleet() {
         return fleet;
     }
@@ -39,6 +41,7 @@ public class DefectsFetcher {
         this.fleet = fleet;
     }
 
+    @com.google.gson.annotations.SerializedName("defectNumber")
     public String getDefectNumber() {
         return defectNumber;
     }
@@ -47,6 +50,7 @@ public class DefectsFetcher {
         this.defectNumber = defectNumber;
     }
 
+    @com.google.gson.annotations.SerializedName("stn")
     public String getStn() {
         return stn;
     }
@@ -55,6 +59,7 @@ public class DefectsFetcher {
         this.stn = stn;
     }
 
+    @com.google.gson.annotations.SerializedName("dateRaised")
     public String getDateRaised() {
         return dateRaised;
     }
@@ -63,6 +68,7 @@ public class DefectsFetcher {
         this.dateRaised = dateRaised;
     }
 
+    @com.google.gson.annotations.SerializedName("ageing")
     public int getAgeing() {
         return ageing;
     }
@@ -71,6 +77,7 @@ public class DefectsFetcher {
         this.ageing = ageing;
     }
 
+    @com.google.gson.annotations.SerializedName("ata")
     public int getAta() {
         return ata;
     }
@@ -79,14 +86,16 @@ public class DefectsFetcher {
         this.ata = ata;
     }
 
+    @com.google.gson.annotations.SerializedName("defects")
     public String getDefectsName() {
         return defectsName;
     }
 
-    public void setDefectsName(String defectsName) {
+    public void setDefectsName(String defects) {
         this.defectsName = defectsName;
     }
 
+    @com.google.gson.annotations.SerializedName("action")
     public String getAction() {
         return action;
     }
@@ -95,6 +104,7 @@ public class DefectsFetcher {
         this.action = action;
     }
 
+    @com.google.gson.annotations.SerializedName("partDetails")
     public String getPartDetails() {
         return partDetails;
     }
@@ -103,6 +113,7 @@ public class DefectsFetcher {
         this.partDetails = partDetails;
     }
 
+    @com.google.gson.annotations.SerializedName("deferralReason")
     public String getDeferralReason() {
         return deferralReason;
     }
@@ -111,6 +122,7 @@ public class DefectsFetcher {
         this.deferralReason = deferralReason;
     }
 
+    @com.google.gson.annotations.SerializedName("category")
     public String getCategory() {
         return category;
     }
@@ -119,6 +131,7 @@ public class DefectsFetcher {
         this.category = category;
     }
 
+    @com.google.gson.annotations.SerializedName("classCode")
     public String getClassCode() {
         return classCode;
     }
@@ -127,6 +140,7 @@ public class DefectsFetcher {
         this.classCode = classCode;
     }
 
+    @com.google.gson.annotations.SerializedName("assigned")
     public Boolean getAssigned() {
         return assigned;
     }
@@ -135,6 +149,7 @@ public class DefectsFetcher {
         this.assigned = assigned;
     }
 
+    @com.google.gson.annotations.SerializedName("inProgress")
     public Boolean getInProgress() {
         return inProgress;
     }
@@ -143,6 +158,7 @@ public class DefectsFetcher {
         this.inProgress = inProgress;
     }
 
+    @com.google.gson.annotations.SerializedName("resolved")
     public Boolean getResolved() {
         return resolved;
     }
@@ -151,6 +167,7 @@ public class DefectsFetcher {
         this.resolved = resolved;
     }
 
+    @com.google.gson.annotations.SerializedName("technicianID")
     public String getTechnicianID() {
         return technicianID;
     }
