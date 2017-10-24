@@ -15,16 +15,20 @@ import java.net.MalformedURLException;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText username = (EditText) findViewById(R.id.usernameField);
-    EditText password = (EditText) findViewById(R.id.passwordField);
+    EditText username;
+    EditText password;
 
-    Button login_button = (Button) findViewById(R.id.loginButton);
+    Button login_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         AzureServiceAdapter.Initialize(this);
+        username = (EditText) findViewById(R.id.usernameField);
+        password = (EditText) findViewById(R.id.passwordField);
+
+        login_button = (Button) findViewById(R.id.loginButton);
 
         LoginButton();
 
