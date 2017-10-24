@@ -2,6 +2,8 @@ package com.example.xinmeng.sia;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.RelativeLayout;
+import android.widget.
 
 public class MainActivity extends AppCompatActivity {
 
@@ -10,5 +12,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         AzureServiceAdapter.Initialize(this);
+
+
     }
 }
