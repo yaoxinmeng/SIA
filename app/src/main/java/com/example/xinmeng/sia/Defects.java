@@ -25,10 +25,11 @@ public class Defects {
     //Auto assigned
     public String techID;
 
-    public Defects(String category, String description, String flightNumber) {
+    public Defects(String category, String description, String flightNumber, int classCode) {
         this.category = category;
         this.description = description;
         this.flightNumber = flightNumber;
+        this.classCode = classCode;
         this.assigned = false;
         this.inProgress = false;
         this.completed = false;
