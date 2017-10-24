@@ -7,18 +7,18 @@
     tools:context="com.example.xinmeng.sia.TechnicianTasksMain">
 
     <LinearLayout
-        android:id="@+id/Page Layout"
+        android:id="@+id/Page_Layout"
         android:layout_width="0dp"
         android:layout_height="495dp"
         android:orientation="vertical"
         android:weightSum="1"
-        app:layout_constraintBottom_toTopOf="@+id/Flight details"
+        app:layout_constraintBottom_toTopOf="@+id/Flight_details"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:id="@+id/Flight details"
+            android:id="@+id/Flight_details"
             android:layout_width="wrap_content"
             android:layout_height="99dp"
             android:orientation="vertical"
@@ -26,7 +26,7 @@
             tools:layout_editor_absoluteY="8dp">
 
             <LinearLayout
-                android:id="@+id/Flight number"
+                android:id="@+id/Flight_Number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -40,7 +40,7 @@
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/Flight number"
+                    android:id="@+id/Flight_number"
                     android:layout_width="314dp"
                     android:layout_height="wrap_content"
                     android:text="XYZ"
@@ -49,7 +49,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/Flight Details"
+                android:id="@+id/Flight_Details"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
@@ -62,7 +62,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/Title"
+                        android:id="@+id/TItle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -71,7 +71,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/Location"
+                        android:id="@+id/location"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -87,7 +87,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/Title"
+                        android:id="@+id/title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -96,7 +96,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/landing_time"
+                        android:id="@+id/landing_Time"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -104,7 +104,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/takeoff_time"
+                    android:id="@+id/takeoff_Time"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -132,7 +132,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/Task List"
+            android:id="@+id/Task_List"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="532020.69"

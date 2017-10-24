@@ -31,4 +31,5 @@ dependencies {
     compile 'com.android.support:design:26.+'
     compile 'com.microsoft.azure:azure-mobile-android:3.3.0@aar'
     testCompile 'junit:junit:4.12'
+    compile 'com.google.code.gson:gson:2.7'
 }
