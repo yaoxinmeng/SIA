@@ -10,11 +10,7 @@ public class Defects {
     public String flightNumber;
     public int classCode;
 
-    //definitions for classCode
-    private static final int Economy = 0;
-    private static final int Premium = 1;
-    private static final int Business = 2;
-    private static final int First = 3;
+
 
     public boolean assigned;
     public boolean inProgress;

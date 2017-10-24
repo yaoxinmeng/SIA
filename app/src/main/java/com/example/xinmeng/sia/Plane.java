@@ -53,8 +53,11 @@ public class Plane {
         this.numberOfDefects = this.defects.size();
     }
 
-    public void autoAssignTechnicians()
+    public boolean autoAssignTechnicians()
     {
+        if (numberOfTechnicians > numberOfDefects)
+            return false;
+
         List technicians = new ArrayList<Technicians>(); //Creates a list of technicians for this plane
         for(Object child : Database.technicians)
         {
@@ -75,14 +78,34 @@ public class Plane {
             }
         }
 
-        //assigns plane to each technician
-
-
         //assigns the defects to each technician
+        List tempDefects = defects; //temporary list of defects
+        int n = 0; //index of technicians list
+        for (Object child : tempDefects)
+        {
+            Defects nextDefect = (Defects) child;
+            if (n == technicians.size())
+                n = 0;
+            assignTechnicians((Technicians) technicians.get(n), nextDefect);
+            n++;
+        }
+
+        //assigns plane to each technician
+        for(Object child : technicians)
+        {
+            Technicians newChild = (Technicians) child;
+            newChild.addPlane(this);
+        }
+        return true;
     }
 
     public void assignTechnicians(Technicians technician, Defects defect)
     {
         defect.techID = technician.ID;
+    }
+
+    public void displayDefects()
+    {
+
     }
 }
