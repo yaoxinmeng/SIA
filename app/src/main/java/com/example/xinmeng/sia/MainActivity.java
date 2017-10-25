@@ -10,6 +10,7 @@ import android.view.View;
 import android.content.Intent;
 import android.widget.TextView;
 import android.widget.Toast;
+//import android.widget.RelativeLayout;
 
 import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
 import com.microsoft.windowsazure.mobileservices.http.OkHttpClientFactory;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     EditText password_field;
     TextView username;
     TextView password;
+    //RelativeLayout layout;
 
     Button login_button;
 
@@ -46,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         username = (TextView)  findViewById(R.id.username_text);
         password = (TextView)  findViewById(R.id.password_text);
         login_button = (Button) findViewById(R.id.loginButton);
+        //layout = (RelativeLayout)findViewById(R.id.homelayout);
 
         /*Intent display_intent = new Intent(this, userpwDisplay.class);
         startService(display_intent);*/
@@ -100,7 +103,9 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
-       /* layout.setOnClickListener(
+
+        /*
+        layout.setOnClickListener(
                 new View.OnClickListener(){
 
                     @Override
@@ -124,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener(){
                     @Override
                     public void onClick(View view) {
-                        if (username.getText().toString().equals("technician") && password.getText().toString().equals("password")) {
+                        if (username_field.getText().toString().equals("technician") && password_field.getText().toString().equals("password")) {
                             Intent i = new Intent(MainActivity.this, TechnicianMain.class);
                             startActivity(i);
                         }
