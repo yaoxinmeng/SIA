@@ -23,6 +23,11 @@ public class DefectsFetcher {
     private Boolean resolved;
     private String technicianID;
 
+    @com.google.gson.annotations.SerializedName("id")
+    private String mId;
+    public String getId() { return mId; }
+    public final void setId(String id) { mId = id; }
+
     @com.google.gson.annotations.SerializedName("regn")
     public String getRegn() {
         return regn;
