@@ -5,7 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
 
+import java.io.Serializable;
+
 public class TechnicianMain extends AppCompatActivity {
+    private Technicians technician;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -13,19 +16,21 @@ public class TechnicianMain extends AppCompatActivity {
         setContentView(R.layout.activity_technician_main);
 
         Bundle extras = getIntent().getExtras();
-        Technicians technician = (Technicians) extras.getSerializable("TECH");
+        technician = (Technicians) extras.getSerializable("TECH");
 
     }
 
     public void tasks(View view)
     {
         Intent intent = new Intent(TechnicianMain.this, TechnicianTasksMain.class);
+        intent.putExtra("TECH", (Serializable) technician);
         startActivity(intent);
     }
 
     public void equipment(View view)
     {
         Intent intent = new Intent(TechnicianMain.this, TechnicianEquipment.class);
+        intent.putExtra("TECH", (Serializable) technician);
         startActivity(intent);
     }
 }

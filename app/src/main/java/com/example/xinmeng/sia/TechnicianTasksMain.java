@@ -7,19 +7,15 @@ import android.view.View;
 import android.widget.TextView;
 
 public class TechnicianTasksMain extends AppCompatActivity {
+    private Technicians technician;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_technician_tasks_main);
 
-        TextView location = (TextView) findViewById(R.id.Location);
-        TextView landing_Time = (TextView) findViewById(R.id.landing_time);
-        TextView takeoff_time = (TextView) findViewById(R.id.takeoff_time);
-
-        //location.setText();
-        //landing_Time.setText();
-        //takeoff_time.setText();
+        Bundle extras = getIntent().getExtras();
+        technician = (Technicians) extras.getSerializable("TECH");
     }
 
     public void taskDetail(View view)
