@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     MobileServiceClient mClient;
     MobileServiceTable<DefectsFetcher> mDefectsTable;
+    List<DefectsFetcher> result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +64,17 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
             mDefectsTable = mClient.getTable("DefectsData", DefectsFetcher.class);
+            result = mDefectsTable
+                    .where()
+                    .field("resolved").eq(false)
+                    .execute()
+                    .get();
         }
         catch(MalformedURLException e){
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
             e.printStackTrace();
         }
 
@@ -121,7 +131,8 @@ public class MainActivity extends AppCompatActivity {
                             else {
                                 Toast.makeText(MainActivity.this,
                                         "Invalid Username / Password",Toast.LENGTH_SHORT).show();
-
+//                            Toast.makeText(MainActivity.this,
+//                                    result.get(1).getDefectNumber(),Toast.LENGTH_SHORT).show();
                         }
 
                     }
