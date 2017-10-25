@@ -6,12 +6,45 @@
     android:layout_height="match_parent"
     tools:context="com.example.xinmeng.sia.TechnicianMain">
 
+    <LinearLayout
+        android:layout_width="364dp"
+        android:layout_height="167dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintVertical_bias="0.136">
 
-    <fragment
-        android:id="@+id/fragment4"
-        android:name="com.example.xinmeng.sia.SkyBlueBgFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-     />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Welcome!"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/tasks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="tasks"
+            android:text="Tasks"
+            tools:layout_editor_absoluteX="146dp"
+            tools:layout_editor_absoluteY="82dp" />
+
+        <Button
+            android:id="@+id/equipment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="equipment"
+            android:text="Equipment"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
+    </LinearLayout>
 
 </RelativeLayout>
