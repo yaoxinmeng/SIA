@@ -1,6 +1,8 @@
 package com.example.xinmeng.sia;
 
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.provider.ContactsContract;
 
 import java.io.ObjectStreamException;
@@ -21,12 +23,11 @@ public class Plane {
     public Date arrTime;
     public Date depTIme;
     public long timeLeft; //needs to be constantly updated in activity
-    public String regn;
     public String type;
     public boolean delay;
 
     //Aircraft details
-    public String flightNumber;
+    public String regn;
     public int age;
     public int ATA;
 
@@ -38,8 +39,9 @@ public class Plane {
     public boolean inProgress;
     public boolean completed;
 
-    Plane(String bay, Date arrTime, Date depTIme, int age, int ATA)
+    Plane(String regn, String bay, Date arrTime, Date depTIme, int age, int ATA)
     {
+        this.regn = regn;
         this.bay = bay;
         this.arrTime = arrTime;
         this.depTIme = depTIme;
@@ -50,7 +52,7 @@ public class Plane {
         for (Object child : Database.defects)
         {
             Defects newChild = (Defects) child;
-            if (newChild.flightNumber.equals(flightNumber))
+            if (newChild.regn.equals(regn))
                 this.defects.add(newChild);
         }
         this.numberOfDefects = this.defects.size();

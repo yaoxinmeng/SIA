@@ -7,7 +7,7 @@ package com.example.xinmeng.sia;
 public class Defects {
     public String category;
     public String description;
-    public String flightNumber;
+    public String regn;
     public int classCode;
 
     public boolean inProgress;
@@ -20,10 +20,10 @@ public class Defects {
 
     public String techID; //techID assigned to this defect
 
-    public Defects(String category, String description, String flightNumber, int classCode) {
+    public Defects(String category, String description, String regn, int classCode) {
         this.category = category;
         this.description = description;
-        this.flightNumber = flightNumber;
+        this.regn = regn;
         this.classCode = classCode;
         this.inProgress = false;
         this.resolved = true;

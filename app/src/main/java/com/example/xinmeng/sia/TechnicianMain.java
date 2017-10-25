@@ -12,7 +12,8 @@ public class TechnicianMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_technician_main);
 
-        String taskDisplay;
+        Bundle extras = getIntent().getExtras();
+        Technicians technician = (Technicians) extras.getSerializable("TECH");
 
     }
 
