@@ -31,6 +31,7 @@ public class SupervisorMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_supervisor_main);
 
+        Database.updateFromDatabase();
         unassigned = true;
         assigned = false;
         inProgress = false;
@@ -53,6 +54,8 @@ public class SupervisorMain extends AppCompatActivity {
             {
                 ((Plane) child).timeLeft = ((Plane) child).depTIme.getTime() - currentTimeMillis();
             }
+
+            Database.updateFromDatabase();
 
             //waits 10 sec before next loop
             SystemClock.sleep(10000);

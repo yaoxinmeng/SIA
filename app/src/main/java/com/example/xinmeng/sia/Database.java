@@ -21,6 +21,27 @@ public class Database {
     public static final int Business = 2;
     public static final int First = 3;
 
-    //initialise defects first
+    public static void updateFromDatabase()
+    {
+        //pull from jinrui's database
 
+    }
+
+    public static void updateToDatabase(Plane plane)
+    {
+        //push to jinrui's database
+
+    }
+
+    public static void updateToDatabase(Defects defect)
+    {
+        //push to jinrui's database
+
+    }
+
+    public static void updateToDatabase(Technicians tech)
+    {
+        //push to jinrui's database
+
+    }
 }
