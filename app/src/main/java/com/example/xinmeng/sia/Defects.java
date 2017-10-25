@@ -10,7 +10,6 @@ public class Defects {
     public String flightNumber;
     public int classCode;
 
-    public boolean assigned;
     public boolean inProgress;
     public boolean resolved;
 
@@ -26,7 +25,6 @@ public class Defects {
         this.description = description;
         this.flightNumber = flightNumber;
         this.classCode = classCode;
-        this.assigned = false;
         this.inProgress = false;
         this.resolved = true;
     }

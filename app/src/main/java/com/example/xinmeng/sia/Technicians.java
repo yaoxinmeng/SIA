@@ -1,6 +1,7 @@
 package com.example.xinmeng.sia;
 
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 import java.util.Queue;
 
@@ -9,13 +10,18 @@ import java.util.Queue;
  */
 
 public class Technicians {
-    public Queue planes = null; //all planes assigned to this technician
-    public Queue allTasks = null; //all tasks in the planes queue that are assigned to this technician
+    public Deque planes; //all planes assigned to this technician
+    public Deque allTasks; //all tasks in the planes queue that are assigned to this technician
     public String ID; // ID of this technician
     public List currentTasks = new ArrayList<Defects>(); // current tasks in current plane that is in progress
     public boolean onTask; // checks whether the technician has any active tasks
     public boolean onPlane; // checks whether the technician is handling any active planes
     public int numberOfTasks; //number of non-completed tasks in allTasks
+
+    public Technicians() {
+        planes = null;
+        allTasks = null;
+    }
 
     public void refresh()
     {
@@ -34,17 +40,26 @@ public class Technicians {
         numberOfTasks = n;
     }
 
-    public void addPlane(Plane plane)
+    public void addPriorityPlane (Plane plane)
     {
-        planes.add(plane);
+        planes.addFirst(plane);
+        plane.assigned = true;
         for (Object child : plane.defects)
         {
             Defects newChild = (Defects) child;
-            if (newChild.techID.equals(ID))
-            {
-                allTasks.add(newChild);
-                newChild.assigned = true;
-            }
+            allTasks.addFirst(newChild);
+        }
+        numberOfTasks = allTasks.size();
+    }
+
+    public void addPlane(Plane plane)
+    {
+        planes.add(plane);
+        plane.assigned = true;
+        for (Object child : plane.defects)
+        {
+            Defects newChild = (Defects) child;
+            allTasks.add(newChild);
         }
         numberOfTasks = allTasks.size();
     }
