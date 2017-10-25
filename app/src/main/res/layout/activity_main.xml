@@ -5,7 +5,7 @@
     android:id="@+id/homelayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/loginpage/bluebg"
+    android:background="@drawable/login_bluebg"
     tools:context="com.example.xinmeng.sia.MainActivity">
 
     <ImageView
@@ -15,7 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="146dp"
-        app:srcCompat="@drawable/image" />
+        app:srcCompat="@drawable/login_image" />
 
     <EditText
         android:id="@+id/usernameField"
@@ -24,7 +24,7 @@
         android:layout_alignTop="@+id/mainTitleLogo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="175dp"
-        android:background="@drawable/username"
+        android:background="@drawable/login_username"
         android:ems="10"
         android:inputType="text"
         android:textAlignment="center"
@@ -55,7 +55,7 @@
         android:layout_alignStart="@+id/password_text"
         android:layout_below="@+id/usernameField"
         android:layout_marginTop="13dp"
-        android:background="@drawable/username"
+        android:background="@drawable/login_username"
         android:ems="10"
         android:inputType="textPassword"
         android:textAlignment="center"
@@ -86,6 +86,6 @@
         android:layout_below="@+id/passwordField"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="38dp"
-        android:background="@drawable/login" />
+        android:background="@drawable/login_button" />
 
 </RelativeLayout>
