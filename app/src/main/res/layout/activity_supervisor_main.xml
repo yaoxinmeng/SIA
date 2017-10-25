@@ -6,4 +6,18 @@
     android:layout_height="match_parent"
     tools:context="com.example.xinmeng.sia.SupervisorMain">
 
+    <EditText
+        android:id="@+id/techIDField"
+        android:layout_width="1.50in"
+        android:layout_height="0.240in"
+        android:layout_alignTop="@+id/mainTitleLogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="175dp"
+        android:background="@drawable/login_username"
+        android:ems="10"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
 </android.support.constraint.ConstraintLayout>

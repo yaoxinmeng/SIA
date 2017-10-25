@@ -3,6 +3,7 @@ package com.example.xinmeng.sia;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.EditText;
 
 public class SupervisorPlaneDetail extends AppCompatActivity {
 
@@ -15,6 +16,12 @@ public class SupervisorPlaneDetail extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         Plane plane = (Plane)extras.getSerializable("PLANE");
 
+        techID_field = (EditText) findViewById(R.id.techIDField);
 
+    }
+
+    public void manualAssignTechnician()
+    {
+        if (techID_field) =
     }
 }
