@@ -1,10 +1,7 @@
 package com.example.xinmeng.sia;
 
-<<<<<<< HEAD
 import android.os.AsyncTask;
-=======
 import android.support.annotation.Nullable;
->>>>>>> d6c879b868ca623a64b9f38b2578e0e2182c61d0
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
@@ -135,7 +132,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-<<<<<<< HEAD
 
     private DefectsFetcher addStuff() {
         DefectsFetcher newDefect = new DefectsFetcher();
@@ -158,7 +154,6 @@ public class MainActivity extends AppCompatActivity {
         newDefect.setTechnicianID("howardbby");
         return newDefect;
     }
-=======
     /*public class userpwDisplay extends IntentService{
 
         public userpwDisplay() {
@@ -174,6 +169,5 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }*/
->>>>>>> d6c879b868ca623a64b9f38b2578e0e2182c61d0
 
 }
