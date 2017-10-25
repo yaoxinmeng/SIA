@@ -9,8 +9,8 @@ import java.util.Queue;
  */
 
 public class Technicians {
-    public Queue planes; //all planes assigned to this technician
-    public Queue allTasks; //all tasks in the planes queue that are assigned to this technician
+    public Queue planes = null; //all planes assigned to this technician
+    public Queue allTasks = null; //all tasks in the planes queue that are assigned to this technician
     public String ID; // ID of this technician
     public List currentTasks = new ArrayList<Defects>(); // current tasks in current plane that is in progress
     public boolean onTask; // checks whether the technician has any active tasks
