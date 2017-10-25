@@ -18,7 +18,7 @@ import java.util.List;
 public class TechnicianTaskDetail extends AppCompatActivity {
 
     RecyclerView recyclerView;
-
+/*
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -39,7 +39,7 @@ public class TechnicianTaskDetail extends AppCompatActivity {
 
         recyclerView.setAdapter(adapter);
 
-    }
+    }*/
 
     private void update()
     {
@@ -51,7 +51,7 @@ public class TechnicianTaskDetail extends AppCompatActivity {
     }
 
 
-
+/*
     private List<ParentObject> initData(){
         TitleCreator titleCreator = TitleCreator.get(this);
         List<TitleParent> titles = titleCreator.getAll();
@@ -65,6 +65,6 @@ public class TechnicianTaskDetail extends AppCompatActivity {
         }
         return parentObjects;
     }
-
+*/
 
 }
