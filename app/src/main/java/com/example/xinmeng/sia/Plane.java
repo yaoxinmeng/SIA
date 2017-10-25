@@ -1,12 +1,15 @@
 package com.example.xinmeng.sia;
 
 
+import android.provider.ContactsContract;
+
 import java.io.ObjectStreamException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
 
 import static java.lang.System.currentTimeMillis;
+import static java.lang.System.setErr;
 
 /**
  * Created by Xin Meng on 22/10/2017.
@@ -78,23 +81,25 @@ public class Plane {
             }
         }
 
-        //assigns the defects to each technician
-        List tempDefects = defects; //temporary list of defects
-        int n = 0; //index of technicians list
-        for (Object child : tempDefects)
+        for (Object child : technicians)
         {
-            Defects nextDefect = (Defects) child;
-            if (n == technicians.size())
-                n = 0;
-            assignTechnicians((Technicians) technicians.get(n), nextDefect, this);
-            n++;
+            assignTechnicians(((Technicians) child).ID, this, false);
         }
         return true;
     }
 
-    public void assignTechnicians(Technicians technician, Defects defect, Plane plane)
+    public void assignTechnicians(String technicianID, Plane plane, boolean priority)
     {
-        defect.techID = technician.ID; //assigns ID
-        technician.addPlane(plane); //assigns plane
+        for (Object child : Database.technicians)
+        {
+            Technicians newchild = (Technicians) child;
+            if (newchild.ID.equals(technicianID))
+            {
+                if (priority)
+                    newchild.addPriorityPlane(plane);
+                else
+                    newchild.addPlane(plane);
+            }
+        }
     }
 }
