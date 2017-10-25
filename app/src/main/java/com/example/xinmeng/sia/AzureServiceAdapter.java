@@ -10,7 +10,7 @@ import java.net.MalformedURLException;
  */
 
 public class AzureServiceAdapter {
-    private String mMobileBackendUrl = "https://defectslist.azurewebsites.net/";
+    private String mMobileBackendUrl = "http://sactest.azurewebsites.net";
     private Context mContext;
     private MobileServiceClient mClient;
     private static AzureServiceAdapter mInstance = null;

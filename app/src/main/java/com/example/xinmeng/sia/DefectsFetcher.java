@@ -12,7 +12,7 @@ public class DefectsFetcher {
     private String dateRaised;
     private int ageing;
     private int ata;
-    private String defectsName;
+    private String defects;
     private String action;
     private String partDetails;
     private String deferralReason;
@@ -92,12 +92,12 @@ public class DefectsFetcher {
     }
 
     @com.google.gson.annotations.SerializedName("defects")
-    public String getDefectsName() {
-        return defectsName;
+    public String getDefects() {
+        return defects;
     }
 
-    public void setDefectsName(String defects) {
-        this.defectsName = defectsName;
+    public void setDefects(String defects) {
+        this.defects = defects;
     }
 
     @com.google.gson.annotations.SerializedName("action")

@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.Button;
 import android.view.View;
@@ -12,10 +13,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 //import android.widget.RelativeLayout;
 
+import com.example.xinmeng.sia.Models.defectsDataRetriever;
 import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
+import com.microsoft.windowsazure.mobileservices.MobileServiceException;
 import com.microsoft.windowsazure.mobileservices.http.OkHttpClientFactory;
+import com.microsoft.windowsazure.mobileservices.http.ServiceFilterResponse;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 import com.google.common.util.concurrent.ListenableFuture;
+import com.microsoft.windowsazure.mobileservices.table.TableQueryCallback;
 import com.squareup.okhttp.OkHttpClient;
 
 
@@ -54,32 +59,6 @@ public class MainActivity extends AppCompatActivity {
         startService(display_intent);*/
         enterUserPw();
         LoginButton();
-
-        try {
-            mClient = new MobileServiceClient("https://defectslist.azurewebsites.net/", this);
-            mClient.setAndroidHttpClientFactory(new OkHttpClientFactory() {
-                @Override
-                public OkHttpClient createOkHttpClient() {
-                    OkHttpClient client = new OkHttpClient();
-                    client.setReadTimeout(20, TimeUnit.SECONDS);
-                    client.setWriteTimeout(20, TimeUnit.SECONDS);
-                    return client;
-                }
-            });
-            mDefectsTable = mClient.getTable("DefectsData", DefectsFetcher.class);
-            result = mDefectsTable
-                    .where()
-                    .field("resolved").eq(false)
-                    .execute()
-                    .get();
-        }
-        catch(MalformedURLException e){
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
 
     }
 
@@ -134,10 +113,10 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(i);
                         }
                             else {
-                                Toast.makeText(MainActivity.this,
-                                        "Invalid Username / Password",Toast.LENGTH_SHORT).show();
-//                            Toast.makeText(MainActivity.this,
-//                                    result.get(1).getDefectNumber(),Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this,
+                                    "Invalid Username / Password", Toast.LENGTH_SHORT).show();
+
+
                         }
 
                     }
@@ -159,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
         newDefect.setClassCode("test");
         newDefect.setDateRaised("test date");
         newDefect.setDefectNumber("test123");
-        newDefect.setDefectsName("I am a defect");
+        newDefect.setDefects("I am a defect");
         newDefect.setDeferralReason("Dunno");
         newDefect.setFleet("A380");
         newDefect.setInProgress(false);
