@@ -65,4 +65,16 @@ public class defectsDataRetriever {
 
     }
 
+    public boolean updateData(DefectsFetcher item){
+        if(mDefectsTable.update(item)!=null)
+            return true;
+        else return false;
+    }
+
+    public boolean insertData(DefectsFetcher item){
+        if(mDefectsTable.insert(item)!=null)
+            return true;
+        else return false;
+    }
+
 }

@@ -7,7 +7,6 @@ import com.google.gson.annotations.SerializedName;
 public class DefectsFetcher {
     private String regn;
     private String fleet;
-    private String defectNumber;
     private String stn;
     private String dateRaised;
     private int ageing;
@@ -44,15 +43,6 @@ public class DefectsFetcher {
 
     public void setFleet(String fleet) {
         this.fleet = fleet;
-    }
-
-    @com.google.gson.annotations.SerializedName("defectNumber")
-    public String getDefectNumber() {
-        return defectNumber;
-    }
-
-    public void setDefectNumber(String defectNumber) {
-        this.defectNumber = defectNumber;
     }
 
     @com.google.gson.annotations.SerializedName("stn")

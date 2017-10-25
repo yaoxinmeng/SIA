@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     MobileServiceClient mClient;
     MobileServiceTable<DefectsFetcher> mDefectsTable;
     List<DefectsFetcher> result;
-
+    defectsDataRetriever dataInserter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -130,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
 
     private DefectsFetcher addStuff() {
         DefectsFetcher newDefect = new DefectsFetcher();
+        newDefect.setId("123");
         newDefect.setAction("test");
         newDefect.setAgeing(25);
         newDefect.setAssigned(false);
@@ -137,7 +138,6 @@ public class MainActivity extends AppCompatActivity {
         newDefect.setCategory("test");
         newDefect.setClassCode("test");
         newDefect.setDateRaised("test date");
-        newDefect.setDefectNumber("test123");
         newDefect.setDefects("I am a defect");
         newDefect.setDeferralReason("Dunno");
         newDefect.setFleet("A380");
