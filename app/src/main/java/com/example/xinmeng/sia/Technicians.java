@@ -105,7 +105,7 @@ public class Technicians {
         for (Object child : allTasks)
         {
             Defects newChild = (Defects) child;
-            if (newChild.flightNumber.equals(((Plane) planes.element()).flightNumber))
+            if (newChild.regn.equals(((Plane) planes.element()).regn))
                 allTasks.remove(newChild);
         }
 

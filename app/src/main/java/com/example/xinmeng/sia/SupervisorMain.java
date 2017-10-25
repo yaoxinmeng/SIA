@@ -1,16 +1,21 @@
 package com.example.xinmeng.sia;
 
+import android.content.Intent;
+import android.os.Parcelable;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 import java.util.Objects;
 import java.util.Queue;
+
+import static java.lang.System.currentTimeMillis;
 
 public class SupervisorMain extends AppCompatActivity {
     private final int entryNumber = 5; //number of entries displayed per page
@@ -44,19 +49,9 @@ public class SupervisorMain extends AppCompatActivity {
         while (true)
         {
             //whatever that needs to be updated
-            if (unassigned)
-                planeDisplay = cutList(planesUnassigned(), page);
-            else if (assigned)
-                planeDisplay = cutList(planesAssigned(), page);
-            else if (inProgress)
-                planeDisplay = cutList(planesInProgress(), page);
-            else
-                planeDisplay = cutList(planesCompleted(), page);
-
-            //transfers planeDisplay to buttons
             for (Object child : planeDisplay)
             {
-
+                ((Plane) child).timeLeft = ((Plane) child).depTIme.getTime() - currentTimeMillis();
             }
 
             //waits 10 sec before next loop
@@ -64,6 +59,7 @@ public class SupervisorMain extends AppCompatActivity {
         }
     }
 
+    //Generic functions
     private List planesUnassigned()
     {
         List allUnassignedPlanes = null;
@@ -169,47 +165,129 @@ public class SupervisorMain extends AppCompatActivity {
         return tempList;
     }
 
-    //Button functions
+    private void checkPage()
+    {
+        if (unassigned)
+            planeDisplay = cutList(planesUnassigned(), page);
+        else if (assigned)
+            planeDisplay = cutList(planesAssigned(), page);
+        else if (inProgress)
+            planeDisplay = cutList(planesInProgress(), page);
+        else
+            planeDisplay = cutList(planesCompleted(), page);
+
+        //transfers planeDisplay to buttons
+        for (Object child : planeDisplay)
+        {
+
+        }
+    }
+
+    //On-Page button functions
     public void nextPage(View view) //for next page button
     {
         page++;
-        onResume();
+        checkPage();
     }
 
     public void prevPage(View view) //for previous page button
     {
         if (page != 1)
             page--;
-        onResume();
+        checkPage();
     }
 
     public void entry1(View view)
     {
-        Plane plane = (Plane) Database.planes.get(page - 1);
+        Plane plane = (Plane) planeDisplay.get(0);
+        if (plane != null)
+        {
+            Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
+            intent.putExtra("PLANE", (Serializable) plane);
+            startActivity(intent);
+        }
     }
 
     public void entry2(View view)
     {
-        Plane plane = (Plane) Database.planes.get(2 * page - 1);
+        Plane plane = (Plane) planeDisplay.get(1);
+        if (plane != null)
+        {
+            Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
+            intent.putExtra("PLANE", (Serializable) plane);
+            startActivity(intent);
+        }
     }
 
     public void entry3(View view)
     {
-        Plane plane = (Plane) Database.planes.get(3 * page - 1);
+        Plane plane = (Plane) planeDisplay.get(2);
+        if (plane != null)
+        {
+            Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
+            intent.putExtra("PLANE", (Serializable) plane);
+            startActivity(intent);
+        }
     }
 
     public void entry4(View view)
     {
-        Plane plane = (Plane) Database.planes.get(4 * page - 1);
+        Plane plane = (Plane) planeDisplay.get(3);
+        if (plane != null)
+        {
+            Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
+            intent.putExtra("PLANE", (Serializable) plane);
+            startActivity(intent);
+        }
     }
 
     public void entry5(View view)
     {
-        Plane plane = (Plane) Database.planes.get(5 * page - 1);
+        Plane plane = (Plane) planeDisplay.get(4);
+        if (plane != null)
+        {
+            Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
+            intent.putExtra("PLANE", (Serializable) plane);
+            startActivity(intent);
+        }
     }
 
+    //Tabs function
     public void unassignedTab(View view)
     {
+        unassigned = true;
+        assigned = false;
+        inProgress = false;
+        completed = false;
+        checkPage();
+    }
 
+    public void assignedTab(View view)
+    {
+        unassigned = false;
+        assigned = true;
+        inProgress = false;
+        completed = false;
+        checkPage();
+    }
+
+    public void inProgressTab(View view)
+    {
+        unassigned = false;
+        assigned = true;
+        inProgress = false;
+        completed = false;
+        checkPage();
+    }
+
+    public void completedTab(View view)
+    {
+        unassigned = false;
+        assigned = false;
+        inProgress = false;
+        completed = true;
+        checkPage();
     }
 }
+
+

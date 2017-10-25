@@ -26,7 +26,8 @@
         <activity android:name=".TechnicianTasksMain" />
         <activity android:name=".TechnicianTaskDetail" />
         <activity android:name=".TechnicianEquipment" />
-        <activity android:name=".SupervisorMain"></activity>
+        <activity android:name=".SupervisorMain" />
+        <activity android:name=".SupervisorPlaneDetail"></activity>
     </application>
 
 </manifest>
