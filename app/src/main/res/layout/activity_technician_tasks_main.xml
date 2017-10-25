@@ -165,11 +165,40 @@
         android:textSize="20dp" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/refreshButton"
+        android:background="@drawable/techtask_refreshicon"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:text="Button"
+        android:layout_marginStart="31dp"
         android:layout_alignTop="@+id/display_task"
-        android:layout_toEndOf="@+id/display_Status"
-        android:text="Button" />
+        android:layout_alignStart="@+id/flight_status" />
+
+
+    <Button
+        android:id="@+id/toolButton"
+        android:background="@drawable/techtask_equipmenticon"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:text="Button"
+        android:layout_alignEnd="@+id/iborder"
+        android:layout_alignBottom="@+id/refreshButton" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="350dp"
+        android:layout_height="280dp"
+
+        app:srcCompat="@drawable/techtask_tab"
+        android:layout_below="@+id/imageView2"
+        android:layout_alignEnd="@+id/toolButton" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="68dp"
+        android:layout_height="20dp"
+        app:srcCompat="@drawable/techtask_prioritytab"
+        android:layout_below="@+id/refreshButton"
+        android:layout_alignEnd="@+id/display_task" />
 
 </RelativeLayout>
