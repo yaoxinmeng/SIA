@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/homelayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bluebg"
@@ -11,10 +12,10 @@
         android:id="@+id/mainTitleLogo"
         android:layout_width="360dp"
         android:layout_height="200dp"
-        android:layout_marginTop="146dp"
-        app:srcCompat="@drawable/image"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="146dp"
+        app:srcCompat="@drawable/image" />
 
     <EditText
         android:id="@+id/usernameField"
@@ -26,29 +27,57 @@
         android:background="@drawable/username"
         android:ems="10"
         android:inputType="text"
-        android:text="@string/type_username"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Caption"
         android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        tools:clickable="false"
-        tools:onClick="usernameClick" />
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/username_text"
+        android:layout_width="1.50in"
+        android:layout_height="0.24in"
+        android:layout_above="@+id/passwordField"
+        android:layout_alignTop="@+id/mainTitleLogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="182dp"
+        android:text="@string/type_username"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        tools:clickable="true" />
 
     <EditText
         android:id="@+id/passwordField"
         android:layout_width="1.50in"
         android:layout_height="0.240in"
-        android:layout_alignStart="@+id/usernameField"
+        android:layout_alignStart="@+id/password_text"
         android:layout_below="@+id/usernameField"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="13dp"
         android:background="@drawable/username"
         android:ems="10"
-        android:inputType="textVisiblePassword"
-        android:text="@string/type_password"
+        android:inputType="textPassword"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Caption"
         android:textColor="#FFFFFF"
         android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/password_text"
+        android:layout_width="1.50in"
+        android:layout_height="0.24in"
+
+        android:layout_alignBaseline="@+id/passwordField"
+        android:layout_alignBottom="@+id/passwordField"
+        android:layout_alignStart="@+id/usernameField"
+
+        android:text="@string/type_password"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        tools:clickable="true" />
 
     <Button
         android:id="@+id/loginButton"
