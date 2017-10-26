@@ -28,6 +28,7 @@
         <activity android:name=".TechnicianEquipment" />
         <activity android:name=".SupervisorMain" />
         <activity android:name=".SupervisorPlaneDetail" />
+        <activity android:name=".SupervisorPriorityTask"></activity>
     </application>
 
 </manifest>
