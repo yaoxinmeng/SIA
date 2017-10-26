@@ -21,6 +21,7 @@ import static java.lang.System.currentTimeMillis;
 public class SupervisorMain extends AppCompatActivity {
     private final int entryNumber = 5; //number of entries displayed per page
     private int page = 1; //page number
+    private int maxPage; //max page number possible
     private boolean unassigned;
     private boolean assigned;
     private boolean inProgress;
@@ -37,6 +38,7 @@ public class SupervisorMain extends AppCompatActivity {
         assigned = false;
         inProgress = false;
         completed = false;
+        maxPage = (int) (Database.planes.size() / entryNumber) + 1;
 
         update();
     }
