@@ -7,6 +7,7 @@ import android.provider.ContactsContract;
 
 import com.example.xinmeng.sia.ViewHolders.PlaneData;
 
+import java.io.IOException;
 import java.io.ObjectStreamException;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -42,6 +43,23 @@ public class Plane {
     public boolean assigned;
     public boolean inProgress;
     public boolean completed;
+
+    //For serialization
+    private void writeObject(java.io.ObjectOutputStream out)
+            throws IOException{
+
+    }
+
+    private void readObject(java.io.ObjectInputStream in)
+            throws IOException, ClassNotFoundException {
+
+    }
+
+    private void readObjectNoData()
+            throws ObjectStreamException {
+
+    }
+
 
     public Plane(){}
     public Plane(String regn, String bay, Date arrTime, Date depTIme)

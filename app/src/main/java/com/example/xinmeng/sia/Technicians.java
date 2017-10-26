@@ -1,7 +1,10 @@
 package com.example.xinmeng.sia;
 
+import java.io.IOException;
+import java.io.ObjectStreamException;
 import java.util.ArrayList;
 import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
@@ -15,20 +18,43 @@ public class Technicians {
     public Deque<Defects> allTasks; //all tasks in the planes queue that are assigned to this technician
     public Plane currentPlane;
     public String ID; // ID of this technician
+    public ArrayList<Defects> currentTasks; // current tasks in current plane that is in progress
     public int numberOfTasks; //number of non-completed tasks in allTasks
+
+    //For serialization
+    private void writeObject(java.io.ObjectOutputStream out)
+            throws IOException {
+
+    }
+
+    private void readObject(java.io.ObjectInputStream in)
+            throws IOException, ClassNotFoundException {
+
+    }
+
+    private void readObjectNoData()
+            throws ObjectStreamException {
+
+    }
 
     public Technicians() {
         planeID = "";
-        planes = null;
-        allTasks = null;
-        currentPlane = null;
-        ID = null;
+        planes = new LinkedList<Plane>();
+        allTasks = new LinkedList<Defects>();
+        currentPlane = new Plane();
+        ID = "";
+        currentTasks = new ArrayList<Defects>();
         numberOfTasks = 0;
     }
 
     public Technicians(TechnicianData technicianData){
         planeID = technicianData.getPlaneID();
         ID = technicianData.getId();
+        planes = new LinkedList<Plane>();
+        allTasks = new LinkedList<Defects>();
+        currentPlane = new Plane();
+        currentTasks = new ArrayList<Defects>();
+        numberOfTasks = 0;
         this.updatePlanes();
     }
 
@@ -39,12 +65,12 @@ public class Technicians {
 
     public void updatePlanes()
     {
-        String[] planeIDs = ID.split("-");
-        for (String ID : planeIDs)
+        String[] planeIDs = planeID.split("-");
+        for (String pID : planeIDs)
         {
             for (Plane plane : Database.planes)
             {
-                if (plane.regn.equals(ID))
+                if (plane.regn.equals(pID))
                     planes.add(plane);
             }
         }
@@ -102,6 +128,14 @@ public class Technicians {
         planes.removeFirst();
         currentPlane.inProgress = true;
         updateIDs();
+
+        //sets current tasks
+        for (Object child : currentPlane.defects)
+        {
+            Defects newChild = (Defects) child;
+            if (newChild.techID.equals(ID))
+                currentTasks.add(newChild);
+        }
     }
 
     public boolean allTasksCompleted()
@@ -129,6 +163,7 @@ public class Technicians {
                 allTasks.remove(newChild);
         }
         currentPlane = null;
+        currentTasks.clear();
 
         boardPlane();
     }
@@ -150,10 +185,11 @@ public class Technicians {
 
     public Defects currentTask()
     {
-        for (Defects child : currentPlane.defects)
+        for (Object child : currentTasks)
         {
-            if (child.inProgress)
-                return child;
+            Defects newChild = (Defects) child;
+            if (newChild.inProgress)
+                return newChild;
         }
         return null;
     }

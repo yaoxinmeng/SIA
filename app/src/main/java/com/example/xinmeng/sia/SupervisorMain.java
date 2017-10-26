@@ -26,7 +26,7 @@ public class SupervisorMain extends AppCompatActivity {
     private boolean assigned;
     private boolean inProgress;
     private boolean completed;
-    private List planeDisplay;
+    private ArrayList<Plane> planeDisplay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +54,9 @@ public class SupervisorMain extends AppCompatActivity {
         while (true)
         {
             //whatever that needs to be updated
-            for (Object child : planeDisplay)
+            for (Plane child : planeDisplay)
             {
-                ((Plane) child).timeLeft = ((Plane) child).depTIme.getTime() - currentTimeMillis();
+                child.timeLeft = child.depTIme.getTime() - currentTimeMillis();
             }
 
             Database.updateFromDatabase();
@@ -67,14 +67,13 @@ public class SupervisorMain extends AppCompatActivity {
     }
 
     //Generic functions
-    private List planesUnassigned()
+    private ArrayList<Plane> planesUnassigned()
     {
-        List allUnassignedPlanes = null;
+        ArrayList<Plane> allUnassignedPlanes = new ArrayList<>();
 
         //Adds unassigned planes to list
-        for (Object child : Database.planes)
+        for (Plane plane : Database.planes)
         {
-            Plane plane = (Plane) child;
             if (!plane.assigned)
                 allUnassignedPlanes.add(plane);
         }
@@ -82,14 +81,13 @@ public class SupervisorMain extends AppCompatActivity {
         return sortedList(allUnassignedPlanes);
     }
 
-    private List planesAssigned()
+    private ArrayList<Plane> planesAssigned()
     {
-        List allAssignedPlanes = null;
+        ArrayList<Plane> allAssignedPlanes = new ArrayList<>();
 
         //Adds unassigned planes to list
-        for (Object child : Database.planes)
+        for (Plane plane : Database.planes)
         {
-            Plane plane = (Plane) child;
             if (plane.assigned && !plane.inProgress)
                 allAssignedPlanes.add(plane);
         }
@@ -97,14 +95,13 @@ public class SupervisorMain extends AppCompatActivity {
         return sortedList(allAssignedPlanes);
     }
 
-    private List planesInProgress()
+    private ArrayList<Plane> planesInProgress()
     {
-        List allInProgressPlanes = null;
+        ArrayList<Plane> allInProgressPlanes = new ArrayList<>();
 
         //Adds unassigned planes to list
-        for (Object child : Database.planes)
+        for (Plane plane : Database.planes)
         {
-            Plane plane = (Plane) child;
             if (plane.inProgress && !plane.completed)
                 allInProgressPlanes.add(plane);
         }
@@ -112,14 +109,13 @@ public class SupervisorMain extends AppCompatActivity {
         return sortedList(allInProgressPlanes);
     }
 
-    private List planesCompleted()
+    private ArrayList<Plane> planesCompleted()
     {
-        List allCompletedPlanes = null;
+        ArrayList<Plane> allCompletedPlanes = null;
 
         //Adds unassigned planes to list
-        for (Object child : Database.planes)
+        for (Plane plane : Database.planes)
         {
-            Plane plane = (Plane) child;
             if (plane.completed)
                 allCompletedPlanes.add(plane);
         }
@@ -127,18 +123,17 @@ public class SupervisorMain extends AppCompatActivity {
         return sortedList(allCompletedPlanes);
     }
 
-    private List sortedList (List planes)
+    private ArrayList<Plane> sortedList (ArrayList<Plane> planes)
     {
         if (planes == null)
             return null;
         else
         {
-            List tempList = new ArrayList<Plane>();
+            ArrayList<Plane> tempList = new ArrayList<>();
 
             //Sorts in tempList
-            for (Object child : planes)
+            for (Plane plane : planes)
             {
-                Plane plane = (Plane) child;
                 if (tempList.size() == 0)
                     tempList.add(plane);
                 else
@@ -157,17 +152,23 @@ public class SupervisorMain extends AppCompatActivity {
         }
     }
 
-    private List cutList(List planes, int page)
+    private ArrayList<Plane> cutList(ArrayList<Plane> planes, int page)
     {
-        List tempList = null;
+        ArrayList<Plane> tempList = new ArrayList<>();
+
         int n = (page - 1) * entryNumber + 1;
-
         if (planes.size() < n)
-            return null;
-
-        for (int x = n - 1; x < planes.size(); x++)
         {
-            tempList.add(planes.get(n));
+            page--;
+            checkPage();
+            return null;
+        }
+
+        for (int x = n - 1; x < n + entryNumber - 1; x++)
+        {
+            if (planes.get(x) == null)
+                break;
+            tempList.add(n, planes.get(x));
         }
         return tempList;
     }
@@ -184,7 +185,7 @@ public class SupervisorMain extends AppCompatActivity {
             planeDisplay = cutList(planesCompleted(), page);
 
         //transfers planeDisplay to buttons
-        for (Object child : planeDisplay)
+        for (Plane plane : planeDisplay)
         {
 
         }
@@ -206,56 +207,71 @@ public class SupervisorMain extends AppCompatActivity {
 
     public void entry1(View view)
     {
-        Plane plane = (Plane) planeDisplay.get(0);
-        if (plane != null)
+        if (planeDisplay != null)
         {
-            Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
-            intent.putExtra("PLANE", (Serializable) plane);
-            startActivity(intent);
+            Plane plane = planeDisplay.get(0);
+            if (plane != null)
+            {
+                Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
+                intent.putExtra("PLANE_ID", plane.regn);
+                startActivity(intent);
+            }
         }
     }
 
     public void entry2(View view)
     {
-        Plane plane = (Plane) planeDisplay.get(1);
-        if (plane != null)
+        if (planeDisplay != null)
         {
-            Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
-            intent.putExtra("PLANE", (Serializable) plane);
-            startActivity(intent);
+            Plane plane = planeDisplay.get(1);
+            if (plane != null)
+            {
+                Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
+                intent.putExtra("PLANE_ID", plane.regn);
+                startActivity(intent);
+            }
         }
     }
 
     public void entry3(View view)
     {
-        Plane plane = (Plane) planeDisplay.get(2);
-        if (plane != null)
+        if (planeDisplay != null)
         {
-            Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
-            intent.putExtra("PLANE", (Serializable) plane);
-            startActivity(intent);
+            Plane plane = planeDisplay.get(2);
+            if (plane != null)
+            {
+                Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
+                intent.putExtra("PLANE_ID", plane.regn);
+                startActivity(intent);
+            }
         }
     }
 
     public void entry4(View view)
     {
-        Plane plane = (Plane) planeDisplay.get(3);
-        if (plane != null)
+        if (planeDisplay != null)
         {
-            Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
-            intent.putExtra("PLANE", (Serializable) plane);
-            startActivity(intent);
+            Plane plane = planeDisplay.get(3);
+            if (plane != null)
+            {
+                Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
+                intent.putExtra("PLANE_ID", plane.regn);
+                startActivity(intent);
+            }
         }
     }
 
     public void entry5(View view)
     {
-        Plane plane = (Plane) planeDisplay.get(4);
-        if (plane != null)
+        if (planeDisplay != null)
         {
-            Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
-            intent.putExtra("PLANE", (Serializable) plane);
-            startActivity(intent);
+            Plane plane = planeDisplay.get(4);
+            if (plane != null)
+            {
+                Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
+                intent.putExtra("PLANE_ID", plane.regn);
+                startActivity(intent);
+            }
         }
     }
 
