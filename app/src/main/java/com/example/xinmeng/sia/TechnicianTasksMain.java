@@ -174,7 +174,7 @@ public class TechnicianTasksMain extends AppCompatActivity {
     public void equipment (View view)
     {
         Intent intent = new Intent(TechnicianTasksMain.this, TechnicianEquipment.class);
-        intent.putExtra("TECH", (Serializable) technician);
+        intent.putExtra("TECH_ID", technician.ID);
         startActivity(intent);
     }
 

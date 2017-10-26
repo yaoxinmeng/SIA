@@ -1,5 +1,6 @@
 package com.example.xinmeng.sia;
 
+import android.content.Intent;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 
@@ -75,14 +76,15 @@ public class TechnicianTaskDetail extends AppCompatActivity {
         type = (TextView) findViewById(R.id.flight_actype);
         status = (TextView) findViewById(R.id.flight_status);
 
-        status = (TextView) findViewById(R.id.flight_status);
-        status = (TextView) findViewById(R.id.flight_status);
-        status = (TextView) findViewById(R.id.flight_status);
-        status = (TextView) findViewById(R.id.flight_status);
-        status = (TextView) findViewById(R.id.flight_status);
-        status = (TextView) findViewById(R.id.flight_status);
-        status = (TextView) findViewById(R.id.flight_status);
-        status = (TextView) findViewById(R.id.flight_status);
+        defectNo = (TextView) findViewById(R.id.show_defectno);
+        description = (TextView) findViewById(R.id.show_description);
+        raiseDate = (TextView) findViewById(R.id.show_dateraised);
+        age = (TextView) findViewById(R.id.show_ageing);
+        ATA = (TextView) findViewById(R.id.show_ata);
+        category = (TextView) findViewById(R.id.show_category);
+        deferral = (TextView) findViewById(R.id.show_defferal_reason);
+        classcode = (TextView) findViewById(R.id.show_classcode);
+        parts = (TextView) findViewById(R.id.show_partdetail);
 
         setTexts();
     }
@@ -117,18 +119,55 @@ public class TechnicianTaskDetail extends AppCompatActivity {
             status.setText("Delayed");
         else
             status.setText("On Time");
-    }
 
-    private void update()
-    {
-        while (true)
+        defectNo.setText(task.number);
+        description.setText(task.description);
+        raiseDate.setText(task.dateRaised);
+        age.setText(task.age);
+        ATA.setText(task.ata);
+        category.setText(task.category);
+        deferral.setText(task.deferralReason);
+        parts.setText(task.parts);
+        switch (task.classCode)
         {
-            SystemClock.sleep(10000);
-            //whatever that needs to be updated
+            case Database.Economy:
+                classcode.setText("Economy");
+                break;
+            case Database.Premium:
+                classcode.setText("Premium");
+                break;
+            case Database.Business:
+                classcode.setText("Business");
+                break;
+            case Database.First:
+                classcode.setText("First");
+                break;
+            default:
+                classcode.setText("");
+                break;
         }
     }
 
 
+    private void back()
+    {
+        Intent intent = new Intent(TechnicianTaskDetail.this, TechnicianTasksMain.class);
+        startActivity(intent);
+    }
 
+    public void resolvedButton(View view)
+    {
+        task.resolved = true;
+        back();
+    }
 
+    public void unresolvedButton(View view)
+    {
+        //popup
+    }
+
+    public void backButton(View view)
+    {
+        back();
+    }
 }
