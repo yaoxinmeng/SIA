@@ -13,22 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 //import android.widget.RelativeLayout;
 
-import com.example.xinmeng.sia.Models.defectsDataRetriever;
-import com.example.xinmeng.sia.ViewHolders.PlaneData;
-import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
-import com.microsoft.windowsazure.mobileservices.MobileServiceException;
-import com.microsoft.windowsazure.mobileservices.http.OkHttpClientFactory;
-import com.microsoft.windowsazure.mobileservices.http.ServiceFilterResponse;
-import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
-import com.google.common.util.concurrent.ListenableFuture;
-import com.microsoft.windowsazure.mobileservices.table.TableQueryCallback;
-import com.squareup.okhttp.OkHttpClient;
-
-
-import java.net.MalformedURLException;
-import java.util.List;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
 
