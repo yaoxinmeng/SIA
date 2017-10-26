@@ -86,7 +86,7 @@ public class TechnicianTasksMain extends AppCompatActivity {
                 arrTime.setText(String.valueOf(hour) + ":" + String.valueOf(minute));
         }
 
-        if (currentTimeMillis() < technician.currentPlane.arrTime.getTime())
+        if (currentTimeMillis() < firstPlane.arrTime.getTime())
             status.setText("Arrived");
         else if (firstPlane.delay)
             status.setText("Delayed");
@@ -96,7 +96,7 @@ public class TechnicianTasksMain extends AppCompatActivity {
 
     private ArrayList<Defects> sortTasks(ArrayList<Defects> allTasks)
     {
-        ArrayList<Defects> tempList = null;
+        ArrayList<Defects> tempList = new ArrayList<>();
         if (allTasks == null)
         {
             return null;
@@ -125,7 +125,7 @@ public class TechnicianTasksMain extends AppCompatActivity {
 
     private ArrayList<Defects> tasksForDisplay()
     {
-        ArrayList<Defects> tempList = null;
+        ArrayList<Defects> tempList = new ArrayList<>();
         int n = (page - 1) * entryNumber + 1;
         if (tasks.size() < n)
             return null;
@@ -156,12 +156,6 @@ public class TechnicianTasksMain extends AppCompatActivity {
     }
 
     //Buttons
-    public void taskDetail(View view)
-    {
-        Intent intent = new Intent(TechnicianTasksMain.this, TechnicianTaskDetail.class);
-        startActivity(intent);
-    }
-
     public void refresh(View view)
     {
         setTexts();
@@ -190,21 +184,45 @@ public class TechnicianTasksMain extends AppCompatActivity {
 
     public void task1(View view)
     {
-
+        if (tasksForDisplay().get(0) != null)
+        {
+            Intent intent = new Intent(TechnicianTasksMain.this, TechnicianTaskDetail.class);
+            intent.putExtra("TASK", (Serializable) tasksForDisplay().get(0));
+            intent.putExtra("PLANE", (Serializable) firstPlane);
+            startActivity(intent);
+        }
     }
 
     public void task2(View view)
     {
-
+        if (tasksForDisplay().get(1) != null)
+        {
+            Intent intent = new Intent(TechnicianTasksMain.this, TechnicianTaskDetail.class);
+            intent.putExtra("TASK", (Serializable) tasksForDisplay().get(1));
+            intent.putExtra("PLANE", (Serializable) firstPlane);
+            startActivity(intent);
+        }
     }
 
     public void task3(View view)
     {
-
+        if (tasksForDisplay().get(2) != null)
+        {
+            Intent intent = new Intent(TechnicianTasksMain.this, TechnicianTaskDetail.class);
+            intent.putExtra("TASK", (Serializable) tasksForDisplay().get(2));
+            intent.putExtra("PLANE", (Serializable) firstPlane);
+            startActivity(intent);
+        }
     }
 
     public void task4(View view)
     {
-
+        if (tasksForDisplay().get(3) != null)
+        {
+            Intent intent = new Intent(TechnicianTasksMain.this, TechnicianTaskDetail.class);
+            intent.putExtra("TASK", (Serializable) tasksForDisplay().get(3));
+            intent.putExtra("PLANE", (Serializable) firstPlane);
+            startActivity(intent);
+        }
     }
 }
