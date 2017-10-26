@@ -43,7 +43,8 @@ public class Plane {
     public boolean inProgress;
     public boolean completed;
 
-    Plane(String regn, String bay, Date arrTime, Date depTIme)
+    public Plane(){}
+    public Plane(String regn, String bay, Date arrTime, Date depTIme)
     {
         this.regn = regn;
         this.bay = bay;

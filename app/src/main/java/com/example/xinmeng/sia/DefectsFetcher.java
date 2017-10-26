@@ -22,6 +22,7 @@ public class DefectsFetcher {
     private Boolean resolved;
     private String technicianID;
 
+    public DefectsFetcher(){}
     public DefectsFetcher(Defects defect)
     {
         this.regn = defect.regn;

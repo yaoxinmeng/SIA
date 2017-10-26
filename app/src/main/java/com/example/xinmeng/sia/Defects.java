@@ -28,6 +28,7 @@ public class Defects {
     public String deferralReason;
     public String techID; //techID assigned to this defect
 
+    public Defects(){}
     public Defects(String category, String description, String regn, String dateRaised, String fleet, String stn, String number, String classCode, int age, int ata) {
         this.category = category;
         this.description = description;
