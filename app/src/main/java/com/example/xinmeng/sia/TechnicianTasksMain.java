@@ -40,7 +40,7 @@ public class TechnicianTasksMain extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         technician = (Technicians) extras.getSerializable("TECH");
         firstPlane = technician.currentPlane;
-        tasks = firstPlane.defects;
+        tasks = sortTasks(firstPlane.defects);
         maxPage = (int) (tasks.size() / entryNumber) + 1;
 
         regn = (TextView) findViewById(R.id.flight_regn);
@@ -50,7 +50,16 @@ public class TechnicianTasksMain extends AppCompatActivity {
         type = (TextView) findViewById(R.id.flight_actype);
         status = (TextView) findViewById(R.id.flight_status);
 
+        setupPage();
+    }
+
+    private void setupPage()
+    {
+        firstPlane = technician.currentPlane;
+        tasks = sortTasks(firstPlane.defects);
+        maxPage = (int) (tasks.size() / entryNumber) + 1;
         setTexts();
+        setTasksDisplayed();
     }
 
     private void setTexts()
@@ -85,9 +94,65 @@ public class TechnicianTasksMain extends AppCompatActivity {
             status.setText("On Time");
     }
 
-    public void setTasksDisplayed()
+    private ArrayList<Defects> sortTasks(ArrayList<Defects> allTasks)
     {
+        ArrayList<Defects> tempList = null;
+        if (allTasks == null)
+        {
+            return null;
+        }
+        else
+        {
+            for (Defects task : allTasks)
+            {
+                if (tempList.size() == 0)
+                    tempList.add(task);
+                else
+                {
+                    for (int n = 0; n < tempList.size(); n++)
+                    {
+                        if (task.priority < tempList.get(n).priority)
+                        {
+                            tempList.add(n, task);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        return tempList;
+    }
 
+    private ArrayList<Defects> tasksForDisplay()
+    {
+        ArrayList<Defects> tempList = null;
+        int n = (page - 1) * entryNumber + 1;
+        if (tasks.size() < n)
+            return null;
+
+        for (int x = n - 1; x < n + entryNumber - 1; x++)
+        {
+            if (tasks.get(x) == null)
+                break;
+            tempList.add(tasks.get(x));
+        }
+        return tempList;
+    }
+
+    private void setTasksDisplayed()
+    {
+        ArrayList<Defects> tempList = tasksForDisplay();
+        for (int n = 0; n < entryNumber; n++)
+        {
+            if (tempList.get(n).resolved)
+            {
+                //assign resolved image
+            }
+            else
+            {
+                //assign unresolved image
+            }
+        }
     }
 
     //Buttons

@@ -163,11 +163,17 @@ public class SupervisorMain extends AppCompatActivity {
         int n = (page - 1) * entryNumber + 1;
 
         if (planes.size() < n)
-            return null;
-
-        for (int x = n - 1; x < planes.size(); x++)
         {
-            tempList.add(planes.get(n));
+            page--;
+            checkPage();
+            return null;
+        }
+
+        for (int x = n - 1; x < n + entryNumber - 1; x++)
+        {
+            if (planes.get(x) == null)
+                break;
+            tempList.add(planes.get(x));
         }
         return tempList;
     }
