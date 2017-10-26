@@ -37,7 +37,7 @@ public class TechnicianDataRetriever {
 //        }
     }
 
-    public List<TechnicianData> fetchPlanesData(){
+    public List<TechnicianData> fetchTechniciansData(){
         List<TechnicianData> data = new ArrayList<TechnicianData>();
         try {
             final List<TechnicianData> finalData = data;

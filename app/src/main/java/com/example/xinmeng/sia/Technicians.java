@@ -2,6 +2,7 @@ package com.example.xinmeng.sia;
 
 import java.util.ArrayList;
 import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
@@ -20,17 +21,22 @@ public class Technicians {
 
     public Technicians() {
         planeID = "";
-        planes = null;
-        allTasks = null;
-        currentPlane = null;
-        ID = null;
-        currentTasks = null;
+        planes = new LinkedList<Plane>();
+        allTasks = new LinkedList<Defects>();
+        currentPlane = new Plane();
+        ID = "";
+        currentTasks = new ArrayList<Defects>();
         numberOfTasks = 0;
     }
 
     public Technicians(TechnicianData technicianData){
         planeID = technicianData.getPlaneID();
         ID = technicianData.getId();
+        planes = new LinkedList<Plane>();
+        allTasks = new LinkedList<Defects>();
+        currentPlane = new Plane();
+        currentTasks = new ArrayList<Defects>();
+        numberOfTasks = 0;
         this.updatePlanes();
     }
 
@@ -41,12 +47,12 @@ public class Technicians {
 
     public void updatePlanes()
     {
-        String[] planeIDs = ID.split("-");
-        for (String ID : planeIDs)
+        String[] planeIDs = planeID.split("-");
+        for (String pID : planeIDs)
         {
             for (Plane plane : Database.planes)
             {
-                if (plane.regn.equals(ID))
+                if (plane.regn.equals(pID))
                     planes.add(plane);
             }
         }

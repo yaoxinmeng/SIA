@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     Button login_button;
     DefectsFetcher defect;
     List<DefectsFetcher> result;
+    List<TechnicianData> tResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +48,23 @@ public class MainActivity extends AppCompatActivity {
         if(!databaseGetter.hasBeenInitialised()){
             databaseGetter.initialise(this);
         }
+        Database.updateFromDatabase();
         result = databaseGetter.getInstance().getDefectsDataGetter().fetchDefectsData();
+        tResult = databaseGetter.getInstance().getTechnicianDataGetter().fetchTechniciansData();
+        Thread thread = new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                Database.updateFromDatabase();
+            }
+        });
+
+        thread.start();
 
 
         /*Intent display_intent = new Intent(this, userpwDisplay.class);
@@ -55,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
         enterUserPw();
         LoginButton();
 
-        Database.updateFromDatabase();
     }
 
     public void enterUserPw(){
@@ -104,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener(){
                     @Override
                     public void onClick(View view) {
+
                         if (username_field.getText().toString().equals("technician") && password_field.getText().toString().equals("password")) {
                             Intent i = new Intent(MainActivity.this, TechnicianMain.class);
                             String loginID = username_field.getText().toString();
@@ -123,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
 //                                    "Invalid Username / Password", Toast.LENGTH_SHORT).show();
 
                             Toast.makeText(MainActivity.this,
-                                    result.get(1).getId(), Toast.LENGTH_SHORT).show();
+                                    Database.technicians.get(0).ID, Toast.LENGTH_SHORT).show();
 
 
 
