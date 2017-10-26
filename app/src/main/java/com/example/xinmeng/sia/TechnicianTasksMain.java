@@ -10,6 +10,8 @@ import android.widget.TextView;
 import com.example.xinmeng.sia.Adapter.MyAdapter;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,11 +79,12 @@ public class TechnicianTasksMain extends AppCompatActivity {
         regn.setText(firstPlane.regn);
         bay.setText(firstPlane.bay);
         type.setText(firstPlane.type);
+        DateFormat tf = new SimpleDateFormat("HH:mm");
 
-        long arrtime = firstPlane.arrTime.getTime();
-        arrTime.setText(getTime(arrtime));
-        long deptime = firstPlane.depTIme.getTime();
-        depTime.setText(getTime(deptime));
+//        long arrtime = firstPlane.arrTime.getTime();
+//        long deptime = firstPlane.depTIme.getTime();
+        arrTime.setText(tf.format(firstPlane.arrTime));
+        depTime.setText(tf.format(firstPlane.depTIme));
 
         if (currentTimeMillis() < firstPlane.arrTime.getTime())
             status.setText("Arrived");

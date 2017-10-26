@@ -94,17 +94,17 @@
         android:layout_alignBottom="@+id/display_bay"
         android:layout_alignStart="@+id/acregn" />
 
-    <TextClock
+    <TextView
         android:id="@+id/flight_time_arrival"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:text="TextView"
-        android:textSize="12sp"
         android:layout_above="@+id/display_dep_time"
-        android:layout_toEndOf="@+id/display_dep_time" />
+        android:layout_marginStart="18dp"
+        android:layout_toEndOf="@+id/display_dep_time"
+        android:text="TextView"
+        android:textSize="12sp" />
 
-    <TextClock
+    <TextView
         android:id="@+id/flight_time_departure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

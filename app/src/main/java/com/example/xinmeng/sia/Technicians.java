@@ -102,9 +102,9 @@ public class Technicians implements Serializable {
     {
         planes.addFirst(plane);
         plane.assigned = true;
-        for (Object child : plane.defects)
+        for (Defects child : plane.defects)
         {
-            Defects newChild = (Defects) child;
+            Defects newChild = child;
             allTasks.addFirst(newChild);
         }
         numberOfTasks = allTasks.size();
@@ -115,9 +115,9 @@ public class Technicians implements Serializable {
     {
         planes.add(plane);
         plane.assigned = true;
-        for (Object child : plane.defects)
+        for (Defects child : plane.defects)
         {
-            Defects newChild = (Defects) child;
+            Defects newChild = child;
             allTasks.add(newChild);
         }
         numberOfTasks = allTasks.size();
@@ -125,15 +125,15 @@ public class Technicians implements Serializable {
     }
 
     public void boardPlane() {
-        currentPlane = (Plane) planes.element();
+        currentPlane = planes.element();
         planes.removeFirst();
         currentPlane.inProgress = true;
         updateIDs();
 
         //sets current tasks
-        for (Object child : currentPlane.defects)
+        for (Defects child : currentPlane.defects)
         {
-            Defects newChild = (Defects) child;
+            Defects newChild = child;
             if (newChild.techID.equals(ID))
                 currentTasks.add(newChild);
         }
@@ -144,9 +144,9 @@ public class Technicians implements Serializable {
         boolean allTasksCompleted = true;
 
         //checks if all tasks on this plane have been completed
-        for (Object child : ((Plane) planes.element()).defects)
+        for (Defects child : ( planes.element()).defects)
         {
-            Defects newChild = (Defects) child;
+            Defects newChild = child;
             if (newChild.techID.equals(ID) && !newChild.resolved)
                 allTasksCompleted = false;
         }
@@ -198,9 +198,9 @@ public class Technicians implements Serializable {
     public List tasksArchive()
     {
         List tasksArchive = new ArrayList<Defects>();
-        for (Object child : Database.defects)
+        for (Defects child : Database.defects)
         {
-            Defects newChild = (Defects) child;
+            Defects newChild = child;
             if (newChild.resolved && newChild.techID.equals(this.ID))
                 tasksArchive.add(newChild);
         }
