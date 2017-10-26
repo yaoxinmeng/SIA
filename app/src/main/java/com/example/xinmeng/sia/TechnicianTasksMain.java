@@ -142,9 +142,12 @@ public class TechnicianTasksMain extends AppCompatActivity {
 
         for (int x = n - 1; x < n + entryNumber - 1; x++)
         {
-            if (tasks.get(x) == null)
+            try {
+                tempList.add(tasks.get(x));
+            }
+            catch (IndexOutOfBoundsException e) {
                 break;
-            tempList.add(tasks.get(x));
+            }
         }
         return tempList;
     }
@@ -152,7 +155,7 @@ public class TechnicianTasksMain extends AppCompatActivity {
     private void setTasksDisplayed()
     {
         ArrayList<Defects> tempList = tasksForDisplay();
-        for (int n = 0; n < entryNumber; n++)
+        for (int n = 0; n < ((tempList.size()<entryNumber) ? tempList.size() : entryNumber); n++)
         {
             if (tempList.get(n).resolved)
             {
