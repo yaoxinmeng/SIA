@@ -17,6 +17,13 @@ import static java.lang.System.currentTimeMillis;
 
 public class TechnicianTasksMain extends AppCompatActivity {
     private Technicians technician;
+    private Plane firstPlane;
+    private ArrayList<Defects> tasks;
+    private ArrayList<Defects> tasksDisplayed;
+
+    private final int entryNumber = 4; //number of entries displayed per page
+    private int page = 1; //page number
+    private int maxPage; //max page possible
 
     TextView arrTime;
     TextView depTime;
@@ -32,6 +39,9 @@ public class TechnicianTasksMain extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         technician = (Technicians) extras.getSerializable("TECH");
+        firstPlane = technician.currentPlane;
+        tasks = firstPlane.defects;
+        maxPage = (int) (tasks.size() / entryNumber) + 1;
 
         regn = (TextView) findViewById(R.id.flight_regn);
         bay = (TextView) findViewById(R.id.flight_bay);
@@ -45,7 +55,6 @@ public class TechnicianTasksMain extends AppCompatActivity {
 
     private void setTexts()
     {
-        Plane firstPlane = technician.currentPlane;
         regn.setText(firstPlane.regn);
         bay.setText(firstPlane.bay);
         type.setText(firstPlane.type);
@@ -76,6 +85,12 @@ public class TechnicianTasksMain extends AppCompatActivity {
             status.setText("On Time");
     }
 
+    public void setTasksDisplayed()
+    {
+
+    }
+
+    //Buttons
     public void taskDetail(View view)
     {
         Intent intent = new Intent(TechnicianTasksMain.this, TechnicianTaskDetail.class);
@@ -92,5 +107,39 @@ public class TechnicianTasksMain extends AppCompatActivity {
         Intent intent = new Intent(TechnicianTasksMain.this, TechnicianEquipment.class);
         intent.putExtra("TECH", (Serializable) technician);
         startActivity(intent);
+    }
+
+    public void nextPage(View view)
+    {
+        if (page < maxPage)
+            page++;
+        setTasksDisplayed();
+    }
+
+    public void prevPage(View view)
+    {
+        if (page != 1)
+            page--;
+        setTasksDisplayed();
+    }
+
+    public void task1(View view)
+    {
+
+    }
+
+    public void task2(View view)
+    {
+
+    }
+
+    public void task3(View view)
+    {
+
+    }
+
+    public void task4(View view)
+    {
+
     }
 }
