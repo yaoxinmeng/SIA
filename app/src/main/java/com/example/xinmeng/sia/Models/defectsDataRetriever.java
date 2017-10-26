@@ -15,6 +15,7 @@ import com.squareup.okhttp.OkHttpClient;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -75,6 +76,10 @@ public class defectsDataRetriever {
         if(mDefectsTable.insert(item)!=null)
             return true;
         else return false;
+    }
+
+    public DefectsFetcher findById(String Id) throws ExecutionException, InterruptedException {
+        return mDefectsTable.lookUp(Id).get();
     }
 
 }
