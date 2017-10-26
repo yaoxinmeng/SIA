@@ -81,28 +81,35 @@ public class TechnicianMain extends AppCompatActivity {
         regn.setText(firstPlane.regn);
         bay.setText(firstPlane.bay);
 
-        float arrtime = (float) (firstPlane.arrTime.getTime());
-        int hour = (int) arrtime;
-        int minute = (int) (100 * (arrtime - ((float) hour)));
-        if (hour < 10)
-        {
-            if (minute < 10)
-                arrTime.setText("0" + String.valueOf(hour) + ":0" + String.valueOf(minute));
-            else
-                arrTime.setText("0" + String.valueOf(hour) + ":" + String.valueOf(minute));
-        }
-        else
-        {
-            if (minute < 10)
-                arrTime.setText(String.valueOf(hour) + ":0" + String.valueOf(minute));
-            else
-                arrTime.setText(String.valueOf(hour) + ":" + String.valueOf(minute));
-        }
+        long arrtime = firstPlane.arrTime.getTime();
+        arrTime.setText(getTime(arrtime));
+
         if (currentTimeMillis() < technician.currentPlane.arrTime.getTime())
             onTime.setText("Arrived");
         else if (firstPlane.delay)
             onTime.setText("Delayed");
         else
             onTime.setText("On Time");
+    }
+
+    private String getTime(long time)
+    {
+        float arrtime = (float) time;
+        int hour = (int) arrtime;
+        int minute = (int) (100 * (arrtime - ((float) hour)));
+        if (hour < 10)
+        {
+            if (minute < 10)
+                return "0" + String.valueOf(hour) + ":0" + String.valueOf(minute);
+            else
+                return "0" + String.valueOf(hour) + ":" + String.valueOf(minute);
+        }
+        else
+        {
+            if (minute < 10)
+                return String.valueOf(hour) + ":0" + String.valueOf(minute);
+            else
+                return String.valueOf(hour) + ":" + String.valueOf(minute);
+        }
     }
 }
