@@ -27,6 +27,7 @@ public class Database {
     //helper classes to get the required data
     private static List<DefectsFetcher> defectsFetcher = new ArrayList<DefectsFetcher>();
     private static List<PlaneData> planesData = new ArrayList<PlaneData>();
+    private static List<TechnicianData> techniciansData = new ArrayList<TechnicianData>();
 
     public static void updateFromDatabase()
     {
@@ -46,6 +47,11 @@ public class Database {
                         planes.clear();
                         for(PlaneData p : planesData)
                             planes.add(new Plane(p));
+                    }
+                    if (!techniciansData.isEmpty()){
+                        technicians.clear();
+                        for(TechnicianData t : techniciansData)
+                            technicians.add(new Technicians(t));
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -73,6 +79,7 @@ public class Database {
     public static void updateToDatabase(Technicians tech)
     {
         //push to jinrui's database
+        databaseGetter.getInstance().getTechnicianDataGetter().updateData(tech);
 
     }
 }

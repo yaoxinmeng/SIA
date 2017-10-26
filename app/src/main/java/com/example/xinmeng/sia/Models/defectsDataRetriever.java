@@ -25,24 +25,26 @@ import java.util.concurrent.TimeUnit;
  */
 
 public class defectsDataRetriever {
-    MobileServiceClient mClient;
+//    MobileServiceClient mClient;
     MobileServiceTable<DefectsFetcher> mDefectsTable;
-    public defectsDataRetriever(Context context) {
-        try {
-            mClient = new MobileServiceClient("https://sactest.azurewebsites.net", context);
-            mClient.setAndroidHttpClientFactory(new OkHttpClientFactory() {
-                @Override
-                public OkHttpClient createOkHttpClient() {
-                    OkHttpClient client = new OkHttpClient();
-                    client.setReadTimeout(20, TimeUnit.SECONDS);
-                    client.setWriteTimeout(20, TimeUnit.SECONDS);
-                    return client;
-                }
-            });
-            mDefectsTable = mClient.getTable("DefectsData", DefectsFetcher.class);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
+    public defectsDataRetriever(MobileServiceClient mClient) {
+        mDefectsTable = mClient.getTable("DefectsData", DefectsFetcher.class);
+
+//        try {
+//            mClient = new MobileServiceClient("https://sactest.azurewebsites.net", context);
+//            mClient.setAndroidHttpClientFactory(new OkHttpClientFactory() {
+//                @Override
+//                public OkHttpClient createOkHttpClient() {
+//                    OkHttpClient client = new OkHttpClient();
+//                    client.setReadTimeout(20, TimeUnit.SECONDS);
+//                    client.setWriteTimeout(20, TimeUnit.SECONDS);
+//                    return client;
+//                }
+//            });
+//            mDefectsTable = mClient.getTable("DefectsData", DefectsFetcher.class);
+//        } catch (MalformedURLException e) {
+//            e.printStackTrace();
+//        }
     }
 
     public List<DefectsFetcher> fetchDefectsData(){

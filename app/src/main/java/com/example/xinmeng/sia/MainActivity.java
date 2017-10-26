@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
     //RelativeLayout layout;
 
     Button login_button;
-    defectsDataRetriever defectsGetter = new defectsDataRetriever(this);
     DefectsFetcher defect;
     List<DefectsFetcher> result;
 
@@ -120,11 +119,11 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(i);
                         }
                             else {
-                            Toast.makeText(MainActivity.this,
-                                    "Invalid Username / Password", Toast.LENGTH_SHORT).show();
-
 //                            Toast.makeText(MainActivity.this,
-//                                    result.get(1).getId(), Toast.LENGTH_SHORT).show();
+//                                    "Invalid Username / Password", Toast.LENGTH_SHORT).show();
+
+                            Toast.makeText(MainActivity.this,
+                                    result.get(1).getId(), Toast.LENGTH_SHORT).show();
 
 
 
