@@ -34,26 +34,23 @@ public class Plane {
 
     //Aircraft details
     public String regn;
-    public int age;
-    public int ATA;
 
     //Defects details
-    public List defects = new ArrayList<Defects>();
+    public ArrayList<Defects> defects;
     public int numberOfDefects;
     public int numberOfTechnicians;
     public boolean assigned;
     public boolean inProgress;
     public boolean completed;
 
-    Plane(String regn, String bay, Date arrTime, Date depTIme, int age, int ATA)
+    public Plane(){}
+    public Plane(String regn, String bay, Date arrTime, Date depTIme)
     {
         this.regn = regn;
         this.bay = bay;
         this.arrTime = arrTime;
         this.depTIme = depTIme;
         this.timeLeft = depTIme.getTime() - currentTimeMillis();
-        this.age = age;
-        this.ATA = ATA;
 
         for (Object child : Database.defects)
         {
@@ -81,29 +78,27 @@ public class Plane {
     {
         if (numberOfTechnicians < numberOfDefects)
         {
-            List technicians = new ArrayList<Technicians>(); //Creates a list of technicians for this plane
-            for(Object child : Database.technicians)
+            List <Technicians> technicians = new ArrayList<Technicians>(); //Creates a list of technicians for this plane
+            for(Technicians child : Database.technicians)
             {
-                Technicians newChild = (Technicians) child;
                 if (technicians.size() < numberOfTechnicians)
-                    technicians.add(newChild);
+                    technicians.add(child);
                 else
                 {
-                    for (Object grandchild : technicians) //compares size of tasks of the current technicians list with the newChild
+                    for (Technicians grandchild : technicians) //compares size of tasks of the current technicians list with the newChild
                     {
-                        Technicians newGrandchild = (Technicians) grandchild;
-                        if(newChild.allTasks.size() < newGrandchild.allTasks.size())
+                        if(child.allTasks.size() < grandchild.allTasks.size())
                         {
-                            technicians.remove(newGrandchild);
-                            technicians.add(newChild);
+                            technicians.remove(grandchild);
+                            technicians.add(child);
                         }
                     }
                 }
             }
 
-            for (Object child : technicians)
+            for (Technicians child : technicians)
             {
-                ((Technicians) child).addPlane(this);
+                child.addPlane(this);
             }
         }
     }

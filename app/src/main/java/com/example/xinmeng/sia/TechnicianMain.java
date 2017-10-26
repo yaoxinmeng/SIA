@@ -9,13 +9,15 @@ import android.widget.TextView;
 
 import java.io.Serializable;
 
+import static java.lang.System.currentTimeMillis;
+
 public class TechnicianMain extends AppCompatActivity {
     private Technicians technician;
 
-    TextView regn = (TextView) findViewById(R.id.flightRegister);
-    TextView bay = (TextView) findViewById(R.id.bayData);
-    TextView onTime = (TextView) findViewById(R.id.onTime);
-    TextView arrTime = (TextView) findViewById(R.id.arrData);
+    TextView regn;
+    TextView bay;
+    TextView onTime;
+    TextView arrTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +27,16 @@ public class TechnicianMain extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         technician = (Technicians) extras.getSerializable("TECH");
         setTexts();
+        regn = (TextView) findViewById(R.id.flightRegister);
+        bay = (TextView) findViewById(R.id.bayData);
+        onTime = (TextView) findViewById(R.id.onTime);
+        arrTime = (TextView) findViewById(R.id.arrData);
     }
 
     protected void onResume(Bundle savedInstanceState)
     {
         super.onResume();
+        setTexts();
 
         //not sure if needed
         /*
@@ -57,9 +64,9 @@ public class TechnicianMain extends AppCompatActivity {
         setTexts();
     }
 
-    public void setTexts()
+    private void setTexts()
     {
-        Plane firstPlane = (Plane) technician.planes.element();
+        Plane firstPlane = technician.currentPlane;
         regn.setText(firstPlane.regn);
         bay.setText(firstPlane.bay);
 
@@ -80,8 +87,9 @@ public class TechnicianMain extends AppCompatActivity {
             else
                 arrTime.setText(String.valueOf(hour) + ":" + String.valueOf(minute));
         }
-
-        if (firstPlane.delay)
+        if (currentTimeMillis() < technician.currentPlane.arrTime.getTime())
+            onTime.setText("Arrived");
+        else if (firstPlane.delay)
             onTime.setText("Delayed");
         else
             onTime.setText("On Time");

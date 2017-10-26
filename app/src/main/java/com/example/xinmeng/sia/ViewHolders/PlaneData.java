@@ -23,6 +23,7 @@ public class PlaneData {
     private boolean delay;
     private String bay;
 
+    public PlaneData(){}
     public PlaneData(String id, String ACType, int in, int out, String arrDate, String arrTime, String depDate, String depTime, boolean delay, String bay){
         this.id=id;
         this.ACType = ACType;

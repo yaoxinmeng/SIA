@@ -11,21 +11,12 @@ import android.view.View;
 import android.content.Intent;
 import android.widget.TextView;
 import android.widget.Toast;
-//import android.widget.RelativeLayout;
+
+
 
 import com.example.xinmeng.sia.Models.defectsDataRetriever;
-import com.example.xinmeng.sia.ViewHolders.PlaneData;
-import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
-import com.microsoft.windowsazure.mobileservices.MobileServiceException;
-import com.microsoft.windowsazure.mobileservices.http.OkHttpClientFactory;
-import com.microsoft.windowsazure.mobileservices.http.ServiceFilterResponse;
-import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
-import com.google.common.util.concurrent.ListenableFuture;
-import com.microsoft.windowsazure.mobileservices.table.TableQueryCallback;
-import com.squareup.okhttp.OkHttpClient;
 
-
-import java.net.MalformedURLException;
+import java.io.Serializable;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
@@ -39,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     //RelativeLayout layout;
 
     Button login_button;
+    defectsDataRetriever defectsGetter = new defectsDataRetriever(this);
+    DefectsFetcher defect;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         enterUserPw();
         LoginButton();
 
+        Database.updateFromDatabase();
     }
 
     public void enterUserPw(){
@@ -108,11 +102,22 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         if (username_field.getText().toString().equals("technician") && password_field.getText().toString().equals("password")) {
                             Intent i = new Intent(MainActivity.this, TechnicianMain.class);
+                            String loginID = username_field.getText().toString();
+                            for (Object child : Database.technicians)
+                            {
+                                Technicians technician = (Technicians) child;
+                                if (technician.ID.equals(loginID))
+                                {
+                                    i.putExtra("TECH", (Serializable) technician);
+                                    break;
+                                }
+                            }
                             startActivity(i);
                         }
                             else {
                             Toast.makeText(MainActivity.this,
                                     "Invalid Username / Password", Toast.LENGTH_SHORT).show();
+
 
 
 
