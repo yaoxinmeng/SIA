@@ -104,7 +104,7 @@
         android:layout_alignBottom="@+id/display_bay"
         android:layout_alignStart="@+id/acregn" />
 
-    <TextView
+    <TextClock
         android:id="@+id/flight_time_arrival"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -114,7 +114,7 @@
         android:layout_above="@+id/display_dep_time"
         android:layout_toEndOf="@+id/display_dep_time" />
 
-    <TextView
+    <TextClock
         android:id="@+id/flight_time_departure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -185,20 +185,64 @@
         android:layout_alignBottom="@+id/refreshButton" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/taskbg"
         android:layout_width="350dp"
         android:layout_height="280dp"
-
         app:srcCompat="@drawable/techtask_tab"
-        android:layout_below="@+id/imageView2"
+        android:layout_below="@+id/display_task"
+        android:layout_marginTop="28dp"
         android:layout_alignEnd="@+id/toolButton" />
 
+    <ListView
+        android:id="@+id/detail_list"
+        android:layout_width="match_parent"
+        android:layout_height="275dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_alignBottom="@+id/taskbg"
+        android:layout_alignParentStart="true" />
+
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/priority_tab_clicked"
         android:layout_width="68dp"
         android:layout_height="20dp"
         app:srcCompat="@drawable/techtask_prioritytab"
-        android:layout_below="@+id/refreshButton"
-        android:layout_alignEnd="@+id/display_task" />
+        android:layout_alignTop="@id/display_task"
+        android:layout_marginTop="32dp"
+        android:layout_toStartOf="@id/taskbg"
+        android:layout_alignEnd="@+id/display_task"
+        android:visibility="visible"/>
+
+    <ImageView
+        android:id="@+id/priority_tab_unclicked"
+        android:layout_width="68dp"
+        android:layout_height="20dp"
+        android:layout_alignTop="@id/display_task"
+        android:layout_marginTop="32dp"
+        android:layout_toStartOf="@id/taskbg"
+        android:layout_alignEnd="@+id/display_task"
+        app:srcCompat="@drawable/techtask_prioritytablight"
+        android:visibility = "invisible"/>
+
+    <ImageView
+        android:id="@+id/regular_tab_unclicked"
+        android:layout_width="68dp"
+        android:layout_height="20dp"
+        app:srcCompat="@drawable/techtask_regulartablight"
+        android:layout_alignTop="@+id/priority_tab_clicked"
+        android:layout_toEndOf="@+id/priority_tab_clicked"
+        android:visibility="visible"
+        />
+
+    <ImageView
+        android:id="@+id/regular_tab_clicked"
+        android:layout_width="68dp"
+        android:layout_height="20dp"
+        app:srcCompat="@drawable/techtask_regulartabdark"
+        android:layout_alignTop="@+id/priority_tab_clicked"
+        android:layout_toEndOf="@+id/priority_tab_clicked"
+        android:visibility="invisible"
+        />
+
 
 </RelativeLayout>
