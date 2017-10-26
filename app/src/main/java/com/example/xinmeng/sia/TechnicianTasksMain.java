@@ -10,12 +10,14 @@ import android.widget.TextView;
 import com.example.xinmeng.sia.Adapter.MyAdapter;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import static java.lang.System.currentTimeMillis;
 
 public class TechnicianTasksMain extends AppCompatActivity {
     private Technicians technician;
-    DefectsFetcher[] DefectsFetcherList;
+    ArrayList DefectsFetcherList = new ArrayList<DefectsFetcher>();
     TextView arrTime;
     TextView depTime;
     TextView bay;
@@ -28,10 +30,9 @@ public class TechnicianTasksMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_technician_tasks_main);
 
-/*
-        MyAdapter<DefectsFetcher> defectsAdapter = new MyAdapter(this,R.layout.tech_tabinterface,DefectsFetcherList);
-        ListView defectsList =  (ListView) findViewById(R.id.detail_list);
-        defectsList.setAdapter(defectsAdapter);*/
+        MyAdapter<DefectsFetcher> defectsAdapter = new MyAdapter(this, R.layout.tech_tabinterface, DefectsFetcherList);
+        ListView defectsList = (ListView) findViewById(R.id.detail_list);
+        defectsList.setAdapter(defectsAdapter);
 
         Bundle extras = getIntent().getExtras();
         technician = (Technicians) extras.getSerializable("TECH");

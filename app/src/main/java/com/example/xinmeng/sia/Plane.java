@@ -36,7 +36,7 @@ public class Plane {
     public String regn;
 
     //Defects details
-    public List defects = new ArrayList<Defects>();
+    public ArrayList<Defects> defects;
     public int numberOfDefects;
     public int numberOfTechnicians;
     public boolean assigned;
@@ -81,18 +81,16 @@ public class Plane {
             List <Technicians> technicians = new ArrayList<Technicians>(); //Creates a list of technicians for this plane
             for(Technicians child : Database.technicians)
             {
-                Technicians newChild = child;
                 if (technicians.size() < numberOfTechnicians)
-                    technicians.add(newChild);
+                    technicians.add(child);
                 else
                 {
                     for (Technicians grandchild : technicians) //compares size of tasks of the current technicians list with the newChild
                     {
-                        Technicians newGrandchild = grandchild;
-                        if(newChild.allTasks.size() < newGrandchild.allTasks.size())
+                        if(child.allTasks.size() < grandchild.allTasks.size())
                         {
-                            technicians.remove(newGrandchild);
-                            technicians.add(newChild);
+                            technicians.remove(grandchild);
+                            technicians.add(child);
                         }
                     }
                 }

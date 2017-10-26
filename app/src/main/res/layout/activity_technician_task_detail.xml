@@ -33,39 +33,202 @@
         android:background="@drawable/techunresolved_leftbutton" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/dp_defect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="Defect No"
         android:layout_below="@+id/flightinfofragment"
         android:layout_toEndOf="@+id/button"
-        android:layout_marginTop="39dp" />
+        android:layout_marginTop="30dp" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/dp_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="Description"
         android:layout_centerVertical="true"
-        android:layout_alignStart="@+id/textView" />
+        android:layout_below="@+id/dp_defect"
+        android:layout_marginTop="28dp"
+        android:layout_alignStart="@+id/dp_defect" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/dp_date_raised"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="28dp"
+        android:text="Date Raised"
+        android:layout_below="@+id/dp_description"
+        android:layout_alignStart="@+id/dp_description" />
+
+    <TextView
+        android:id="@+id/dp_ageing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/dp_date_raised"
+        android:layout_below="@+id/dp_date_raised"
+        android:layout_marginTop="10dp"
+        android:text="Ageing" />
+
+
+
+    <TextView
+        android:id="@+id/dp_ata"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/dp_ageing"
+        android:layout_below="@+id/dp_ageing"
+        android:layout_marginTop="10dp"
+        android:layout_alignStart="@+id/dp_date_raised"
+        android:text="ATA" />
+
+    <TextView
+        android:id="@+id/dp_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dp_ata"
+        android:layout_alignStart="@+id/dp_date_raised"
+        android:layout_marginTop="10dp"
+        android:text="Category"
+        android:layout_alignEnd="@+id/dp_defect" />
+
+    <TextView
+        android:id="@+id/dp_deferral_reason"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/dp_date_raised"
+        android:layout_below="@+id/dp_category"
+        android:layout_marginTop="10dp"
+        android:text="Deferral Reason" />
+
+    <TextView
+        android:id="@+id/dp_class_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/dp_deferral_reason"
+        android:layout_below="@+id/dp_deferral_reason"
+        android:layout_marginTop="10dp"
+        android:text="Class Code" />
+
+    <TextView
+        android:id="@+id/dp_partdetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/dp_class_code"
+        android:layout_below="@+id/dp_class_code"
+        android:layout_marginTop="10dp"
+        android:text="Part Details"/>
+
+    <TextView
+     android:id="@+id/show_defectno"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignTop="@+id/dp_defect"
+    android:layout_toEndOf="@+id/dp_deferral_reason"
+    android:text="TextView"
+    android:textSize="20dp"
+
+        />
+
+    <TextView
+        android:id="@+id/show_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="TextView"
-        android:layout_below="@+id/textView4"
-        android:layout_alignStart="@+id/textView4" />
+        android:layout_alignTop="@+id/dp_description"
+        android:layout_alignStart="@+id/show_defectno"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="16dp"/>
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/show_dateraised"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textView5"
-        android:layout_below="@+id/textView5"
-        android:layout_marginTop="18dp"
-        android:text="TextView" />
+        android:layout_alignStart="@+id/show_description"
+        android:layout_alignTop="@+id/dp_date_raised"
+        android:text="TextView"
+        android:layout_marginEnd="16dp"/>
+
+    <TextView
+        android:id="@+id/show_ageing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_alignTop="@+id/dp_ageing"
+        android:layout_alignStart="@+id/show_description"
+        android:layout_marginEnd="16dp"/>
+
+    <TextView
+        android:id="@+id/show_ata"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/show_description"
+        android:layout_alignTop="@+id/dp_ata"
+        android:text="TextView"
+        android:layout_marginEnd="16dp"/>
+
+    <TextView
+        android:id="@+id/show_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_alignTop="@+id/dp_category"
+        android:layout_alignStart="@+id/show_description"
+        android:layout_marginEnd="16dp"/>
+
+    <TextView
+        android:id="@+id/show_defferal_reason"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/show_description"
+        android:text="TextView"
+        android:layout_alignTop="@+id/dp_deferral_reason"
+        android:layout_marginEnd="16dp"/>
+
+    <TextView
+        android:id="@+id/show_classcode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/show_description"
+        android:text="TextView"
+        android:layout_alignTop="@+id/dp_class_code"
+        android:layout_marginEnd="16dp"/>
+
+    <TextView
+        android:id="@+id/show_partdetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/show_description"
+        android:text="TextView"
+        android:layout_alignTop="@+id/dp_partdetail"
+        android:layout_marginEnd="16dp"/>
+
+    <ImageView
+        android:id="@+id/orangeline"
+        android:layout_width="32dp"
+        android:layout_height="6dp"
+        app:srcCompat="@drawable/techdetails_orangeline"
+        android:layout_below="@+id/show_defectno"
+        android:layout_alignStart="@+id/show_defectno"
+        android:layout_alignEnd="@+id/show_defectno"
+        android:layout_marginEnd="16dp"/>
+
+    <Button
+        android:id="@+id/unresolvedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/techdetails_unresolvedbutton"
+        android:layout_alignBottom="@+id/button"
+        android:layout_toStartOf="@+id/resolvedButton"
+        android:layout_marginEnd="12dp" />
+
+    <Button
+        android:id="@+id/resolvedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/techdetails_resolvedbutton"
+        android:layout_alignBaseline="@+id/unresolvedButton"
+        android:layout_alignBottom="@+id/unresolvedButton"
+        android:layout_alignEnd="@+id/flightinfofragment" />
 
 
 </RelativeLayout>
