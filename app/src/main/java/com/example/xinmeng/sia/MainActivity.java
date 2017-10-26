@@ -25,6 +25,7 @@ import com.microsoft.windowsazure.mobileservices.table.TableQueryCallback;
 import com.squareup.okhttp.OkHttpClient;
 
 
+import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -108,6 +109,16 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         if (username_field.getText().toString().equals("technician") && password_field.getText().toString().equals("password")) {
                             Intent i = new Intent(MainActivity.this, TechnicianMain.class);
+                            String loginID = username_field.getText().toString();
+                            for (Object child : Database.technicians)
+                            {
+                                Technicians technician = (Technicians) child;
+                                if (technician.ID.equals(loginID))
+                                {
+                                    i.putExtra("TECH", (Serializable) technician);
+                                    break;
+                                }
+                            }
                             startActivity(i);
                         }
                             else {

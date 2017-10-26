@@ -13,6 +13,7 @@ public class TechnicianTasksMain extends AppCompatActivity {
     TextView bay;
     TextView type;
     TextView status;
+    TextView regn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,13 @@ public class TechnicianTasksMain extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         technician = (Technicians) extras.getSerializable("TECH");
+
+        regn = (TextView) findViewById(R.id.flight_regn);
+        bay = (TextView) findViewById(R.id.flight_bay);
+        arrTime = (TextView) findViewById(R.id.flight_time_arrival);
+        depTime = (TextView) findViewById(R.id.flight_time_departure);
+        type = (TextView) findViewById(R.id.flight_actype);
+        status = (TextView) findViewById(R.id.flight_status);
     }
 
     public void taskDetail(View view)
