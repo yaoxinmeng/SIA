@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         enterUserPw();
         LoginButton();
 
+        Database.updateFromDatabase();
     }
 
     public void enterUserPw(){

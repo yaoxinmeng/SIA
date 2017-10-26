@@ -10,21 +10,40 @@ import java.util.Queue;
  */
 
 public class Technicians {
-    public Deque planes; //all planes assigned to this technician
-    public Deque allTasks; //all tasks in the planes queue that are assigned to this technician
+    public String planeID;
+    public Deque<Plane> planes; //all planes assigned to this technician
+    public Deque<Defects> allTasks; //all tasks in the planes queue that are assigned to this technician
     public Plane currentPlane;
     public String ID; // ID of this technician
-    public List currentTasks = new ArrayList<Defects>(); // current tasks in current plane that is in progress
+    public ArrayList<Defects> currentTasks; // current tasks in current plane that is in progress
     public int numberOfTasks; //number of non-completed tasks in allTasks
 
     public Technicians() {
+        planeID = null;
         planes = null;
         allTasks = null;
+        currentPlane = null;
+        ID = null;
+        currentTasks = null;
+        numberOfTasks = 0;
     }
 
     public void refresh()
     {
         setNumberOfTasks();
+    }
+
+    public void updatePlanes()
+    {
+        String[] planeIDs = ID.split("-");
+        for (String ID : planeIDs)
+        {
+            for (Plane plane : Database.planes)
+            {
+                if (plane.regn.equals(ID))
+                    planes.add(plane);
+            }
+        }
     }
 
     public void setNumberOfTasks()
