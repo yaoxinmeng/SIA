@@ -17,6 +17,7 @@ import static java.lang.System.currentTimeMillis;
 
 public class TechnicianTasksMain extends AppCompatActivity {
     private Technicians technician;
+    private String techID;
     private Plane firstPlane;
     private ArrayList<Defects> tasks;
     private ArrayList<Defects> tasksDisplayed;
@@ -38,7 +39,16 @@ public class TechnicianTasksMain extends AppCompatActivity {
         setContentView(R.layout.activity_technician_tasks_main);
 
         Bundle extras = getIntent().getExtras();
-        technician = (Technicians) extras.getSerializable("TECH");
+        techID = extras.getString("TECH_ID");
+
+        for (Technicians child : Database.technicians)
+        {
+            if(techID.equals(child.ID))
+            {
+                technician = child;
+                break;
+            }
+        }
         firstPlane = technician.currentPlane;
         tasks = sortTasks(firstPlane.defects);
         maxPage = (int) (tasks.size() / entryNumber) + 1;

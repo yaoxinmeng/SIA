@@ -8,8 +8,9 @@ import java.util.List;
 
 public class TechnicianEquipment extends AppCompatActivity {
     private Technicians technician;
+    private String techID;
     private Plane currentPlane;
-    private List equipment = new ArrayList<String>();
+    private ArrayList<String> equipment = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,13 +18,21 @@ public class TechnicianEquipment extends AppCompatActivity {
         setContentView(R.layout.activity_technician_equipment);
 
         Bundle extras = getIntent().getExtras();
-        technician = (Technicians) extras.getSerializable("TECH");
-        currentPlane = (Plane) technician.planes.element();
+        techID = extras.getString("TECH_ID");
+
+        for (Technicians child : Database.technicians)
+        {
+            if(techID.equals(child.ID))
+            {
+                technician = child;
+                break;
+            }
+        }
+        currentPlane = technician.planes.element();
         for (Object child : currentPlane.defects)
         {
             String parts = ((Defects) child).parts;
             equipment.add(parts);
         }
-
     }
 }

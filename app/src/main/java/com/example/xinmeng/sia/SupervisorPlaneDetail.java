@@ -10,6 +10,7 @@ import android.widget.EditText;
 public class SupervisorPlaneDetail extends AppCompatActivity {
     private EditText number_of_techs;
     private EditText techID_field;
+    private String plane_ID;
     private Plane plane;
     private int NUMBER_OF_TECHS;
 
@@ -20,7 +21,16 @@ public class SupervisorPlaneDetail extends AppCompatActivity {
 
 
         Bundle extras = getIntent().getExtras();
-        plane = (Plane)extras.getSerializable("PLANE");
+        plane_ID = extras.getString("PLANE_ID");
+
+        for (Plane child : Database.planes)
+        {
+            if (plane_ID.equals(child.regn))
+            {
+                plane = child;
+                break;
+            }
+        }
 
         techID_field = (EditText) findViewById(R.id.techIDField);
         number_of_techs = (EditText) findViewById(R.id.numberOfTechs);

@@ -211,7 +211,7 @@ public class SupervisorMain extends AppCompatActivity {
         if (plane != null)
         {
             Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
-            intent.putExtra("PLANE", (Serializable) plane);
+            intent.putExtra("PLANE_ID", plane.regn);
             startActivity(intent);
         }
     }
@@ -222,7 +222,7 @@ public class SupervisorMain extends AppCompatActivity {
         if (plane != null)
         {
             Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
-            intent.putExtra("PLANE", (Serializable) plane);
+            intent.putExtra("PLANE_ID", plane.regn);
             startActivity(intent);
         }
     }
@@ -233,7 +233,7 @@ public class SupervisorMain extends AppCompatActivity {
         if (plane != null)
         {
             Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
-            intent.putExtra("PLANE", (Serializable) plane);
+            intent.putExtra("PLANE_ID", plane.regn);
             startActivity(intent);
         }
     }
@@ -244,7 +244,7 @@ public class SupervisorMain extends AppCompatActivity {
         if (plane != null)
         {
             Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
-            intent.putExtra("PLANE", (Serializable) plane);
+            intent.putExtra("PLANE_ID", plane.regn);
             startActivity(intent);
         }
     }
@@ -255,7 +255,7 @@ public class SupervisorMain extends AppCompatActivity {
         if (plane != null)
         {
             Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
-            intent.putExtra("PLANE", (Serializable) plane);
+            intent.putExtra("PLANE_ID", plane.regn);
             startActivity(intent);
         }
     }

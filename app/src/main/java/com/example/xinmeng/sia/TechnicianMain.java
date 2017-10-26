@@ -50,14 +50,14 @@ public class TechnicianMain extends AppCompatActivity {
     public void tasks(View view)
     {
         Intent intent = new Intent(TechnicianMain.this, TechnicianTasksMain.class);
-        intent.putExtra("TECH", (Serializable) technician);
+        intent.putExtra("TECH_ID", technician.ID);
         startActivity(intent);
     }
 
     public void equipment(View view)
     {
         Intent intent = new Intent(TechnicianMain.this, TechnicianEquipment.class);
-        intent.putExtra("TECH", (Serializable) technician);
+        intent.putExtra("TECH_ID", technician.ID);
         startActivity(intent);
     }
 
