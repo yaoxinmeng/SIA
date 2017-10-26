@@ -25,6 +25,7 @@ public class DefectsFetcher {
     public DefectsFetcher(){}
     public DefectsFetcher(Defects defect)
     {
+        this.mId = defect.number;
         this.regn = defect.regn;
         this.fleet = defect.fleet;
         this.stn = defect.stn;
