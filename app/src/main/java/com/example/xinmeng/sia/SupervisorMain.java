@@ -214,6 +214,7 @@ public class SupervisorMain extends AppCompatActivity {
             {
                 Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
                 intent.putExtra("PLANE_ID", plane.regn);
+                intent.putExtra("UNASSIGNED", unassigned);
                 startActivity(intent);
             }
         }
@@ -228,6 +229,7 @@ public class SupervisorMain extends AppCompatActivity {
             {
                 Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
                 intent.putExtra("PLANE_ID", plane.regn);
+                intent.putExtra("UNASSIGNED", unassigned);
                 startActivity(intent);
             }
         }
@@ -242,6 +244,7 @@ public class SupervisorMain extends AppCompatActivity {
             {
                 Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
                 intent.putExtra("PLANE_ID", plane.regn);
+                intent.putExtra("UNASSIGNED", unassigned);
                 startActivity(intent);
             }
         }
@@ -256,6 +259,7 @@ public class SupervisorMain extends AppCompatActivity {
             {
                 Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
                 intent.putExtra("PLANE_ID", plane.regn);
+                intent.putExtra("UNASSIGNED", unassigned);
                 startActivity(intent);
             }
         }
@@ -270,6 +274,7 @@ public class SupervisorMain extends AppCompatActivity {
             {
                 Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
                 intent.putExtra("PLANE_ID", plane.regn);
+                intent.putExtra("UNASSIGNED", unassigned);
                 startActivity(intent);
             }
         }

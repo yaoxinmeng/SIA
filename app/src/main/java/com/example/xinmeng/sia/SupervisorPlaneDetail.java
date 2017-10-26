@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 
@@ -13,6 +14,7 @@ public class SupervisorPlaneDetail extends AppCompatActivity {
     private String plane_ID;
     private Plane plane;
     private int NUMBER_OF_TECHS;
+    private boolean unassigned;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,7 @@ public class SupervisorPlaneDetail extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         plane_ID = extras.getString("PLANE_ID");
+        unassigned = extras.getBoolean("UNASSIGNED");
 
         for (Plane child : Database.planes)
         {
@@ -34,6 +37,18 @@ public class SupervisorPlaneDetail extends AppCompatActivity {
 
         techID_field = (EditText) findViewById(R.id.techIDField);
         number_of_techs = (EditText) findViewById(R.id.numberOfTechs);
+
+        //Hides the assign buttons when unassigned = false
+        /*
+        Button autoAssign = (Button) findViewById(R.id.auto_assign);
+        Button manualAssign = (Button) findViewById(R.id.manual_assign);
+
+        if (!unassigned)
+        {
+            autoAssign.setVisibility(View.INVISIBLE);
+            manualAssign.setVisibility(View.INVISIBLE);
+        }
+        */
     }
 
     public void autoAssignButton(View view)
