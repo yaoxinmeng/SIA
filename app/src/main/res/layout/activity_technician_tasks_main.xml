@@ -14,165 +14,34 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true" />
 
-    <ImageView
-        android:id="@+id/iborder"
+    <fragment
+        android:id="@+id/flightinfofragment"
+        android:name="com.example.xinmeng.sia.FragmentFlightInfo"
         android:layout_width="350dp"
         android:layout_height="200dp"
-        android:paddingHorizontal="32dp"
-        app:srcCompat="@drawable/techtask_gradbox"
+        android:layout_alignParentStart="false"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
 
     <TextView
-        android:id="@+id/display_arr_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/iborder"
-        android:layout_alignParentTop="true"
-        android:layout_marginEnd="131dp"
-        android:layout_marginTop="44dp"
-        android:text="Arr Time:"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-
-
-    <TextView
-        android:id="@+id/display_dep_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/display_arr_time"
-        android:layout_below="@+id/display_arr_time"
-        android:layout_marginTop="8dp"
-        android:text="Dep Time:"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/display_bay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/display_arr_time"
-        android:layout_below="@+id/display_dep_time"
-        android:layout_marginTop="8dp"
-        android:text="Bay:"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-
-
-    <TextView
-        android:id="@+id/display_ac_type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/display_dep_time"
-        android:layout_below="@+id/display_bay"
-        android:layout_marginTop="8dp"
-        android:text="AC Type:"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/display_Status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/display_dep_time"
-        android:layout_below="@+id/display_ac_type"
-        android:layout_marginTop="8dp"
-        android:text="Status:"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/acregn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/display_dep_time"
-        android:layout_alignStart="@+id/iborder"
-        android:layout_alignTop="@+id/iborder"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="33dp"
-        android:text="AC Regn:"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/flight_regn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SWT"
-        android:textSize="56sp"
-        android:layout_alignBaseline="@+id/display_bay"
-        android:layout_alignBottom="@+id/display_bay"
-        android:layout_alignStart="@+id/acregn" />
-
-    <TextClock
-        android:id="@+id/flight_time_arrival"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:text="TextView"
-        android:textSize="12sp"
-        android:layout_above="@+id/display_dep_time"
-        android:layout_toEndOf="@+id/display_dep_time" />
-
-    <TextClock
-        android:id="@+id/flight_time_departure"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="12sp"
-        android:layout_below="@+id/flight_time_arrival"
-        android:layout_marginTop="8dp"
-        android:layout_alignStart="@+id/flight_time_arrival" />
-
-    <TextView
-        android:id="@+id/flight_bay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="12sp"
-        android:layout_below="@+id/flight_time_departure"
-        android:layout_marginTop="8dp"
-        android:layout_alignStart="@+id/flight_time_departure" />
-
-    <TextView
-        android:id="@+id/flight_actype"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="12sp"
-        android:layout_below="@+id/flight_bay"
-        android:layout_marginTop="8dp"
-        android:layout_alignStart="@+id/flight_bay" />
-
-    <TextView
-        android:id="@+id/flight_status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="12sp"
-        android:layout_below="@+id/flight_actype"
-        android:layout_marginTop="8dp"
-        android:layout_alignStart="@+id/flight_bay" />
-
-    <TextView
         android:id="@+id/display_task"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/flight_regn"
-        android:layout_below="@+id/display_Status"
-        android:layout_marginTop="39dp"
+        android:layout_alignStart="@+id/flightinfofragment"
+        android:layout_below="@+id/flightinfofragment"
+        android:layout_marginTop="14dp"
         android:text="Tasks"
-        android:textSize="20dp" />
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/refreshButton"
         android:background="@drawable/techtask_refreshicon"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:text="Button"
-        android:layout_marginStart="31dp"
+        android:layout_marginEnd="14dp"
         android:layout_alignTop="@+id/display_task"
-        android:layout_alignStart="@+id/flight_status" />
+        android:layout_toStartOf="@+id/toolButton" />
 
 
     <Button
@@ -180,69 +49,36 @@
         android:background="@drawable/techtask_equipmenticon"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:text="Button"
-        android:layout_alignEnd="@+id/iborder"
-        android:layout_alignBottom="@+id/refreshButton" />
+        android:layout_alignTop="@+id/refreshButton"
+        android:layout_alignEnd="@+id/detail_list" />
 
     <ImageView
         android:id="@+id/taskbg"
-        android:layout_width="350dp"
-        android:layout_height="280dp"
+        android:layout_width="400dp"
+        android:layout_height="275dp"
         app:srcCompat="@drawable/techtask_tab"
         android:layout_below="@+id/display_task"
-        android:layout_marginTop="28dp"
-        android:layout_alignEnd="@+id/toolButton" />
+        android:layout_marginTop="18dp"
+        android:layout_alignParentEnd="true" />
 
     <ListView
         android:id="@+id/detail_list"
         android:layout_width="match_parent"
-        android:layout_height="275dp"
+        android:layout_height="265dp"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
         android:layout_alignBottom="@+id/taskbg"
         android:layout_alignParentStart="true" />
 
-    <ImageView
-        android:id="@+id/priority_tab_clicked"
-        android:layout_width="68dp"
-        android:layout_height="20dp"
-        app:srcCompat="@drawable/techtask_prioritytab"
-        android:layout_alignTop="@id/display_task"
-        android:layout_marginTop="32dp"
-        android:layout_toStartOf="@id/taskbg"
-        android:layout_alignEnd="@+id/display_task"
-        android:visibility="visible"/>
-
-    <ImageView
-        android:id="@+id/priority_tab_unclicked"
-        android:layout_width="68dp"
-        android:layout_height="20dp"
-        android:layout_alignTop="@id/display_task"
-        android:layout_marginTop="32dp"
-        android:layout_toStartOf="@id/taskbg"
-        android:layout_alignEnd="@+id/display_task"
-        app:srcCompat="@drawable/techtask_prioritytablight"
-        android:visibility = "invisible"/>
-
-    <ImageView
-        android:id="@+id/regular_tab_unclicked"
-        android:layout_width="68dp"
-        android:layout_height="20dp"
-        app:srcCompat="@drawable/techtask_regulartablight"
-        android:layout_alignTop="@+id/priority_tab_clicked"
-        android:layout_toEndOf="@+id/priority_tab_clicked"
-        android:visibility="visible"
-        />
-
-    <ImageView
-        android:id="@+id/regular_tab_clicked"
-        android:layout_width="68dp"
-        android:layout_height="20dp"
-        app:srcCompat="@drawable/techtask_regulartabdark"
-        android:layout_alignTop="@+id/priority_tab_clicked"
-        android:layout_toEndOf="@+id/priority_tab_clicked"
-        android:visibility="invisible"
-        />
+    <Button
+        android:id="@+id/button"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/techunresolved_leftbutton" />
 
 
 </RelativeLayout>

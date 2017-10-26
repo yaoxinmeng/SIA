@@ -1,9 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.xinmeng.sia.TechnicianEquipment">
 
-</android.support.constraint.ConstraintLayout>
+    <fragment
+        android:id="@+id/bgfragment5"
+        android:name="com.example.xinmeng.sia.SkyBlueBgFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="45dp"
+        app:srcCompat="@drawable/techequip_icon"
+        android:layout_marginTop="28dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/display_spares_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Spares required \n\t for AC Regn"
+        android:textSize="16dp"
+
+        android:layout_marginStart="70dp"
+        android:layout_alignTop="@+id/imageView"
+        android:layout_toEndOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/display_acregn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/display_spares_title"
+        android:layout_below="@+id/display_spares_title"
+        android:layout_centerVertical="@+id/display_spares_title"
+        android:layout_marginEnd="13dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="22dp"
+        android:layout_marginTop="2dp"/>
+
+    <TextView
+        android:id="@+id/display_part_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/imageView"
+        android:layout_below="@+id/imageView"
+        android:layout_marginTop="17dp"
+        android:textSize="20dp"
+        android:text="Part Details" />
+
+    <ListView
+        android:layout_width="350dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="13dp"
+        android:layout_below="@+id/display_part_details"
+        android:layout_centerHorizontal="true" />
+
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/techunresolved_leftbutton" />
+
+</RelativeLayout>

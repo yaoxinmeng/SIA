@@ -11,7 +11,7 @@ import android.view.View;
 import android.content.Intent;
 import android.widget.TextView;
 import android.widget.Toast;
-//import android.widget.RelativeLayout;
+
 
 import com.example.xinmeng.sia.Models.defectsDataRetriever;
 import com.example.xinmeng.sia.ViewHolders.PlaneData;
