@@ -44,7 +44,8 @@
         android:layout_alignBottom="@+id/defect_content"
         android:layout_marginBottom="1dp"
         android:layout_alignEnd="@+id/defect_content"
-        android:layout_marginEnd="4dp" />
+        android:layout_marginEnd="4dp"
+        android:visibility="invisible"/>
 
     <ImageView
         android:id="@+id/priority_asterisk"
@@ -54,7 +55,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginLeft="9dp"
         android:layout_marginTop="5dp"
-        android:visibility="visible"
+        android:visibility="invisible"
         />
 
 

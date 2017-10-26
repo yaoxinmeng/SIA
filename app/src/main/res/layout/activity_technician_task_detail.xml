@@ -133,6 +133,7 @@
         android:id="@+id/show_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
         android:text="TextView"
         android:layout_alignTop="@+id/dp_description"
         android:layout_alignStart="@+id/show_defectno"
