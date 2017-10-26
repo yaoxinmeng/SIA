@@ -58,49 +58,33 @@ public class Plane {
         this.numberOfDefects = this.defects.size();
     }
 
-    public boolean autoAssignTechnicians()
+    public void autoAssignTechnicians()
     {
-        if (numberOfTechnicians > numberOfDefects)
-            return false;
-
-        List technicians = new ArrayList<Technicians>(); //Creates a list of technicians for this plane
-        for(Object child : Database.technicians)
+        if (numberOfTechnicians < numberOfDefects)
         {
-            Technicians newChild = (Technicians) child;
-            if (technicians.size() < numberOfTechnicians)
-                technicians.add(newChild);
-            else
+            List technicians = new ArrayList<Technicians>(); //Creates a list of technicians for this plane
+            for(Object child : Database.technicians)
             {
-                for (Object grandchild : technicians) //compares size of tasks of the current technicians list with the newChild
+                Technicians newChild = (Technicians) child;
+                if (technicians.size() < numberOfTechnicians)
+                    technicians.add(newChild);
+                else
                 {
-                    Technicians newGrandchild = (Technicians) grandchild;
-                    if(newChild.allTasks.size() < newGrandchild.allTasks.size())
+                    for (Object grandchild : technicians) //compares size of tasks of the current technicians list with the newChild
                     {
-                        technicians.remove(newGrandchild);
-                        technicians.add(newChild);
+                        Technicians newGrandchild = (Technicians) grandchild;
+                        if(newChild.allTasks.size() < newGrandchild.allTasks.size())
+                        {
+                            technicians.remove(newGrandchild);
+                            technicians.add(newChild);
+                        }
                     }
                 }
             }
-        }
 
-        for (Object child : technicians)
-        {
-            assignTechnicians(((Technicians) child).ID, this, false);
-        }
-        return true;
-    }
-
-    public void assignTechnicians(String technicianID, Plane plane, boolean priority)
-    {
-        for (Object child : Database.technicians)
-        {
-            Technicians newchild = (Technicians) child;
-            if (newchild.ID.equals(technicianID))
+            for (Object child : technicians)
             {
-                if (priority)
-                    newchild.addPriorityPlane(plane);
-                else
-                    newchild.addPlane(plane);
+                ((Technicians) child).addPlane(this);
             }
         }
     }

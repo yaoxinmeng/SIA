@@ -27,6 +27,17 @@ public class TechnicianMain extends AppCompatActivity {
         setTexts();
     }
 
+    protected void onResume(Bundle savedInstanceState)
+    {
+        super.onResume();
+
+        //not sure if needed
+        /*
+        Bundle extras = getIntent().getExtras();
+        technician = (Technicians) extras.getSerializable("TECH");
+         */
+    }
+
     public void tasks(View view)
     {
         Intent intent = new Intent(TechnicianMain.this, TechnicianTasksMain.class);
