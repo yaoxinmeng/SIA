@@ -28,10 +28,6 @@
         <activity android:name=".TechnicianEquipment" />
         <activity android:name=".SupervisorMain" />
         <activity android:name=".SupervisorPlaneDetail" />
-        <activity
-            android:name=".tabs.TabInterfaceTech"
-            android:label="@string/title_activity_tab_interface_tech"
-            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

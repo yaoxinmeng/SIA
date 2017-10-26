@@ -1,6 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal" android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/defect_header"
+        android:layout_width="64dp"
+        android:layout_height="22dp"
+        android:background="@drawable/techtask_blue"
+        android:text="Text View"
+        android:textAlignment="gravity"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:layout_marginTop="9dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart= "16dp"
+        />
+
+    <TextView
+        android:id="@+id/defect_content"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_alignBaseline="@+id/defect_header"
+        android:layout_alignBottom="@+id/defect_header"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="16dp"
+        android:layout_toEndOf="@+id/defect_header"
+        android:background="@drawable/techtask_white"
+        android:elegantTextHeight="false"
+        android:text="TextView"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="14dp"
+        tools:background="@drawable/techtask_white" />
+
+    <Button
+        android:id="@+id/defectButton"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:background="@drawable/techtask_nextbutton"
+        android:layout_alignBottom="@+id/defect_content"
+        android:layout_marginBottom="5dp"
+        android:layout_alignEnd="@+id/defect_content"
+        android:layout_marginEnd="8dp" />
+
+    <ImageView
+        android:id="@+id/priority_asterisk"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        app:srcCompat="@drawable/techtask_asterisk"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="4dp"
+        android:visibility="visible"
+        />
 
 </RelativeLayout>

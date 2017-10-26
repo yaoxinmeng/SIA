@@ -58,6 +58,7 @@ public class DefectsFetcher {
     public String getId() { return mId; }
     public final void setId(String id) { mId = id; }
 
+
     @com.google.gson.annotations.SerializedName("regn")
     public String getRegn() {
         return regn;

@@ -64,7 +64,7 @@ public class TechnicianMain extends AppCompatActivity {
         setTexts();
     }
 
-    public void setTexts()
+    private void setTexts()
     {
         Plane firstPlane = technician.currentPlane;
         regn.setText(firstPlane.regn);
