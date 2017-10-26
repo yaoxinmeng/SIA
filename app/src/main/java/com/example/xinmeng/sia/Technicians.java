@@ -15,7 +15,6 @@ public class Technicians {
     public Deque<Defects> allTasks; //all tasks in the planes queue that are assigned to this technician
     public Plane currentPlane;
     public String ID; // ID of this technician
-    public ArrayList<Defects> currentTasks; // current tasks in current plane that is in progress
     public int numberOfTasks; //number of non-completed tasks in allTasks
 
     public Technicians() {
@@ -24,7 +23,6 @@ public class Technicians {
         allTasks = null;
         currentPlane = null;
         ID = null;
-        currentTasks = null;
         numberOfTasks = 0;
     }
 
@@ -104,14 +102,6 @@ public class Technicians {
         planes.removeFirst();
         currentPlane.inProgress = true;
         updateIDs();
-
-        //sets current tasks
-        for (Object child : currentPlane.defects)
-        {
-            Defects newChild = (Defects) child;
-            if (newChild.techID.equals(ID))
-                currentTasks.add(newChild);
-        }
     }
 
     public boolean allTasksCompleted()
@@ -139,7 +129,6 @@ public class Technicians {
                 allTasks.remove(newChild);
         }
         currentPlane = null;
-        currentTasks.clear();
 
         boardPlane();
     }
@@ -161,11 +150,10 @@ public class Technicians {
 
     public Defects currentTask()
     {
-        for (Object child : currentTasks)
+        for (Defects child : currentPlane.defects)
         {
-            Defects newChild = (Defects) child;
-            if (newChild.inProgress)
-                return newChild;
+            if (child.inProgress)
+                return child;
         }
         return null;
     }
