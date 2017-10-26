@@ -207,56 +207,71 @@ public class SupervisorMain extends AppCompatActivity {
 
     public void entry1(View view)
     {
-        Plane plane = planeDisplay.get(0);
-        if (plane != null)
+        if (planeDisplay != null)
         {
-            Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
-            intent.putExtra("PLANE_ID", plane.regn);
-            startActivity(intent);
+            Plane plane = planeDisplay.get(0);
+            if (plane != null)
+            {
+                Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
+                intent.putExtra("PLANE_ID", plane.regn);
+                startActivity(intent);
+            }
         }
     }
 
     public void entry2(View view)
     {
-        Plane plane = planeDisplay.get(1);
-        if (plane != null)
+        if (planeDisplay != null)
         {
-            Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
-            intent.putExtra("PLANE_ID", plane.regn);
-            startActivity(intent);
+            Plane plane = planeDisplay.get(1);
+            if (plane != null)
+            {
+                Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
+                intent.putExtra("PLANE_ID", plane.regn);
+                startActivity(intent);
+            }
         }
     }
 
     public void entry3(View view)
     {
-        Plane plane = planeDisplay.get(2);
-        if (plane != null)
+        if (planeDisplay != null)
         {
-            Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
-            intent.putExtra("PLANE_ID", plane.regn);
-            startActivity(intent);
+            Plane plane = planeDisplay.get(2);
+            if (plane != null)
+            {
+                Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
+                intent.putExtra("PLANE_ID", plane.regn);
+                startActivity(intent);
+            }
         }
     }
 
     public void entry4(View view)
     {
-        Plane plane = planeDisplay.get(3);
-        if (plane != null)
+        if (planeDisplay != null)
         {
-            Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
-            intent.putExtra("PLANE_ID", plane.regn);
-            startActivity(intent);
+            Plane plane = planeDisplay.get(3);
+            if (plane != null)
+            {
+                Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
+                intent.putExtra("PLANE_ID", plane.regn);
+                startActivity(intent);
+            }
         }
     }
 
     public void entry5(View view)
     {
-        Plane plane = planeDisplay.get(4);
-        if (plane != null)
+        if (planeDisplay != null)
         {
-            Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
-            intent.putExtra("PLANE_ID", plane.regn);
-            startActivity(intent);
+            Plane plane = planeDisplay.get(4);
+            if (plane != null)
+            {
+                Intent intent = new Intent(SupervisorMain.this, SupervisorPlaneDetail.class);
+                intent.putExtra("PLANE_ID", plane.regn);
+                startActivity(intent);
+            }
         }
     }
 
