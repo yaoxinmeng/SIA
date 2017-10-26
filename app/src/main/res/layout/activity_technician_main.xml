@@ -166,6 +166,6 @@
         android:layout_alignTop="@+id/nextButton"
         android:layout_alignEnd="@+id/onTime" />
 
-//hi
+
 </RelativeLayout>
 
