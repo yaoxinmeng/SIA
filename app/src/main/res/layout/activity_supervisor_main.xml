@@ -36,7 +36,6 @@
         android:layout_width="80dp"
         android:layout_height="40dp"
         android:layout_above="@+id/whitebg"
-        android:background=""
         android:layout_toStartOf="@+id/completed_tab_unclicked"
  />
 
@@ -63,6 +62,86 @@
         app:srcCompat="@drawable/supmain_orangetab"
         android:layout_below="@+id/completed_tab_unclicked"
         android:layout_alignStart="@+id/unassigned_tab_unclicked" />
+
+    <TextView
+        android:id="@+id/pagenumber"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignBottom="@+id/whitebg"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="13dp"
+        android:background="@drawable/supmain_orangebut"
+        android:text="1"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="19sp" />
+
+    <Button
+        android:id="@+id/click_right"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="15dp"
+        android:background="@drawable/supmain_right"
+        android:layout_marginBottom="2dp"
+        android:layout_alignBottom="@+id/pagenumber"
+        android:layout_toEndOf="@+id/pagenumber" />
+
+    <Button
+        android:id="@+id/click_left"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/supmain_left"
+        android:layout_marginEnd="15dp"
+        android:layout_alignBottom="@+id/pagenumber"
+        android:layout_toLeftOf="@+id/pagenumber"
+        android:layout_marginBottom="2dp"/>
+
+    <Button
+        android:id="@+id/aircraft_table1"
+        android:layout_width="330dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/supmain_whitewithorangelines"
+        android:layout_below="@+id/aircraft_header"
+        android:layout_alignStart="@+id/aircraft_header" />
+
+    <Button
+        android:id="@+id/aircraft_table2"
+        android:layout_width="330dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/supmain_whitewithorangelines"
+        android:layout_below="@+id/aircraft_table1"
+        android:layout_alignStart="@+id/aircraft_header" />
+
+    <Button
+        android:id="@+id/aircraft_table3"
+        android:layout_width="330dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/supmain_whitewithorangelines"
+        android:layout_below="@+id/aircraft_table2"
+        android:layout_alignStart="@+id/aircraft_header" />
+
+    <Button
+        android:id="@+id/aircraft_table4"
+        android:layout_width="330dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/supmain_whitewithorangelines"
+        android:layout_below="@+id/aircraft_table3"
+        android:layout_alignStart="@+id/aircraft_header" />
+
+    <Button
+        android:id="@+id/aircraft_table5"
+        android:layout_width="330dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/supmain_whitewithorangelines"
+        android:layout_below="@+id/aircraft_table4"
+        android:layout_alignStart="@+id/aircraft_header" />
+
+
 
 
 </RelativeLayout>
