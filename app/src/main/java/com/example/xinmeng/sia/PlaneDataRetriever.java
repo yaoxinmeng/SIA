@@ -1,9 +1,8 @@
-package com.example.xinmeng.sia.Models;
+package com.example.xinmeng.sia;
 
 import android.content.Context;
-import android.widget.Toast;
 
-import com.example.xinmeng.sia.DefectsFetcher;
+import com.example.xinmeng.sia.ViewHolders.PlaneData;
 import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
 import com.microsoft.windowsazure.mobileservices.MobileServiceException;
 import com.microsoft.windowsazure.mobileservices.http.OkHttpClientFactory;
@@ -19,14 +18,12 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Created by jrnew on 26/10/2017.
- * Guide to use: initialise defectsDataRetriever dataGetter = new defectsDataRetriever(this);
- * Then call to get the defects: List of defectsFetcher result = dataGetter.fetchDefectsData();
  */
 
-public class defectsDataRetriever {
+public class PlaneDataRetriever {
     MobileServiceClient mClient;
-    MobileServiceTable<DefectsFetcher> mDefectsTable;
-    public defectsDataRetriever(Context context) {
+    MobileServiceTable<PlaneData> mPlanesTable;
+    public PlaneDataRetriever(Context context) {
         try {
             mClient = new MobileServiceClient("https://sactest.azurewebsites.net", context);
             mClient.setAndroidHttpClientFactory(new OkHttpClientFactory() {
@@ -38,21 +35,21 @@ public class defectsDataRetriever {
                     return client;
                 }
             });
-            mDefectsTable = mClient.getTable("DefectsData", DefectsFetcher.class);
+            mPlanesTable = mClient.getTable("PlanesData", PlaneData.class);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
     }
 
-    public List<DefectsFetcher> fetchDefectsData(){
-        List<DefectsFetcher> data = new ArrayList<DefectsFetcher>();
+    public List<PlaneData> fetchPlanesData(){
+        List<PlaneData> data = new ArrayList<PlaneData>();
         try {
-            final List<DefectsFetcher> finalData = data;
-            mDefectsTable.execute(new TableQueryCallback<DefectsFetcher>(){
-                public void onCompleted(List<DefectsFetcher> result, int count, Exception exception,
+            final List<PlaneData> finalData = data;
+            mPlanesTable.execute(new TableQueryCallback<PlaneData>(){
+                public void onCompleted(List<PlaneData> result, int count, Exception exception,
                                         ServiceFilterResponse response) {
                     if(exception == null){
-                        for (DefectsFetcher d : result) {
+                        for (PlaneData d : result) {
                             finalData.add(d);
                         }
                     }
@@ -65,16 +62,15 @@ public class defectsDataRetriever {
 
     }
 
-    public boolean updateData(DefectsFetcher item){
-        if(mDefectsTable.update(item)!=null)
+    public boolean updateData(PlaneData item){
+        if(mPlanesTable.update(item)!=null)
             return true;
         else return false;
     }
 
-    public boolean insertData(DefectsFetcher item){
-        if(mDefectsTable.insert(item)!=null)
+    public boolean insertData(PlaneData item){
+        if(mPlanesTable.insert(item)!=null)
             return true;
         else return false;
     }
-
 }

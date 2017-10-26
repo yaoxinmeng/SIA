@@ -14,6 +14,7 @@ import android.widget.Toast;
 //import android.widget.RelativeLayout;
 
 import com.example.xinmeng.sia.Models.defectsDataRetriever;
+import com.example.xinmeng.sia.ViewHolders.PlaneData;
 import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
 import com.microsoft.windowsazure.mobileservices.MobileServiceException;
 import com.microsoft.windowsazure.mobileservices.http.OkHttpClientFactory;
@@ -39,10 +40,6 @@ public class MainActivity extends AppCompatActivity {
 
     Button login_button;
 
-    MobileServiceClient mClient;
-    MobileServiceTable<DefectsFetcher> mDefectsTable;
-    List<DefectsFetcher> result;
-    defectsDataRetriever dataInserter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         password = (TextView)  findViewById(R.id.password_text);
         login_button = (Button) findViewById(R.id.loginButton);
         //layout = (RelativeLayout)findViewById(R.id.homelayout);
+
 
         /*Intent display_intent = new Intent(this, userpwDisplay.class);
         startService(display_intent);*/
@@ -115,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
                             else {
                             Toast.makeText(MainActivity.this,
                                     "Invalid Username / Password", Toast.LENGTH_SHORT).show();
+
 
 
                         }

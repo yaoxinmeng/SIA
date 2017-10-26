@@ -5,10 +5,16 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.provider.ContactsContract;
 
+import com.example.xinmeng.sia.ViewHolders.PlaneData;
+
 import java.io.ObjectStreamException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
+import java.util.Locale;
 
 import static java.lang.System.currentTimeMillis;
 import static java.lang.System.setErr;
@@ -58,49 +64,46 @@ public class Plane {
         this.numberOfDefects = this.defects.size();
     }
 
-    public boolean autoAssignTechnicians()
-    {
-        if (numberOfTechnicians > numberOfDefects)
-            return false;
+    public Plane(PlaneData planeData){
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.ENGLISH);
+        this.regn = planeData.getId();
+        this.bay = planeData.getBay();
+        try {
+            this.arrTime = df.parse(planeData.getArrDate() + ' ' + planeData.getArrTime());
+            this.depTIme = df.parse(planeData.getDepDate() + ' ' + planeData.getDepTime());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        this.timeLeft = depTIme.getTime() - currentTimeMillis();
+    }
 
-        List technicians = new ArrayList<Technicians>(); //Creates a list of technicians for this plane
-        for(Object child : Database.technicians)
+    public void autoAssignTechnicians()
+    {
+        if (numberOfTechnicians < numberOfDefects)
         {
-            Technicians newChild = (Technicians) child;
-            if (technicians.size() < numberOfTechnicians)
-                technicians.add(newChild);
-            else
+            List technicians = new ArrayList<Technicians>(); //Creates a list of technicians for this plane
+            for(Object child : Database.technicians)
             {
-                for (Object grandchild : technicians) //compares size of tasks of the current technicians list with the newChild
+                Technicians newChild = (Technicians) child;
+                if (technicians.size() < numberOfTechnicians)
+                    technicians.add(newChild);
+                else
                 {
-                    Technicians newGrandchild = (Technicians) grandchild;
-                    if(newChild.allTasks.size() < newGrandchild.allTasks.size())
+                    for (Object grandchild : technicians) //compares size of tasks of the current technicians list with the newChild
                     {
-                        technicians.remove(newGrandchild);
-                        technicians.add(newChild);
+                        Technicians newGrandchild = (Technicians) grandchild;
+                        if(newChild.allTasks.size() < newGrandchild.allTasks.size())
+                        {
+                            technicians.remove(newGrandchild);
+                            technicians.add(newChild);
+                        }
                     }
                 }
             }
-        }
 
-        for (Object child : technicians)
-        {
-            assignTechnicians(((Technicians) child).ID, this, false);
-        }
-        return true;
-    }
-
-    public void assignTechnicians(String technicianID, Plane plane, boolean priority)
-    {
-        for (Object child : Database.technicians)
-        {
-            Technicians newchild = (Technicians) child;
-            if (newchild.ID.equals(technicianID))
+            for (Object child : technicians)
             {
-                if (priority)
-                    newchild.addPriorityPlane(plane);
-                else
-                    newchild.addPlane(plane);
+                ((Technicians) child).addPlane(this);
             }
         }
     }
