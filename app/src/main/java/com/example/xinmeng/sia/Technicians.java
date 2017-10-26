@@ -15,17 +15,21 @@ public class Technicians {
     public Deque<Defects> allTasks; //all tasks in the planes queue that are assigned to this technician
     public Plane currentPlane;
     public String ID; // ID of this technician
-    public ArrayList<Defects> currentTasks; // current tasks in current plane that is in progress
     public int numberOfTasks; //number of non-completed tasks in allTasks
 
     public Technicians() {
-        planeID = null;
+        planeID = "";
         planes = null;
         allTasks = null;
         currentPlane = null;
         ID = null;
-        currentTasks = null;
         numberOfTasks = 0;
+    }
+
+    public Technicians(TechnicianData technicianData){
+        planeID = technicianData.getPlaneID();
+        ID = technicianData.getId();
+        this.updatePlanes();
     }
 
     public void refresh()
@@ -42,6 +46,16 @@ public class Technicians {
             {
                 if (plane.regn.equals(ID))
                     planes.add(plane);
+            }
+        }
+    }
+
+    public void updateIDs()
+    {
+        planeID = "";
+        if (planes!=null) {
+            for (Plane plane : planes) {
+                planeID = plane.regn + "-";
             }
         }
     }
@@ -67,6 +81,7 @@ public class Technicians {
             allTasks.addFirst(newChild);
         }
         numberOfTasks = allTasks.size();
+        updateIDs();
     }
 
     public void addPlane(Plane plane)
@@ -79,20 +94,14 @@ public class Technicians {
             allTasks.add(newChild);
         }
         numberOfTasks = allTasks.size();
+        updateIDs();
     }
 
     public void boardPlane() {
         currentPlane = (Plane) planes.element();
         planes.removeFirst();
         currentPlane.inProgress = true;
-
-        //sets current tasks
-        for (Object child : currentPlane.defects)
-        {
-            Defects newChild = (Defects) child;
-            if (newChild.techID.equals(ID))
-                currentTasks.add(newChild);
-        }
+        updateIDs();
     }
 
     public boolean allTasksCompleted()
@@ -120,7 +129,6 @@ public class Technicians {
                 allTasks.remove(newChild);
         }
         currentPlane = null;
-        currentTasks.clear();
 
         boardPlane();
     }
@@ -142,11 +150,10 @@ public class Technicians {
 
     public Defects currentTask()
     {
-        for (Object child : currentTasks)
+        for (Defects child : currentPlane.defects)
         {
-            Defects newChild = (Defects) child;
-            if (newChild.inProgress)
-                return newChild;
+            if (child.inProgress)
+                return child;
         }
         return null;
     }

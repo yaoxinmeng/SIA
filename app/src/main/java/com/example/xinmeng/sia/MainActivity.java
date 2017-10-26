@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     Button login_button;
     defectsDataRetriever defectsGetter = new defectsDataRetriever(this);
     DefectsFetcher defect;
+    List<DefectsFetcher> result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,10 @@ public class MainActivity extends AppCompatActivity {
         password = (TextView)  findViewById(R.id.password_text);
         login_button = (Button) findViewById(R.id.loginButton);
         //layout = (RelativeLayout)findViewById(R.id.homelayout);
+        if(!databaseGetter.hasBeenInitialised()){
+            databaseGetter.initialise(this);
+        }
+        result = databaseGetter.getInstance().getDefectsDataGetter().fetchDefectsData();
 
 
         /*Intent display_intent = new Intent(this, userpwDisplay.class);
@@ -117,6 +122,10 @@ public class MainActivity extends AppCompatActivity {
                             else {
                             Toast.makeText(MainActivity.this,
                                     "Invalid Username / Password", Toast.LENGTH_SHORT).show();
+
+//                            Toast.makeText(MainActivity.this,
+//                                    result.get(1).getId(), Toast.LENGTH_SHORT).show();
+
 
 
 
