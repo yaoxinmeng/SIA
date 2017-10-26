@@ -12,10 +12,9 @@ import java.util.Queue;
 public class Technicians {
     public Deque planes; //all planes assigned to this technician
     public Deque allTasks; //all tasks in the planes queue that are assigned to this technician
+    public Plane currentPlane;
     public String ID; // ID of this technician
     public List currentTasks = new ArrayList<Defects>(); // current tasks in current plane that is in progress
-    public boolean onTask; // checks whether the technician has any active tasks
-    public boolean onPlane; // checks whether the technician is handling any active planes
     public int numberOfTasks; //number of non-completed tasks in allTasks
 
     public Technicians() {
@@ -26,7 +25,6 @@ public class Technicians {
     public void refresh()
     {
         setNumberOfTasks();
-
     }
 
     public void setNumberOfTasks()
@@ -65,22 +63,16 @@ public class Technicians {
     }
 
     public void boardPlane() {
-        ((Plane) planes.element()).inProgress = true;
-        onPlane = true;
-        setCurrentTasks();
-    }
+        currentPlane = (Plane) planes.element();
+        planes.removeFirst();
+        currentPlane.inProgress = true;
 
-    public void setCurrentTasks()
-    {
-        Plane currentPlane = (Plane) planes.element(); //next plane in the queue
-        if (currentPlane != null && currentPlane.inProgress)
+        //sets current tasks
+        for (Object child : currentPlane.defects)
         {
-            for (Object child : currentPlane.defects)
-            {
-                Defects newChild = (Defects) child;
-                if (newChild.techID.equals(ID))
-                    currentTasks.add(newChild);
-            }
+            Defects newChild = (Defects) child;
+            if (newChild.techID.equals(ID))
+                currentTasks.add(newChild);
         }
     }
 
@@ -108,28 +100,25 @@ public class Technicians {
             if (newChild.regn.equals(((Plane) planes.element()).regn))
                 allTasks.remove(newChild);
         }
-
-        planes.remove(); //remove
+        currentPlane = null;
         currentTasks.clear();
-        onPlane = false;
+
+        boardPlane();
     }
 
     public void startTask (Defects task)
     {
         task.inProgress = true;
-        onTask = true;
     }
 
     public void resolvedTask (Defects task)
     {
         task.resolved = true;
-        onTask = false;
     }
 
     public void unresolvedTask (Defects task)
     {
         task.resolved = false;
-        onTask = false;
     }
 
     public Defects currentTask()

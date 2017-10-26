@@ -30,6 +30,7 @@ public class TechnicianMain extends AppCompatActivity {
     protected void onResume(Bundle savedInstanceState)
     {
         super.onResume();
+        setTexts();
 
         //not sure if needed
         /*

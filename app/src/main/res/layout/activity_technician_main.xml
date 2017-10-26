@@ -42,10 +42,11 @@
         android:id="@+id/tasksButton"
         android:layout_width="0.650in"
         android:layout_height="0.380in"
-        android:background="@drawable/techmain_viewdefects"
-        android:layout_below="@+id/flightRegister"
         android:layout_alignStart="@+id/acRegn"
-        android:layout_marginTop="0.0001dp" />
+        android:layout_below="@+id/flightRegister"
+        android:layout_marginTop="0.0001dp"
+        android:background="@drawable/techmain_viewdefects"
+        android:onClick="tasks" />
 
     <ImageView
         android:id="@+id/viewDefects"
@@ -76,15 +77,17 @@
         android:layout_alignBottom="@+id/currentAC"
         android:layout_marginEnd="14dp"
         android:layout_toStartOf="@+id/equipButton"
-        android:background="@drawable/techtask_refreshicon" />
+        android:background="@drawable/techtask_refreshicon"
+        android:onClick="refresh" />
 
     <Button
         android:id="@+id/equipButton"
         android:layout_width="0.25in"
         android:layout_height="0.23in"
-        android:background="@drawable/techtask_equipmenticon"
+        android:layout_alignEnd="@+id/viewDefects"
         android:layout_alignTop="@+id/currentAC"
-        android:layout_alignEnd="@+id/viewDefects" />
+        android:background="@drawable/techtask_equipmenticon"
+        android:onClick="equipment" />
 
 
     <Button

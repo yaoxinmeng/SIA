@@ -8,6 +8,11 @@ import android.widget.TextView;
 
 public class TechnicianTasksMain extends AppCompatActivity {
     private Technicians technician;
+    TextView arrTime;
+    TextView depTime;
+    TextView bay;
+    TextView type;
+    TextView status;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
