@@ -26,6 +26,8 @@ public class TechnicianMain extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         technician = (Technicians) extras.getSerializable("TECH");
+        technician.updatePlanes();
+
         setTexts();
         regn = (TextView) findViewById(R.id.flightRegister);
         bay = (TextView) findViewById(R.id.bayData);

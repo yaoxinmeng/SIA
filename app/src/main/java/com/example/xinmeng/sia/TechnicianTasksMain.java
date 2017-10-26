@@ -31,7 +31,7 @@ public class TechnicianTasksMain extends AppCompatActivity {
         setContentView(R.layout.activity_technician_tasks_main);
 
         MyAdapter<DefectsFetcher> defectsAdapter = new MyAdapter(this, R.layout.tech_tabinterface, DefectsFetcherList);
-        ListView defectsList =  (ListView) findViewById(R.id.detail_list);
+        ListView defectsList = (ListView) findViewById(R.id.detail_list);
         defectsList.setAdapter(defectsAdapter);
 
         Bundle extras = getIntent().getExtras();

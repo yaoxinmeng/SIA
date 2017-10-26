@@ -19,7 +19,7 @@ public class Technicians {
     public int numberOfTasks; //number of non-completed tasks in allTasks
 
     public Technicians() {
-        planeID = null;
+        planeID = "";
         planes = null;
         allTasks = null;
         currentPlane = null;
@@ -46,6 +46,15 @@ public class Technicians {
         }
     }
 
+    public void updateIDs()
+    {
+        planeID = "";
+        for(Plane plane : planes)
+        {
+            planeID = plane.regn + "-";
+        }
+    }
+
     public void setNumberOfTasks()
     {
         int n = 0;
@@ -67,6 +76,7 @@ public class Technicians {
             allTasks.addFirst(newChild);
         }
         numberOfTasks = allTasks.size();
+        updateIDs();
     }
 
     public void addPlane(Plane plane)
@@ -79,12 +89,14 @@ public class Technicians {
             allTasks.add(newChild);
         }
         numberOfTasks = allTasks.size();
+        updateIDs();
     }
 
     public void boardPlane() {
         currentPlane = (Plane) planes.element();
         planes.removeFirst();
         currentPlane.inProgress = true;
+        updateIDs();
 
         //sets current tasks
         for (Object child : currentPlane.defects)
