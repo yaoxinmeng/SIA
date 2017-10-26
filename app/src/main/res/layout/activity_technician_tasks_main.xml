@@ -12,7 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true" />
+        android:layout_alignParentTop="true"
+        tools:layout="@layout/skybluebg" />
 
     <fragment
         android:id="@+id/flightinfofragment"
@@ -21,7 +22,8 @@
         android:layout_height="200dp"
         android:layout_alignParentStart="false"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        tools:layout="@layout/fragment_flight_info" />
 
 
     <TextView
@@ -58,7 +60,7 @@
         android:layout_height="275dp"
         app:srcCompat="@drawable/techtask_tab"
         android:layout_below="@+id/display_task"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="14dp"
         android:layout_alignParentEnd="true" />
 
     <ListView
@@ -67,8 +69,8 @@
         android:layout_height="265dp"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
-        android:layout_alignBottom="@+id/taskbg"
-        android:layout_alignParentStart="true" />
+        android:layout_alignTop="@+id/taskbg"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/button"

@@ -3,6 +3,10 @@ package com.example.xinmeng.sia;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import com.example.xinmeng.sia.Adapter.SpareListAdapter;
 import android.view.View;
 import android.widget.TextView;
 
@@ -14,6 +18,10 @@ import static java.lang.System.currentTimeMillis;
 public class TechnicianEquipment extends AppCompatActivity {
     private Technicians technician;
     private String techID;
+    private Plane currentPlane;
+    private List equipment = new ArrayList<String>();
+    ArrayList<DefectsFetcher> DefectsList = new ArrayList<>();
+
     private Plane firstPlane;
     private ArrayList<String> equipment = new ArrayList<>();
 
@@ -28,6 +36,11 @@ public class TechnicianEquipment extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_technician_equipment);
+
+        ListView mListView = (ListView) findViewById(R.id.spare_list);
+        SpareListAdapter adapter = new SpareListAdapter(this,R.layout.tech_tabinterface,DefectsList);
+        mListView.setAdapter(adapter);
+
 
         Bundle extras = getIntent().getExtras();
         techID = extras.getString("TECH_ID");

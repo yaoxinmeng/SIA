@@ -8,21 +8,21 @@
     <TextView
         android:id="@+id/defect_header"
         android:layout_width="64dp"
-        android:layout_height="22dp"
+        android:layout_height="18dp"
         android:background="@drawable/techtask_blue"
         android:text="Text View"
         android:textAlignment="gravity"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
         android:layout_marginTop="9dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="7dp"
         android:layout_marginStart= "16dp"
         />
 
     <TextView
         android:id="@+id/defect_content"
         android:layout_width="wrap_content"
-        android:layout_height="22dp"
+        android:layout_height="18dp"
         android:layout_alignBaseline="@+id/defect_header"
         android:layout_alignBottom="@+id/defect_header"
         android:layout_alignParentEnd="true"
@@ -33,17 +33,19 @@
         android:text="TextView"
         android:textColor="?attr/colorPrimary"
         android:textSize="14dp"
+        android:layout_marginBottom="7dp"
         tools:background="@drawable/techtask_white" />
 
     <Button
         android:id="@+id/defectButton"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
         android:background="@drawable/techtask_nextbutton"
         android:layout_alignBottom="@+id/defect_content"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="1dp"
         android:layout_alignEnd="@+id/defect_content"
-        android:layout_marginEnd="8dp" />
+        android:layout_marginEnd="4dp"
+        android:visibility="invisible"/>
 
     <ImageView
         android:id="@+id/priority_asterisk"
@@ -51,9 +53,10 @@
         android:layout_height="10dp"
         app:srcCompat="@drawable/techtask_asterisk"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="4dp"
-        android:visibility="visible"
+        android:layout_marginLeft="9dp"
+        android:layout_marginTop="5dp"
+        android:visibility="invisible"
         />
+
 
 </RelativeLayout>
