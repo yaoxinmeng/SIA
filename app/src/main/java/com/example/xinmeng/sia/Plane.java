@@ -34,8 +34,6 @@ public class Plane {
 
     //Aircraft details
     public String regn;
-    public int age;
-    public int ATA;
 
     //Defects details
     public List defects = new ArrayList<Defects>();
@@ -45,15 +43,13 @@ public class Plane {
     public boolean inProgress;
     public boolean completed;
 
-    Plane(String regn, String bay, Date arrTime, Date depTIme, int age, int ATA)
+    Plane(String regn, String bay, Date arrTime, Date depTIme)
     {
         this.regn = regn;
         this.bay = bay;
         this.arrTime = arrTime;
         this.depTIme = depTIme;
         this.timeLeft = depTIme.getTime() - currentTimeMillis();
-        this.age = age;
-        this.ATA = ATA;
 
         for (Object child : Database.defects)
         {

@@ -15,6 +15,8 @@ public class Defects {
     public String stn;
     public String number;
     public int classCode;
+    public int age;
+    public int ata;
 
     public boolean inProgress;
     public boolean resolved;
@@ -26,7 +28,7 @@ public class Defects {
     public String deferralReason;
     public String techID; //techID assigned to this defect
 
-    public Defects(String category, String description, String regn, String dateRaised, String fleet, String stn, String number, String classCode) {
+    public Defects(String category, String description, String regn, String dateRaised, String fleet, String stn, String number, String classCode, int age, int ata) {
         this.category = category;
         this.description = description;
         this.regn = regn;
@@ -34,6 +36,8 @@ public class Defects {
         this.fleet = fleet;
         this.stn = stn;
         this.number = number;
+        this.age = age;
+        this.ata = ata;
 
         if (classCode.equals("Economy"))
             this.classCode = Database.Economy;
@@ -51,5 +55,35 @@ public class Defects {
         this.priority = 0;
         this.deferralReason = null;
         this.techID = null;
+    }
+
+    public Defects (DefectsFetcher defect)
+    {
+        this.category = defect.getCategory();
+        this.description = defect.getDefects();
+        this.regn = defect.getRegn();
+        this.dateRaised = defect.getDateRaised();
+        this.fleet = defect.getFleet();
+        this.stn = defect.getStn();
+        this.number = defect.getId();
+        this.age = defect.getAgeing();
+        this.ata = defect.getAta();
+
+        if (defect.getClassCode().equals("Economy"))
+            this.classCode = Database.Economy;
+        else if (defect.getClassCode().equals("Premium"))
+            this.classCode = Database.Premium;
+        else if (defect.getClassCode().equals("Business"))
+            this.classCode = Database.Business;
+        else if (defect.getClassCode().equals("First"))
+            this.classCode = Database.First;
+
+        this.inProgress = defect.getInProgress();
+        this.resolved = defect.getResolved();
+        this.parts = defect.getPartDetails();
+        this.action = defect.getAction();
+        this.priority = 0;
+        this.deferralReason = defect.getDeferralReason();
+        this.techID = defect.getTechnicianID();
     }
 }

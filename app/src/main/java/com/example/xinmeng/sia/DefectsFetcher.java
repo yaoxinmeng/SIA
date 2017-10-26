@@ -22,6 +22,35 @@ public class DefectsFetcher {
     private Boolean resolved;
     private String technicianID;
 
+    public DefectsFetcher(Defects defect)
+    {
+        this.regn = defect.regn;
+        this.fleet = defect.fleet;
+        this.stn = defect.stn;
+        this.dateRaised = defect.dateRaised;
+        this.ata = defect.ata;
+        this.ageing = defect.age;
+        this.defects = defect.description;
+        this.action = defect.action;
+        this.partDetails = defect.parts;
+        this.action = defect.action;
+        this.deferralReason = defect.deferralReason;
+        this.category = defect.category;
+        this.assigned = defect.inProgress;
+        this.inProgress = defect.inProgress;
+        this.resolved = defect.resolved;
+        this.technicianID = defect.techID;
+        if (defect.classCode == Database.Economy)
+            this.classCode = "Economy";
+        else if (defect.classCode==Database.Premium)
+            this.classCode = "Premium";
+        else if (defect.classCode == Database.Business)
+            this.classCode = "Business";
+        else if (defect.classCode == Database.First)
+            this.classCode = "First";
+
+    }
+
     @com.google.gson.annotations.SerializedName("id")
     private String mId;
     public String getId() { return mId; }
