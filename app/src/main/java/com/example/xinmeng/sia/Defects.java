@@ -1,5 +1,7 @@
 package com.example.xinmeng.sia;
 
+import java.io.IOException;
+import java.io.ObjectStreamException;
 import java.util.Date;
 
 /**
@@ -27,6 +29,22 @@ public class Defects {
     public int priority;
     public String deferralReason;
     public String techID; //techID assigned to this defect
+
+    //For serialization
+    private void writeObject(java.io.ObjectOutputStream out)
+            throws IOException {
+
+    }
+
+    private void readObject(java.io.ObjectInputStream in)
+            throws IOException, ClassNotFoundException {
+
+    }
+
+    private void readObjectNoData()
+            throws ObjectStreamException {
+
+    }
 
     public Defects(){}
     public Defects(String category, String description, String regn, String dateRaised, String fleet, String stn, String number, String classCode, int age, int ata) {

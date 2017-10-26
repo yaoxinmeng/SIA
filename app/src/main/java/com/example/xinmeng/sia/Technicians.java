@@ -1,5 +1,7 @@
 package com.example.xinmeng.sia;
 
+import java.io.IOException;
+import java.io.ObjectStreamException;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
@@ -16,6 +18,22 @@ public class Technicians {
     public Plane currentPlane;
     public String ID; // ID of this technician
     public int numberOfTasks; //number of non-completed tasks in allTasks
+
+    //For serialization
+    private void writeObject(java.io.ObjectOutputStream out)
+            throws IOException {
+
+    }
+
+    private void readObject(java.io.ObjectInputStream in)
+            throws IOException, ClassNotFoundException {
+
+    }
+
+    private void readObjectNoData()
+            throws ObjectStreamException {
+
+    }
 
     public Technicians() {
         planeID = "";
