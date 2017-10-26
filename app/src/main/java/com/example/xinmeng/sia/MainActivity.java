@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     //RelativeLayout layout;
 
     Button login_button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -112,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
                             else {
                             Toast.makeText(MainActivity.this,
                                     "Invalid Username / Password", Toast.LENGTH_SHORT).show();
+
 
 
                         }

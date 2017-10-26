@@ -25,7 +25,7 @@ public class PlaneData {
         this.arrTime = arrTime;
         this.arrDate = arrDate;
         this.depTime = depTime;
-        this.depTime = depTime;
+        this.depDate = depDate;
         this.delay= delay;
         this.bay = bay;
     }
@@ -92,7 +92,7 @@ public class PlaneData {
     }
 
     public void setArrDate(String arrDate) {
-        this.arrTime = arrDate;
+        this.arrDate = arrDate;
     }
 
     @com.google.gson.annotations.SerializedName("depDate")
@@ -101,7 +101,7 @@ public class PlaneData {
     }
 
     public void setDepDate(String depDate) {
-        this.depTime = depDate;
+        this.depDate = depDate;
     }
 
     @com.google.gson.annotations.SerializedName("delay")
