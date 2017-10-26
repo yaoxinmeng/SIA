@@ -28,6 +28,12 @@ public class Technicians {
         numberOfTasks = 0;
     }
 
+    public Technicians(TechnicianData technicianData){
+        planeID = technicianData.getPlaneID();
+        ID = technicianData.getId();
+        this.updatePlanes();
+    }
+
     public void refresh()
     {
         setNumberOfTasks();
@@ -49,9 +55,10 @@ public class Technicians {
     public void updateIDs()
     {
         planeID = "";
-        for(Plane plane : planes)
-        {
-            planeID = plane.regn + "-";
+        if (planes!=null) {
+            for (Plane plane : planes) {
+                planeID = plane.regn + "-";
+            }
         }
     }
 
