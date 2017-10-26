@@ -5,10 +5,16 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.provider.ContactsContract;
 
+import com.example.xinmeng.sia.ViewHolders.PlaneData;
+
 import java.io.ObjectStreamException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
+import java.util.Locale;
 
 import static java.lang.System.currentTimeMillis;
 import static java.lang.System.setErr;
@@ -56,6 +62,19 @@ public class Plane {
                 this.defects.add(newChild);
         }
         this.numberOfDefects = this.defects.size();
+    }
+
+    public Plane(PlaneData planeData){
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.ENGLISH);
+        this.regn = planeData.getId();
+        this.bay = planeData.getBay();
+        try {
+            this.arrTime = df.parse(planeData.getArrDate() + ' ' + planeData.getArrTime());
+            this.depTIme = df.parse(planeData.getDepDate() + ' ' + planeData.getDepTime());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        this.timeLeft = depTIme.getTime() - currentTimeMillis();
     }
 
     public void autoAssignTechnicians()

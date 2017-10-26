@@ -1,6 +1,12 @@
 package com.example.xinmeng.sia.ViewHolders;
 
 
+import com.example.xinmeng.sia.Plane;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+
 /**
  * Created by jrnew on 26/10/2017.
  */
@@ -28,6 +34,18 @@ public class PlaneData {
         this.depDate = depDate;
         this.delay= delay;
         this.bay = bay;
+    }
+    public PlaneData(Plane plane){
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
+        DateFormat tf = new SimpleDateFormat("HH:mm");
+        this.id = plane.regn;
+        this.ACType = plane.type;
+        this.arrDate = df.format(plane.arrTime);
+        this.depDate = df.format(plane.depTIme);
+        this.arrTime = tf.format(plane.arrTime);
+        this.depTime = tf.format(plane.depTIme);
+        this.delay = plane.delay;
+        this.bay = plane.bay;
     }
 
 
