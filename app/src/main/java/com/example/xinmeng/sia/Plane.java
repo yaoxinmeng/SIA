@@ -78,17 +78,17 @@ public class Plane {
     {
         if (numberOfTechnicians < numberOfDefects)
         {
-            List technicians = new ArrayList<Technicians>(); //Creates a list of technicians for this plane
-            for(Object child : Database.technicians)
+            List <Technicians> technicians = new ArrayList<Technicians>(); //Creates a list of technicians for this plane
+            for(Technicians child : Database.technicians)
             {
-                Technicians newChild = (Technicians) child;
+                Technicians newChild = child;
                 if (technicians.size() < numberOfTechnicians)
                     technicians.add(newChild);
                 else
                 {
-                    for (Object grandchild : technicians) //compares size of tasks of the current technicians list with the newChild
+                    for (Technicians grandchild : technicians) //compares size of tasks of the current technicians list with the newChild
                     {
-                        Technicians newGrandchild = (Technicians) grandchild;
+                        Technicians newGrandchild = grandchild;
                         if(newChild.allTasks.size() < newGrandchild.allTasks.size())
                         {
                             technicians.remove(newGrandchild);
@@ -98,9 +98,9 @@ public class Plane {
                 }
             }
 
-            for (Object child : technicians)
+            for (Technicians child : technicians)
             {
-                ((Technicians) child).addPlane(this);
+                child.addPlane(this);
             }
         }
     }

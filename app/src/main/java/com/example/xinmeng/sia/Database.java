@@ -8,12 +8,12 @@ import java.util.List;
  */
 
 public class Database {
-    public static List defects = new ArrayList<Defects>();
-    public static List planes = new ArrayList<Plane>();
-    public static List technicians = new ArrayList<Technicians>();
-    public static List techIDs = new ArrayList<String>();
-    public static List supervisorIDs = new ArrayList<String>();
-    public static List plannerIDs = new ArrayList<String>();
+    public static List<Defects> defects = new ArrayList<Defects>();
+    public static List<Plane> planes = new ArrayList<Plane>();
+    public static List<Technicians> technicians = new ArrayList<Technicians>();
+    public static List<String> techIDs = new ArrayList<String>();
+    public static List<String> supervisorIDs = new ArrayList<String>();
+    public static List<String> plannerIDs = new ArrayList<String>();
 
     //definitions for classCode
     public static final int Economy = 0;
