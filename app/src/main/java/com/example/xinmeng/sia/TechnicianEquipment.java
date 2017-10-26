@@ -19,7 +19,6 @@ public class TechnicianEquipment extends AppCompatActivity {
     private Technicians technician;
     private String techID;
     private Plane currentPlane;
-    private List equipment = new ArrayList<String>();
     ArrayList<DefectsFetcher> DefectsList = new ArrayList<>();
 
     private Plane firstPlane;
