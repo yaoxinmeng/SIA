@@ -14,6 +14,10 @@ public class TechnicianData {
         this.planeID = technicians.planeID;
         this.id = technicians.ID;
     }
+    public TechnicianData(String planeID, String id){
+        this.planeID = planeID;
+        this.id = id;
+    }
 
     @com.google.gson.annotations.SerializedName("id")
     public String getId() {

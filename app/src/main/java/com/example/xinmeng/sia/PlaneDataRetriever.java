@@ -21,24 +21,25 @@ import java.util.concurrent.TimeUnit;
  */
 
 public class PlaneDataRetriever {
-    MobileServiceClient mClient;
+//    MobileServiceClient mClient;
     MobileServiceTable<PlaneData> mPlanesTable;
-    public PlaneDataRetriever(Context context) {
-        try {
-            mClient = new MobileServiceClient("https://sactest.azurewebsites.net", context);
-            mClient.setAndroidHttpClientFactory(new OkHttpClientFactory() {
-                @Override
-                public OkHttpClient createOkHttpClient() {
-                    OkHttpClient client = new OkHttpClient();
-                    client.setReadTimeout(20, TimeUnit.SECONDS);
-                    client.setWriteTimeout(20, TimeUnit.SECONDS);
-                    return client;
-                }
-            });
-            mPlanesTable = mClient.getTable("PlanesData", PlaneData.class);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
+    public PlaneDataRetriever(MobileServiceClient mClient) {
+        mPlanesTable = mClient.getTable("PlanesData", PlaneData.class);
+//        try {
+//            mClient = new MobileServiceClient("https://sactest.azurewebsites.net", context);
+//            mClient.setAndroidHttpClientFactory(new OkHttpClientFactory() {
+//                @Override
+//                public OkHttpClient createOkHttpClient() {
+//                    OkHttpClient client = new OkHttpClient();
+//                    client.setReadTimeout(20, TimeUnit.SECONDS);
+//                    client.setWriteTimeout(20, TimeUnit.SECONDS);
+//                    return client;
+//                }
+//            });
+//            mPlanesTable = mClient.getTable("PlanesData", PlaneData.class);
+//        } catch (MalformedURLException e) {
+//            e.printStackTrace();
+//        }
     }
 
     public List<PlaneData> fetchPlanesData(){
