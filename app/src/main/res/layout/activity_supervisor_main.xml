@@ -6,6 +6,63 @@
     android:layout_height="match_parent"
     tools:context="com.example.xinmeng.sia.SupervisorMain">
 
+    <fragment
+        android:id="@+id/bgfragmentsup"
+        android:name="com.example.xinmeng.sia.SkyOrangeBgFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/skyorangebg" />
+
+    <ImageView
+        android:id="@+id/whitebg"
+        android:layout_width="353dp"
+        android:layout_height="468dp"
+        app:srcCompat="@drawable/supmain_tab"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp" />
+
+    <Button
+        android:id="@+id/completed_tab_unclicked"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/supmain_completedtablight"
+        android:layout_above="@+id/whitebg"
+        android:layout_alignEnd="@+id/whitebg" />
+
+    <Button
+        android:id="@+id/inprogress_tab_unclicked"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_above="@+id/whitebg"
+        android:background=""
+        android:layout_toStartOf="@+id/completed_tab_unclicked"
+ />
+
+    <Button
+        android:id="@+id/assigned_tab_unclicked"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:background="@drawable/supmain_assignedtablight"
+        android:layout_above="@+id/whitebg"
+        android:layout_toStartOf="@+id/inprogress_tab_unclicked" />
+
+    <Button
+        android:id="@+id/unassigned_tab_unclicked"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_above="@+id/whitebg"
+        android:layout_toStartOf="@+id/assigned_tab_unclicked" />
+
+    <ImageView
+        android:id="@+id/aircraft_header"
+        android:layout_width="330dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="13dp"
+        app:srcCompat="@drawable/supmain_orangetab"
+        android:layout_below="@+id/completed_tab_unclicked"
+        android:layout_alignStart="@+id/unassigned_tab_unclicked" />
 
 
 </RelativeLayout>
