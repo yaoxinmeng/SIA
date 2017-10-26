@@ -12,10 +12,10 @@ import java.io.Serializable;
 public class TechnicianMain extends AppCompatActivity {
     private Technicians technician;
 
-    TextView regn = (TextView) findViewById(R.id.flightRegister);
-    TextView bay = (TextView) findViewById(R.id.bayData);
-    TextView onTime = (TextView) findViewById(R.id.onTime);
-    TextView arrTime = (TextView) findViewById(R.id.arrData);
+    TextView regn;
+    TextView bay;
+    TextView onTime;
+    TextView arrTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,10 @@ public class TechnicianMain extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         technician = (Technicians) extras.getSerializable("TECH");
         setTexts();
+        regn = (TextView) findViewById(R.id.flightRegister);
+        bay = (TextView) findViewById(R.id.bayData);
+        onTime = (TextView) findViewById(R.id.onTime);
+        arrTime = (TextView) findViewById(R.id.arrData);
     }
 
     protected void onResume(Bundle savedInstanceState)
