@@ -18,7 +18,6 @@ import static java.lang.System.currentTimeMillis;
 public class TechnicianEquipment extends AppCompatActivity {
     private Technicians technician;
     private String techID;
-    private Plane currentPlane;
     ArrayList<DefectsFetcher> DefectsList = new ArrayList<>();
 
     private Plane firstPlane;
