@@ -199,8 +199,8 @@ public class TechnicianTasksMain extends AppCompatActivity {
             if (tasksForDisplay().get(0) != null)
             {
                 Intent intent = new Intent(TechnicianTasksMain.this, TechnicianTaskDetail.class);
-                intent.putExtra("TASK", (Serializable) tasksForDisplay().get(0));
-                intent.putExtra("PLANE", (Serializable) firstPlane);
+                intent.putExtra("TASK_ID", tasksForDisplay().get(0).number);
+                intent.putExtra("PLANE_ID", firstPlane.regn);
                 startActivity(intent);
             }
         }
@@ -213,8 +213,8 @@ public class TechnicianTasksMain extends AppCompatActivity {
             if (tasksForDisplay().get(1) != null)
             {
                 Intent intent = new Intent(TechnicianTasksMain.this, TechnicianTaskDetail.class);
-                intent.putExtra("TASK", (Serializable) tasksForDisplay().get(1));
-                intent.putExtra("PLANE", (Serializable) firstPlane);
+                intent.putExtra("TASK_ID", tasksForDisplay().get(1).number);
+                intent.putExtra("PLANE_ID", firstPlane.regn);
                 startActivity(intent);
             }
         }
@@ -227,8 +227,8 @@ public class TechnicianTasksMain extends AppCompatActivity {
             if (tasksForDisplay().get(2) != null)
             {
                 Intent intent = new Intent(TechnicianTasksMain.this, TechnicianTaskDetail.class);
-                intent.putExtra("TASK", (Serializable) tasksForDisplay().get(2));
-                intent.putExtra("PLANE", (Serializable) firstPlane);
+                intent.putExtra("TASK_ID", tasksForDisplay().get(2).number);
+                intent.putExtra("PLANE_ID", firstPlane.regn);
                 startActivity(intent);
             }
         }
@@ -241,8 +241,8 @@ public class TechnicianTasksMain extends AppCompatActivity {
             if (tasksForDisplay().get(3) != null)
             {
                 Intent intent = new Intent(TechnicianTasksMain.this, TechnicianTaskDetail.class);
-                intent.putExtra("TASK", (Serializable) tasksForDisplay().get(3));
-                intent.putExtra("PLANE", (Serializable) firstPlane);
+                intent.putExtra("TASK_ID", tasksForDisplay().get(3).number);
+                intent.putExtra("PLANE_ID", firstPlane.regn);
                 startActivity(intent);
             }
         }

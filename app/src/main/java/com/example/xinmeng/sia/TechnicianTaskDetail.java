@@ -21,6 +21,8 @@ import static java.lang.System.currentTimeMillis;
 public class TechnicianTaskDetail extends AppCompatActivity {
     private Defects task;
     private Plane plane;
+    private String taskID;
+    private String planeID;
 
     //fragment
     TextView arrTime;
@@ -46,8 +48,25 @@ public class TechnicianTaskDetail extends AppCompatActivity {
         setContentView(R.layout.activity_technician_tasks_main);
 
         Bundle extras = getIntent().getExtras();
-        task = (Defects) extras.getSerializable("TASK");
-        plane = (Plane) extras.getSerializable("PLANE");
+        taskID = extras.getString("TASK_ID");
+        planeID = extras.getString("PLANE_ID");
+
+        for (Defects child : Database.defects)
+        {
+            if(taskID.equals(child.number))
+            {
+                task = child;
+                break;
+            }
+        }
+        for (Plane child : Database.planes)
+        {
+            if(planeID.equals(child.regn))
+            {
+                plane = child;
+                break;
+            }
+        }
 
         regn = (TextView) findViewById(R.id.flight_regn);
         bay = (TextView) findViewById(R.id.flight_bay);
@@ -64,7 +83,6 @@ public class TechnicianTaskDetail extends AppCompatActivity {
         status = (TextView) findViewById(R.id.flight_status);
         status = (TextView) findViewById(R.id.flight_status);
         status = (TextView) findViewById(R.id.flight_status);
-
 
         setTexts();
     }
