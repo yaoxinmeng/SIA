@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import static java.lang.System.currentTimeMillis;
 
@@ -24,15 +25,23 @@ public class TechnicianMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_technician_main);
 
-        Bundle extras = getIntent().getExtras();
-        technician = (Technicians) extras.getSerializable("TECH");
+        String techName = getIntent().getStringExtra("TECH");
+        for (Technicians child : Database.technicians)
+        {
+            if (child.ID.equals(techName))
+            {
+                technician = child;
+                break;
+            }
+        }
         technician.updatePlanes();
-
-        setTexts();
+        technician.planes.add(new Plane("test","test",new Date(123456), new Date(123456)));
         regn = (TextView) findViewById(R.id.flightRegister);
         bay = (TextView) findViewById(R.id.bayData);
         onTime = (TextView) findViewById(R.id.onTime);
         arrTime = (TextView) findViewById(R.id.arrData);
+
+        setTexts();
     }
 
     protected void onResume(Bundle savedInstanceState)

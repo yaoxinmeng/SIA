@@ -2,6 +2,7 @@ package com.example.xinmeng.sia;
 
 import java.io.IOException;
 import java.io.ObjectStreamException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.LinkedList;
@@ -12,7 +13,7 @@ import java.util.Queue;
  * Created by Xin Meng on 23/10/2017.
  */
 
-public class Technicians {
+public class Technicians implements Serializable {
     public String planeID;
     public Deque<Plane> planes; //all planes assigned to this technician
     public Deque<Defects> allTasks; //all tasks in the planes queue that are assigned to this technician
@@ -63,16 +64,16 @@ public class Technicians {
         setNumberOfTasks();
     }
 
-    public void updatePlanes()
-    {
+    public void updatePlanes() {
         String[] planeIDs = planeID.split("-");
-        for (String pID : planeIDs)
-        {
-            for (Plane plane : Database.planes)
-            {
+        for (String pID : planeIDs) {
+            for (Plane plane : Database.planes) {
                 if (plane.regn.equals(pID))
                     planes.add(plane);
             }
+        }
+        if (!planes.isEmpty()){
+            currentPlane = planes.getFirst();
         }
     }
 
