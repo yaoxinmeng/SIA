@@ -52,9 +52,9 @@ public class TechnicianEquipment extends AppCompatActivity {
             }
         }
         firstPlane = technician.currentPlane;
-        for (Object child : firstPlane.defects)
+        for (Defects child : firstPlane.defects)
         {
-            String parts = ((Defects) child).parts;
+            String parts = child.parts;
             equipment.add(parts);
         }
 
