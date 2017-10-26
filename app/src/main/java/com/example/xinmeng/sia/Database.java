@@ -1,5 +1,8 @@
 package com.example.xinmeng.sia;
 
+import com.example.xinmeng.sia.Models.defectsDataRetriever;
+import com.example.xinmeng.sia.ViewHolders.PlaneData;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,22 +24,50 @@ public class Database {
     public static final int Business = 2;
     public static final int First = 3;
 
+    //helper classes to get the required data
+    private static List<DefectsFetcher> defectsFetcher = new ArrayList<DefectsFetcher>();
+    private static List<PlaneData> planesData = new ArrayList<PlaneData>();
+
     public static void updateFromDatabase()
     {
-        //pull from jinrui's database
+        defectsFetcher = databaseGetter.getInstance().getDefectsDataGetter().fetchDefectsData();
+        planesData = databaseGetter.getInstance().getPlaneDataGetter().fetchPlanesData();
+        Thread thread = new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                try  {
+                    if(!defectsFetcher.isEmpty()){
+                        defects.clear();
+                        for(DefectsFetcher d : defectsFetcher)
+                            defects.add(new Defects(d));
+                    }
+                    if (!planesData.isEmpty()){
+                        planes.clear();
+                        for(PlaneData p : planesData)
+                            planes.add(new Plane(p));
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        thread.start();
 
     }
 
     public static void updateToDatabase(Plane plane)
     {
         //push to jinrui's database
+        databaseGetter.getInstance().getPlaneDataGetter().updateData(new PlaneData(plane));
 
     }
 
     public static void updateToDatabase(Defects defect)
     {
         //push to jinrui's database
-
+        databaseGetter.getInstance().getDefectsDataGetter().updateData(new DefectsFetcher(defect));
     }
 
     public static void updateToDatabase(Technicians tech)
