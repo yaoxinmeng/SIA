@@ -39,7 +39,6 @@ public class MyAdapter<D> extends ArrayAdapter<DefectsFetcher> {
 
         TextView defect_header = (TextView) customView.findViewById(R.id.defect_header);
         TextView defect_content = (TextView) customView.findViewById(R.id.defect_content);
-        Button defect_button = (Button) customView.findViewById(R.id.defectButton);
 
         //defect_header.setText(DefectsFetcher.getId());
         //defect_content.setText(DefectsFetcher.getRegn);

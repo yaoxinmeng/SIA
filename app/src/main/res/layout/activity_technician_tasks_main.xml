@@ -51,25 +51,18 @@
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_alignTop="@+id/refreshButton"
-        android:layout_alignEnd="@+id/detail_list" />
+        android:layout_alignEnd="@+id/flightinfofragment" />
 
     <ImageView
         android:id="@+id/taskbg"
-        android:layout_width="400dp"
-        android:layout_height="270dp"
+        android:layout_width="412dp"
+        android:layout_height="310dp"
         app:srcCompat="@drawable/techtask_tab"
         android:layout_below="@+id/display_task"
         android:layout_marginTop="14dp"
-        android:layout_alignParentEnd="true" />
-
-    <ListView
-        android:id="@+id/detail_list"
-        android:layout_width="match_parent"
-        android:layout_height="265dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_alignTop="@+id/taskbg"
         android:layout_centerHorizontal="true" />
+
+
 
     <Button
         android:id="@+id/button"
@@ -82,7 +75,6 @@
         android:background="@drawable/techunresolved_leftbutton" />
 
 
-<<<<<<< HEAD
     <FrameLayout
         android:id = "@+id/frame1"
         android:layout_width="350dp"
