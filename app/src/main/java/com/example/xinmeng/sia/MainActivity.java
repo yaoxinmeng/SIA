@@ -127,7 +127,14 @@ public class MainActivity extends AppCompatActivity {
                             i.putExtra("TECH", loginID);
                             startActivity(i);
                         }
-                            else {
+                        else if (username_field.getText().toString().equals("supervisor") && password_field.getText().toString().equals("password")) {
+                            Intent i = new Intent(MainActivity.this, SupervisorMain.class);
+                            String loginID = username_field.getText().toString();
+                            i.putExtra("loginID", loginID);
+                            startActivity(i);
+                        }
+
+                        else {
 //                            Toast.makeText(MainActivity.this,
 //                                    "Invalid Username / Password", Toast.LENGTH_SHORT).show();
 
