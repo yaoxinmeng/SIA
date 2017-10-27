@@ -109,8 +109,8 @@
 
     <TextView
         android:id="@+id/pagenumber"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
         android:layout_alignBottom="@+id/whitebg"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="13dp"
@@ -118,12 +118,12 @@
         android:text="1"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="19sp" />
+        android:textSize="25sp" />
 
     <Button
         android:id="@+id/click_right"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
         android:layout_marginStart="15dp"
         android:background="@drawable/supmain_right"
         android:layout_marginBottom="2dp"
@@ -132,8 +132,8 @@
 
     <Button
         android:id="@+id/click_left"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
         android:background="@drawable/supmain_left"
         android:layout_marginEnd="15dp"
         android:layout_alignBottom="@+id/pagenumber"
@@ -164,27 +164,26 @@
         android:id="@+id/ac_table_1.1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SwG"
+        android:layout_alignBottom="@+id/frame1"
+        android:layout_alignStart="@+id/frame1"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="15dp"
+        android:text="SWG"
         android:textAlignment="textStart"
         android:textColor="@android:color/holo_orange_dark"
-        android:textSize="24sp"
-        android:layout_alignBottom="@+id/frame1"
-        android:layout_marginBottom="16dp"
-        android:layout_alignStart="@+id/frame1"
-        android:layout_marginStart="15dp"
-        />
+        android:textSize="24sp" />
+
     <TextView
         android:id="@+id/ac_table_1.2"
         android:layout_width="62dp"
         android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/ac_table_1.3"
+        android:layout_alignBottom="@+id/ac_table_1.3"
+        android:layout_alignStart="@+id/ac_table_2.2"
         android:text="17:02"
         android:textAlignment="textStart"
         android:textColor="@android:color/holo_orange_dark"
-        android:textSize="24sp"
-        android:layout_marginLeft="24dp"
-        android:layout_alignBottom="@+id/frame1"
-        android:layout_marginBottom="16dp"
-        android:layout_toRightOf="@id/ac_table_1.1" />
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/ac_table_1.3"
@@ -291,12 +290,11 @@
         android:layout_alignStart="@+id/aircraft_header"
         android:layout_marginTop="8dp">
 
-    <Button
-        android:id="@+id/aircraft_table3"
-        android:layout_width="330dp"
-        android:layout_height="60dp"
-        android:background="@drawable/supmain_whitewithorangelines"
-         />
+        <Button
+            android:id="@+id/aircraft_table3"
+            android:layout_width="330dp"
+            android:layout_height="60dp"
+            android:background="@drawable/supmain_whitewithorangelines" />
     </FrameLayout>
 
     <TextView

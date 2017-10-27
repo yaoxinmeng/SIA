@@ -42,8 +42,7 @@
         android:layout_height="32dp"
         android:layout_marginEnd="14dp"
         android:layout_alignTop="@+id/display_task"
-        android:layout_toStartOf="@+id/toolButton"
-        android:onClick="refresh"/>
+        android:layout_toStartOf="@+id/toolButton" />
 
 
     <Button
@@ -52,8 +51,7 @@
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_alignTop="@+id/refreshButton"
-        android:layout_alignEnd="@+id/detail_list"
-        android:onClick="equipment"/>
+        android:layout_alignEnd="@+id/detail_list" />
 
     <ImageView
         android:id="@+id/taskbg"
@@ -81,8 +79,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginBottom="10dp"
         android:layout_marginStart="10dp"
-        android:background="@drawable/techunresolved_leftbutton"
-        android:onClick="backback"/>
+        android:background="@drawable/techunresolved_leftbutton" />
 
 
 </RelativeLayout>

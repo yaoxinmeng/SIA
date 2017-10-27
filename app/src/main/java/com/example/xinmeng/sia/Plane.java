@@ -95,9 +95,8 @@ public class Plane {
 
         for (Defects child : Database.defects)
         {
-            Defects newChild = child;
-            if (newChild.regn.equals(regn))
-                this.defects.add(newChild);
+            if (child.regn.equals(regn))
+                this.defects.add(child);
         }
         this.numberOfDefects = this.defects.size();
     }
