@@ -11,8 +11,92 @@
         android:name="com.example.xinmeng.sia.SkyOrangeBgFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         tools:layout="@layout/skyorangebg" />
 
+    <TextView
+        android:id="@+id/taskSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="38dp"
+        android:gravity="center"
+        android:text="Priority Task Submission"
+        android:textColor="#000000"
+        android:textSize="26sp" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="282dp"
+        android:layout_height="9dp"
+        android:layout_below="@+id/taskSubmit"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/suppriority_blueline" />
+
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="270dp"
+        android:layout_height="52dp"
+        android:layout_below="@+id/imageView4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="39dp"
+        android:gravity="center"
+        android:text="For Manual Assignment, please enter tech ID"
+        android:textColor="#000000"
+        android:textSize="22sp" />
+
+    <EditText
+        android:id="@+id/techIDField"
+        android:layout_width="1.7in"
+        android:layout_height="0.22in"
+        android:layout_alignStart="@+id/info"
+        android:layout_below="@+id/info"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/suppriority_inputfield"
+
+
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/techLeft"
+        android:layout_width="1.5in"
+        android:layout_height="0.18in"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="0.12in"
+        android:layout_height="0.12in"
+        android:layout_alignStart="@+id/techIDField"
+        android:layout_centerVertical="true"
+        app:srcCompat="@drawable/suppriority_asterisk" />
+
+    <Button
+        android:id="@+id/finish_button"
+        android:layout_width="1.8in"
+        android:layout_height="0.35in"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="6dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/suppriority_finishbutton" />
+
+    <Button
+        android:id="@+id/backbutton"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginStart="15dp"
+        android:background="@drawable/suptask_leftbutton" />
 
 
     <!--<TextView-->

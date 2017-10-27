@@ -91,6 +91,8 @@ public class TechnicianMain extends AppCompatActivity {
             onTime.setText("On Time");
     }
 
+
+
     private String getTime(long time)
     {
         float arrtime = (float) time;

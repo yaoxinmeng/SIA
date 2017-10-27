@@ -127,7 +127,11 @@ public class TechnicianTasksMain extends AppCompatActivity {
                 return String.valueOf(hour) + ":" + String.valueOf(minute);
         }
     }
-
+    private void back()
+    {
+        Intent intent = new Intent(TechnicianTasksMain.this, TechnicianMain.class);
+        startActivity(intent);
+    }
     private ArrayList<Defects> sortTasks(ArrayList<Defects> allTasks)
     {
         ArrayList<Defects> tempList = new ArrayList<>();
@@ -196,6 +200,12 @@ public class TechnicianTasksMain extends AppCompatActivity {
     public void refresh(View view)
     {
         setTexts();
+    }
+    public void backback (View view)
+    {
+        Intent intent = new Intent(TechnicianTasksMain.this, TechnicianMain.class);
+        intent.putExtra("TECH_ID", technician.ID);
+        startActivity(intent);
     }
 
     public void equipment (View view)
@@ -273,5 +283,11 @@ public class TechnicianTasksMain extends AppCompatActivity {
                 startActivity(intent);
             }
         }
+    }
+    public void back (View view)
+    {
+        Intent intent = new Intent(TechnicianTasksMain.this, TechnicianMain.class);
+        intent.putExtra("TECH_ID", technician.ID);
+        startActivity(intent);
     }
 }

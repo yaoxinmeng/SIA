@@ -35,8 +35,8 @@ public class SupervisorPriorityTask extends AppCompatActivity {
         }
         NUMBER_OF_TECHS = extras.getInt("NUMBER_OF_TECHS");
 
-//        techID_field = (EditText) findViewById(R.id.techIDField);
-//        techAssign = (TextView) findViewById(R.id.techLeft);
+        techID_field = (EditText) findViewById(R.id.techIDField);
+        techAssign = (TextView) findViewById(R.id.techLeft);
 
     }
 
@@ -46,7 +46,7 @@ public class SupervisorPriorityTask extends AppCompatActivity {
         {
             if (techID_field.getText().toString().equals(tech.ID))
             {
-                techAssign.setText(NUMBER_OF_TECHS + "Technicians left to Assign");
+                techAssign.setText(NUMBER_OF_TECHS + " Technicians left to assign");
                 tech.addPriorityPlane(plane);
                 plane.assigned = true;
                 //popup message to confirm allocation
