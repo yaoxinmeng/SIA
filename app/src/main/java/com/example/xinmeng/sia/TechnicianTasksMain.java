@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -32,8 +33,10 @@ public class TechnicianTasksMain extends AppCompatActivity {
     TextView depTime;
     TextView bay;
     TextView type;
-    TextView status;
     TextView regn;
+    ImageView delayed;
+    ImageView onTime;
+    ImageView arrived;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +63,9 @@ public class TechnicianTasksMain extends AppCompatActivity {
         arrTime = (TextView) findViewById(R.id.flight_time_arrival);
         depTime = (TextView) findViewById(R.id.flight_time_departure);
         type = (TextView) findViewById(R.id.flight_actype);
-        status = (TextView) findViewById(R.id.flight_status);
+        delayed =(ImageView) findViewById(R.id.status_delayed);
+        onTime =(ImageView) findViewById(R.id.status_ontime);
+        arrived = (ImageView) findViewById(R.id.status_arrived);
 
         setupPage();
     }
@@ -86,12 +91,20 @@ public class TechnicianTasksMain extends AppCompatActivity {
         arrTime.setText(tf.format(firstPlane.arrTime));
         depTime.setText(tf.format(firstPlane.depTIme));
 
-        if (currentTimeMillis() < firstPlane.arrTime.getTime())
-            status.setText("Arrived");
-        else if (firstPlane.delay)
-            status.setText("Delayed");
-        else
-            status.setText("On Time");
+        if (currentTimeMillis() < firstPlane.arrTime.getTime()){
+            onTime.setVisibility(View.INVISIBLE);
+            delayed.setVisibility(View.INVISIBLE);
+            arrived.setVisibility(View.VISIBLE);}
+
+        else if (firstPlane.delay){
+            onTime.setVisibility(View.INVISIBLE);
+            arrived.setVisibility(View.INVISIBLE);
+            delayed.setVisibility(View.VISIBLE);}
+        else {
+            delayed.setVisibility(View.INVISIBLE);
+            arrived.setVisibility(View.INVISIBLE);
+            onTime.setVisibility(View.VISIBLE);
+        }
     }
 
     private String getTime(long time)

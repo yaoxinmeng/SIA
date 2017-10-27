@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -30,8 +31,10 @@ public class TechnicianTaskDetail extends AppCompatActivity {
     TextView depTime;
     TextView bay;
     TextView type;
-    TextView status;
     TextView regn;
+    ImageView delayed;
+    ImageView onTime;
+    ImageView arrived;
 
     //defect info
     TextView defectNo;
@@ -74,7 +77,10 @@ public class TechnicianTaskDetail extends AppCompatActivity {
         arrTime = (TextView) findViewById(R.id.flight_time_arrival);
         depTime = (TextView) findViewById(R.id.flight_time_departure);
         type = (TextView) findViewById(R.id.flight_actype);
-        status = (TextView) findViewById(R.id.flight_status);
+        delayed =(ImageView) findViewById(R.id.status_delayed);
+        onTime =(ImageView) findViewById(R.id.status_ontime);
+        arrived = (ImageView) findViewById(R.id.status_arrived);
+
 
         defectNo = (TextView) findViewById(R.id.show_defectno);
         description = (TextView) findViewById(R.id.show_description);
@@ -100,12 +106,19 @@ public class TechnicianTaskDetail extends AppCompatActivity {
         long deptime = plane.depTIme.getTime();
         depTime.setText(getTime(deptime));
 
-        if (currentTimeMillis() < plane.arrTime.getTime())
-            status.setText("Arrived");
-        else if (plane.delay)
-            status.setText("Delayed");
+        if (currentTimeMillis() < plane.arrTime.getTime()){
+            onTime.setVisibility(View.INVISIBLE);
+            delayed.setVisibility(View.INVISIBLE);
+            arrived.setVisibility(View.VISIBLE);}
+
+        else if (plane.delay){
+            onTime.setVisibility(View.INVISIBLE);
+            arrived.setVisibility(View.INVISIBLE);
+            delayed.setVisibility(View.VISIBLE);}
         else
-            status.setText("On Time");
+            delayed.setVisibility(View.INVISIBLE);
+            arrived.setVisibility(View.INVISIBLE);
+            onTime.setVisibility(View.VISIBLE);
 
         defectNo.setText(task.number);
         description.setText(task.description);

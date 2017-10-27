@@ -25,7 +25,7 @@ public class TechnicianMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_technician_main);
 
-        String techName = getIntent().getStringExtra("TECH");
+        String techName = getIntent().getStringExtra("loginID");
         for (Technicians child : Database.technicians)
         {
             if (child.ID.equals(techName))

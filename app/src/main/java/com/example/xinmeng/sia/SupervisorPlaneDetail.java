@@ -43,7 +43,7 @@ public class SupervisorPlaneDetail extends AppCompatActivity {
             }
         }
 
-        number_of_techs = (EditText) findViewById(R.id.numberOfTechs);
+        /*HEREHEREHEREnumber_of_techs = (EditText) findViewById(R.id.numberOfTechs);
 
         //Hides the assign buttons when unassigned = false
         /*

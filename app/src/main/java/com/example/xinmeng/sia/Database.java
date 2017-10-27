@@ -41,53 +41,53 @@ public class Database {
         defectsFetcher = databaseGetter.getInstance().getDefectsDataGetter().fetchDefectsData();
         planesData = databaseGetter.getInstance().getPlaneDataGetter().fetchPlanesData();
         techniciansData = databaseGetter.getInstance().getTechnicianDataGetter().fetchTechniciansData();
-        if(!defectsFetcher2.isEmpty()){
-            defects.clear();
-            for(DefectsFetcher d : defectsFetcher2)
-                defects.add(new Defects(d));
-        }
-        if (!planesData2.isEmpty()){
-            planes.clear();
-            for(PlaneData p : planesData2)
-                planes.add(new Plane(p));
-        }
-        if (!techniciansData2.isEmpty()){
-            technicians.clear();
-            for(TechnicianData t : techniciansData2)
-                technicians.add(new Technicians(t));
-        }
-//        Thread thread = new Thread(new Runnable() {
-//
-//            @Override
-//            public void run() {
-//                try {
-//                    Thread.sleep(5000);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//                try  {
-//                    if(!defectsFetcher.isEmpty()){
-//                        defects.clear();
-//                        for(DefectsFetcher d : defectsFetcher)
-//                            defects.add(new Defects(d));
-//                    }
-//                    if (!planesData.isEmpty()){
-//                        planes.clear();
-//                        for(PlaneData p : planesData)
-//                            planes.add(new Plane(p));
-//                    }
-//                    if (!techniciansData.isEmpty()){
-//                        technicians.clear();
-//                        for(TechnicianData t : techniciansData)
-//                            technicians.add(new Technicians(t));
-//                    }
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
-//
-//        thread.start();
+//        if(!defectsFetcher2.isEmpty()){
+//            defects.clear();
+//            for(DefectsFetcher d : defectsFetcher2)
+//                defects.add(new Defects(d));
+//        }
+//        if (!planesData2.isEmpty()){
+//            planes.clear();
+//            for(PlaneData p : planesData2)
+//                planes.add(new Plane(p));
+//        }
+//        if (!techniciansData2.isEmpty()){
+//            technicians.clear();
+//            for(TechnicianData t : techniciansData2)
+//                technicians.add(new Technicians(t));
+//        }
+        Thread thread = new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                try  {
+                    if(!defectsFetcher.isEmpty()){
+                        defects.clear();
+                        for(DefectsFetcher d : defectsFetcher)
+                            defects.add(new Defects(d));
+                    }
+                    if (!planesData.isEmpty()){
+                        planes.clear();
+                        for(PlaneData p : planesData)
+                            planes.add(new Plane(p));
+                    }
+                    if (!techniciansData.isEmpty()){
+                        technicians.clear();
+                        for(TechnicianData t : techniciansData)
+                            technicians.add(new Technicians(t));
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        thread.start();
 
     }
 
