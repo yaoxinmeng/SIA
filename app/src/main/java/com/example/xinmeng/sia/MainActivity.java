@@ -51,20 +51,20 @@ public class MainActivity extends AppCompatActivity {
         Database.updateFromDatabase();
         result = databaseGetter.getInstance().getDefectsDataGetter().fetchDefectsData();
         tResult = databaseGetter.getInstance().getTechnicianDataGetter().fetchTechniciansData();
-        Thread thread = new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                Database.updateFromDatabase();
-            }
-        });
-
-        thread.start();
+//        Thread thread = new Thread(new Runnable() {
+//
+//            @Override
+//            public void run() {
+//                try {
+//                    Thread.sleep(2000);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//                Database.updateFromDatabase();
+//            }
+//        });
+//
+//        thread.start();
 
 
         /*Intent display_intent = new Intent(this, userpwDisplay.class);
