@@ -20,10 +20,9 @@
         android:name="com.example.xinmeng.sia.FragmentFlightInfo"
         android:layout_width="350dp"
         android:layout_height="200dp"
-        android:layout_alignParentStart="false"
+        tools:layout="@layout/fragment_flight_info"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        tools:layout="@layout/fragment_flight_info" />
+        android:layout_centerHorizontal="true" />
     <Button
         android:id="@+id/button"
         android:layout_width="32dp"

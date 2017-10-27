@@ -171,10 +171,19 @@
         android:id="@+id/status_ontime"
         android:layout_width="48dp"
         android:layout_height="20dp"
-        app:srcCompat="@drawable/techmain_ontime"
-        android:visibility="visible"
+        app:srcCompat="@drawable/ontime"
+        android:visibility="invisible"
         android:layout_alignBottom="@+id/status_delayed"
         android:layout_alignStart="@+id/status_delayed" />
+
+    <ImageView
+        android:id="@+id/status_arrived"
+        android:layout_width="42dp"
+        android:layout_height="17dp"
+        android:layout_alignStart="@+id/flight_actype"
+        android:layout_alignTop="@+id/display_Status"
+        app:srcCompat="@drawable/arrived"
+        android:visibility="invisible"/>
 
 
 
