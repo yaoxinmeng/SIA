@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
                         if (username_field.getText().toString().equals("technician") && password_field.getText().toString().equals("password")) {
                             Intent i = new Intent(MainActivity.this, TechnicianMain.class);
                             String loginID = username_field.getText().toString();
-                            i.putExtra("TECH", loginID);
+                            i.putExtra("loginID", loginID);
                             startActivity(i);
                         }
                         else if (username_field.getText().toString().equals("supervisor") && password_field.getText().toString().equals("password")) {

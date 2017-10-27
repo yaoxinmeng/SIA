@@ -26,7 +26,7 @@ public class SupervisorMain extends AppCompatActivity {
     private boolean assigned;
     private boolean inProgress;
     private boolean completed;
-    private ArrayList<Plane> planeDisplay;
+    private ArrayList<Plane> planeDisplay = new ArrayList<Plane>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,19 +51,33 @@ public class SupervisorMain extends AppCompatActivity {
 
     private void update()
     {
-        while (true)
-        {
-            //whatever that needs to be updated
-            for (Plane child : planeDisplay)
-            {
-                child.timeLeft = child.depTIme.getTime() - currentTimeMillis();
+        Thread thread = new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    //whatever that needs to be updated
+                    for (Plane child : planeDisplay) {
+                        child.timeLeft = child.depTIme.getTime() - currentTimeMillis();
+                    }
+
+                    Database.updateFromDatabase();
+
+                    //waits 10 sec before next loop
+                    Thread.sleep(10000);
+                    update();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
+        });
 
-            Database.updateFromDatabase();
-
-            //waits 10 sec before next loop
-            SystemClock.sleep(10000);
-        }
+        thread.start();
     }
 
     //Generic functions

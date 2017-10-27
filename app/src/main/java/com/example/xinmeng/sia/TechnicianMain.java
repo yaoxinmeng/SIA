@@ -28,14 +28,13 @@ public class TechnicianMain extends AppCompatActivity {
         String techName = getIntent().getStringExtra("loginID");
         for (Technicians child : Database.technicians)
         {
-            if (child.ID.equals(techName))
+            if (child.ID.equals("technician"))
             {
                 technician = child;
                 break;
             }
         }
         technician.updatePlanes();
-        technician.planes.add(new Plane("test","test",new Date(123456), new Date(123456)));
         regn = (TextView) findViewById(R.id.flightRegister);
         bay = (TextView) findViewById(R.id.bayData);
         onTime = (TextView) findViewById(R.id.onTime);
