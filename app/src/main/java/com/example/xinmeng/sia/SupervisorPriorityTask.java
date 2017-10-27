@@ -35,8 +35,8 @@ public class SupervisorPriorityTask extends AppCompatActivity {
         }
         NUMBER_OF_TECHS = extras.getInt("NUMBER_OF_TECHS");
 
-        techID_field = (EditText) findViewById(R.id.techIDField);
-        techAssign = (TextView) findViewById(R.id.techLeft);
+//        techID_field = (EditText) findViewById(R.id.techIDField);
+//        techAssign = (TextView) findViewById(R.id.techLeft);
 
     }
 
