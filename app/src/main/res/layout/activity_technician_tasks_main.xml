@@ -51,25 +51,17 @@
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_alignTop="@+id/refreshButton"
-        android:layout_alignEnd="@+id/detail_list" />
+        android:layout_alignEnd="@+id/flightinfofragment" />
 
     <ImageView
         android:id="@+id/taskbg"
-        android:layout_width="400dp"
-        android:layout_height="270dp"
-        app:srcCompat="@drawable/techtask_tab"
-        android:layout_below="@+id/display_task"
-        android:layout_marginTop="14dp"
-        android:layout_alignParentEnd="true" />
+        android:layout_width="380dp"
+        android:layout_height="320dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/refreshButton"
+        android:layout_marginTop="11dp"
+        app:srcCompat="@drawable/techtask_tab" />
 
-    <ListView
-        android:id="@+id/detail_list"
-        android:layout_width="match_parent"
-        android:layout_height="265dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_alignTop="@+id/taskbg"
-        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/button"
@@ -81,5 +73,316 @@
         android:layout_marginStart="10dp"
         android:background="@drawable/techunresolved_leftbutton" />
 
+
+    <FrameLayout
+        android:id = "@+id/frame1"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolButton"
+        android:layout_marginTop="36dp"
+        android:layout_marginLeft="24dp"
+        >
+
+
+        <Button
+            android:id="@+id/spare_content_box1"
+            android:layout_width="330dp"
+            android:layout_height="48dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:padding="16dp"
+            android:background="@drawable/techequip_white" />
+
+        <Button
+            android:id="@+id/spare_header_box1"
+            android:layout_width="86dp"
+            android:layout_height="48dp"
+            android:background="@drawable/techtask_blue" />
+
+
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/priority_asterisk1"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_alignTop="@+id/frame1"
+        android:layout_alignStart="@+id/frame1"
+        android:layout_marginLeft="24dp"
+        android:padding="3dp"
+
+        android:layout_alignParentStart="true"
+        app:srcCompat="@drawable/techtask_asterisk"
+        android:visibility="visible"/>
+
+    <TextView
+    android:id="@+id/defect_header1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignStart="@+id/frame1"
+        android:layout_alignTop="@+id/frame1"
+    android:layout_marginLeft="6dp"
+    android:layout_marginTop="13dp"
+    android:text="TextView"
+    android:textColor="#FFFFFF"
+    android:textSize="17dp" />
+
+    <TextView
+        android:id="@+id/defect_content1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/frame1"
+        android:layout_alignTop="@+id/frame1"
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="13dp"
+        android:text="TextView"
+        android:textColor="@color/colorPrimary"
+        android:textSize="17dp" />
+
+
+    <ImageView
+        android:id="@+id/defect_button1"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="48dp"
+        android:layout_marginTop="13dp"
+        android:layout_alignTop="@+id/frame1"
+        app:srcCompat="@drawable/techtask_nextbutton" />
+
+    <FrameLayout
+        android:id = "@+id/frame2"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/frame1"
+        android:layout_marginTop="22dp"
+        android:layout_marginLeft="24dp"
+        >
+
+
+        <Button
+            android:id="@+id/spare_content_box2"
+            android:layout_width="330dp"
+            android:layout_height="48dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:padding="16dp"
+            android:background="@drawable/techequip_white" />
+
+        <Button
+            android:id="@+id/spare_header_box2"
+            android:layout_width="86dp"
+            android:layout_height="48dp"
+            android:background="@drawable/techtask_blue" />
+
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/priority_asterisk2"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_alignTop="@+id/frame2"
+        android:layout_alignStart="@+id/frame2"
+        android:layout_marginLeft="24dp"
+        android:padding="3dp"
+
+        android:layout_alignParentStart="true"
+        app:srcCompat="@drawable/techtask_asterisk"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/defect_header2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/frame2"
+        android:layout_alignTop="@+id/frame2"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="13dp"
+        android:text="TextView"
+        android:textColor="#FFFFFF"
+        android:textSize="17dp" />
+
+    <TextView
+        android:id="@+id/defect_content2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/frame2"
+        android:layout_alignTop="@+id/frame2"
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="13dp"
+        android:text="TextView"
+        android:textColor="@color/colorPrimary"
+        android:textSize="17dp" />
+
+
+    <ImageView
+        android:id="@+id/defect_button2"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="48dp"
+        android:layout_marginTop="13dp"
+        android:layout_alignTop="@+id/frame2"
+        app:srcCompat="@drawable/techtask_nextbutton" />
+
+
+    <FrameLayout
+        android:id = "@+id/frame3"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/frame2"
+        android:layout_marginTop="22dp"
+        android:layout_marginLeft="24dp"
+        >
+
+
+        <Button
+            android:id="@+id/spare_content_box3"
+            android:layout_width="330dp"
+            android:layout_height="48dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:padding="16dp"
+            android:background="@drawable/techequip_white" />
+
+        <Button
+            android:id="@+id/spare_header_box3"
+            android:layout_width="86dp"
+            android:layout_height="48dp"
+            android:background="@drawable/techtask_blue" />
+
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/priority_asterisk3"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_alignTop="@+id/frame3"
+        android:layout_alignStart="@+id/frame3"
+        android:layout_marginLeft="24dp"
+        android:padding="3dp"
+
+        android:layout_alignParentStart="true"
+        app:srcCompat="@drawable/techtask_asterisk"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/defect_header3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/frame3"
+        android:layout_alignTop="@+id/frame3"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="13dp"
+        android:text="TextView"
+        android:textColor="#FFFFFF"
+        android:textSize="17dp" />
+
+    <TextView
+        android:id="@+id/defect_content3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/frame3"
+        android:layout_alignTop="@+id/frame3"
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="13dp"
+        android:text="TextView"
+        android:textColor="@color/colorPrimary"
+        android:textSize="17dp" />
+
+
+    <ImageView
+        android:id="@+id/defect_button3"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="48dp"
+        android:layout_marginTop="13dp"
+        android:layout_alignTop="@+id/frame3"
+        app:srcCompat="@drawable/techtask_nextbutton" />
+
+
+    <FrameLayout
+        android:id = "@+id/frame4"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/frame3"
+        android:layout_marginTop="22dp"
+        android:layout_marginLeft="24dp"
+        >
+
+
+        <Button
+            android:id="@+id/spare_content_box4"
+            android:layout_width="330dp"
+            android:layout_height="48dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:padding="16dp"
+            android:background="@drawable/techequip_white" />
+
+        <Button
+            android:id="@+id/spare_header_box4"
+            android:layout_width="86dp"
+            android:layout_height="48dp"
+            android:background="@drawable/techtask_blue" />
+
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/priority_asterisk4"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_alignTop="@+id/frame4"
+        android:layout_alignStart="@+id/frame4"
+        android:layout_marginLeft="24dp"
+        android:padding="3dp"
+
+        android:layout_alignParentStart="true"
+        app:srcCompat="@drawable/techtask_asterisk"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/defect_header4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/frame4"
+        android:layout_alignTop="@+id/frame4"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="13dp"
+        android:text="TextView"
+        android:textColor="#FFFFFF"
+        android:textSize="17dp" />
+
+    <TextView
+        android:id="@+id/defect_content4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/frame4"
+        android:layout_alignTop="@+id/frame4"
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="13dp"
+        android:text="TextView"
+        android:textColor="@color/colorPrimary"
+        android:textSize="17dp" />
+
+
+    <ImageView
+        android:id="@+id/defect_button4"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="48dp"
+        android:layout_marginTop="13dp"
+        android:layout_alignTop="@+id/frame4"
+        app:srcCompat="@drawable/techtask_nextbutton" />
 
 </RelativeLayout>

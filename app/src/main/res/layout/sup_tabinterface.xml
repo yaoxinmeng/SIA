@@ -5,13 +5,13 @@
 
     <ImageView
         android:id="@+id/defect_content_box"
-        android:layout_width="match_parent"
+        android:layout_width="360dp"
         android:layout_height="48dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="16dp"
-        android:padding="16dp"
-        app:srcCompat="@drawable/suppriority_inputfield" />
+        android:padding="28dp"
+        android:background="@drawable/suppriority_inputfield" />
 
     <ImageView
         android:id="@+id/defect_header_box"
