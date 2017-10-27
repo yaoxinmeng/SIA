@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import static java.lang.System.currentTimeMillis;
@@ -25,14 +26,8 @@ public class TechnicianEquipment extends AppCompatActivity {
     private ArrayList<String> equipment = new ArrayList<>();
 
 
-    TextView arrTime;
-    TextView depTime;
-    TextView bay;
-    TextView type;
+
     TextView regn;
-    ImageView delayed;
-    ImageView onTime;
-    ImageView arrived;
 
 
     @Override
@@ -61,20 +56,15 @@ public class TechnicianEquipment extends AppCompatActivity {
             }
         }
         firstPlane = technician.currentPlane;
+//        firstPlane = new Plane("test", "test", new Date(123456), new Date(123456));
         for (Defects child : firstPlane.defects)
         {
             String parts = child.parts;
             equipment.add(parts);
         }
 
-        regn = (TextView) findViewById(R.id.flight_regn);
-        bay = (TextView) findViewById(R.id.flight_bay);
-        arrTime = (TextView) findViewById(R.id.flight_time_arrival);
-        depTime = (TextView) findViewById(R.id.flight_time_departure);
-        type = (TextView) findViewById(R.id.flight_actype);
-        delayed =(ImageView) findViewById(R.id.status_delayed);
-        onTime =(ImageView) findViewById(R.id.status_ontime);
-        arrived = (ImageView) findViewById(R.id.status_arrived);
+        regn = (TextView) findViewById(R.id.display_acregn);
+
 
         setTexts();
     }
@@ -82,28 +72,6 @@ public class TechnicianEquipment extends AppCompatActivity {
     private void setTexts()
     {
         regn.setText(firstPlane.regn);
-        bay.setText(firstPlane.bay);
-        type.setText(firstPlane.type);
-
-        long arrtime = firstPlane.arrTime.getTime();
-        arrTime.setText(getTime(arrtime));
-        long deptime = firstPlane.depTIme.getTime();
-        depTime.setText(getTime(deptime));
-
-        if (currentTimeMillis() < firstPlane.arrTime.getTime()){
-            onTime.setVisibility(View.INVISIBLE);
-            delayed.setVisibility(View.INVISIBLE);
-            arrived.setVisibility(View.VISIBLE);}
-
-        else if (firstPlane.delay){
-            onTime.setVisibility(View.INVISIBLE);
-            arrived.setVisibility(View.INVISIBLE);
-            delayed.setVisibility(View.VISIBLE);}
-        else {
-            delayed.setVisibility(View.INVISIBLE);
-            arrived.setVisibility(View.INVISIBLE);
-            onTime.setVisibility(View.VISIBLE);
-        }
     }
 
     private String getTime(long time)

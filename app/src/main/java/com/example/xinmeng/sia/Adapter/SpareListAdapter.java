@@ -37,11 +37,11 @@ public class SpareListAdapter extends ArrayAdapter<String>{
         LayoutInflater myInflater = LayoutInflater.from(mContext);
         View customView = myInflater.inflate(mResource,parent,false);
 
-        //TextView spare_header = (TextView) customView.findViewById(R.id.spare_header);
+        TextView spare_header = (TextView) customView.findViewById(R.id.spare_header);
         TextView spare_content = (TextView) customView.findViewById(R.id.spare_content);
 
 
-        //spare_header.setText(getItem(position).getId());
+        spare_header.setText(Integer.toString(position+1));
         spare_content.setText(getItem(position).toString());
         return customView;
 
