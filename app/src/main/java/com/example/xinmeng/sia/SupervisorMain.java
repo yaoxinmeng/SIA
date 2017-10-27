@@ -211,6 +211,7 @@ public class SupervisorMain extends AppCompatActivity {
 
     private void checkPage()
     {
+        page=1;
         if (unassigned)
             planeDisplay = cutList(planesUnassigned(), page);
         else if (assigned)
@@ -223,6 +224,7 @@ public class SupervisorMain extends AppCompatActivity {
         //transfers planeDisplay to buttons
         for (Plane plane : planeDisplay)
         {
+
 
         }
     }
