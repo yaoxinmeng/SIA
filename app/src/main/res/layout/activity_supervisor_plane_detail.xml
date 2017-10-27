@@ -23,6 +23,74 @@
         android:layout_centerHorizontal="true"
         tools:layout="@layout/supervisor_flight_info" />
 
+    <ListView
+        android:id="@+id/defects_list"
+        android:layout_width="350dp"
+        android:layout_height="250dp"
+        android:layout_below="@+id/flightinfofragment"
+        android:layout_alignEnd="@+id/flightinfofragment" />
+
+    <TextView
+        android:id="@+id/display_techs_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="No. of Technicians"
+        android:textColor="@android:color/black"
+        android:textSize="16dp"
+        android:layout_marginStart="12dp"
+        android:layout_below="@+id/defects_list"
+        android:layout_alignStart="@+id/defects_list" />
+
+    <EditText
+        android:id="@+id/techNumber"
+        android:layout_width="26dp"
+        android:layout_height="20dp"
+        android:layout_alignTop="@+id/display_techs_no"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/suptask_inputno"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="16dp" />
+
+    <Button
+        android:id="@+id/backbutton"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginStart="15dp"
+        android:background="@drawable/suptask_leftbutton" />
+
+    <Button
+        android:id="@+id/submitbutton_sup"
+        android:layout_width="126dp"
+        android:layout_height="42dp"
+        android:background="@drawable/suptask_submitbutton"
+        android:layout_alignParentBottom="true"
+
+        android:layout_alignEnd="@+id/defects_list"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"/>
+
+
+    <Button
+        android:id="@+id/asterisk_unclicked"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:background="@drawable/suptask_asteriskbuttondark"
+        android:layout_alignBottom="@+id/submitbutton_sup"
+        android:layout_toLeftOf="@id/submitbutton_sup"
+        android:visibility="invisible"/>
+
+    <Button
+        android:id="@+id/asterisk_clicked"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:background="@drawable/suptask_asteriskbutton"
+        android:layout_alignBottom="@+id/submitbutton_sup"
+        android:layout_toLeftOf="@id/submitbutton_sup" />
 
 
 </RelativeLayout>

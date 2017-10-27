@@ -6,9 +6,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+
+import com.example.xinmeng.sia.Adapter.DefectsListAdapter;
+import com.example.xinmeng.sia.Adapter.SpareListAdapter;
+
+import java.util.ArrayList;
 
 
 public class SupervisorPlaneDetail extends AppCompatActivity {
+    ArrayList<DefectsFetcher> DefectsList = new ArrayList<>();
     private EditText number_of_techs;
     private String plane_ID;
     private Plane plane;
@@ -19,6 +26,10 @@ public class SupervisorPlaneDetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_supervisor_plane_detail);
+
+        ListView mListView = (ListView) findViewById(R.id.defects_list);
+        DefectsListAdapter adapter = new DefectsListAdapter(this,R.layout.sup_tabinterface,DefectsList);
+        mListView.setAdapter(adapter);
 
         Bundle extras = getIntent().getExtras();
         plane_ID = extras.getString("PLANE_ID");
