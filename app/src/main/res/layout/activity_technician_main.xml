@@ -44,7 +44,7 @@
         android:layout_height="0.380in"
         android:layout_alignStart="@+id/acRegn"
         android:layout_below="@+id/flightRegister"
-        android:layout_marginTop="0.0001dp"
+        android:layout_marginTop="1dp"
         android:background="@drawable/techmain_viewdefects"
         android:onClick="tasks" />
 
@@ -61,20 +61,19 @@
         android:id="@+id/currentAC"
         android:layout_width="1.22in"
         android:layout_height="0.22in"
-        android:layout_marginBottom="30dp"
-        android:textSize="30sp"
+        android:layout_alignStart="@+id/viewDefects"
+        android:layout_alignTop="@+id/refreshButton"
         android:text="CURRENT AC"
         android:textColor="#000000"
-        android:layout_above="@+id/viewDefects"
-        android:layout_alignStart="@+id/viewDefects" />
+        android:textSize="30sp" />
 
     <Button
         android:id="@+id/refreshButton"
         android:layout_width="0.25in"
         android:layout_height="0.23in"
-        android:layout_alignBaseline="@+id/currentAC"
-        android:layout_alignBottom="@+id/currentAC"
-        android:layout_marginEnd="14dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="13dp"
+        android:layout_marginTop="35dp"
         android:layout_toStartOf="@+id/equipButton"
         android:background="@drawable/techtask_refreshicon"
         android:onClick="refresh" />
@@ -84,7 +83,7 @@
         android:layout_width="0.25in"
         android:layout_height="0.23in"
         android:layout_alignEnd="@+id/viewDefects"
-        android:layout_alignTop="@+id/currentAC"
+        android:layout_alignTop="@+id/refreshButton"
         android:background="@drawable/techtask_equipmenticon"
         android:onClick="equipment" />
 
@@ -149,15 +148,15 @@
         android:layout_alignTop="@+id/onTime"
         android:layout_alignStart="@+id/arrTime" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="10dp"
-        android:layout_marginStart="10dp"
-        android:background="@drawable/techunresolved_leftbutton" />
+    <!--<Button-->
+        <!--android:id="@+id/button"-->
+        <!--android:layout_width="32dp"-->
+        <!--android:layout_height="32dp"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_marginBottom="10dp"-->
+        <!--android:layout_marginStart="10dp"-->
+        <!--android:background="@drawable/techunresolved_leftbutton" />-->
 
 
 </RelativeLayout>

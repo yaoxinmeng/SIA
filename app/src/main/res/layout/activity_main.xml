@@ -23,6 +23,42 @@
         android:layout_marginTop="146dp"
         app:srcCompat="@drawable/login_image" />
 
+    <!--<EditText-->
+        <!--android:id="@+id/usernameField"-->
+        <!--android:layout_width="1.5in"-->
+        <!--android:layout_height="0.24in"-->
+        <!--android:layout_alignEnd="@+id/mainTitleLogo"-->
+        <!--android:layout_alignTop="@+id/mainTitleLogo"-->
+        <!--android:background="@drawable/roundedrec"-->
+        <!--android:layout_marginEnd="61dp"-->
+        <!--android:layout_marginTop="167dp"-->
+        <!--android:ems="10"-->
+        <!--android:inputType="textPersonName"-->
+        <!--android:hint="Username"-->
+        <!--android:textColorHint="#ffffff"-->
+        <!--android:textSize="20dp"-->
+        <!--android:gravity="center"-->
+
+
+        <!--/>-->
+
+    <!--<EditText-->
+        <!--android:id="@+id/passwordField"-->
+        <!--android:layout_width="1.5in"-->
+        <!--android:layout_height="0.24in"-->
+        <!--android:layout_alignStart="@+id/usernameField"-->
+        <!--android:layout_below="@+id/usernameField"-->
+        <!--android:layout_marginTop="18dp"-->
+        <!--android:ems="10"-->
+        <!--android:inputType="textPassword"-->
+        <!--android:hint="Password"-->
+        <!--android:textColorHint="#ffffff"-->
+        <!--android:textSize="20dp"-->
+        <!--android:gravity="center"-->
+        <!--android:background="@drawable/roundedrec"-->
+
+        <!--/>-->
+
     <EditText
         android:id="@+id/usernameField"
         android:layout_width="1.50in"
@@ -36,7 +72,7 @@
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Caption"
         android:textColor="#FFFFFF"
-        android:textSize="18sp" />
+         />
 
     <TextView
         android:id="@+id/username_text"
