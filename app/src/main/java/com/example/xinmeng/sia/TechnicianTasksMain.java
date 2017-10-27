@@ -209,7 +209,8 @@ public class TechnicianTasksMain extends AppCompatActivity {
     {
         setTexts();
     }
-    public void backback (View view)
+
+    public void backBack (View view)
     {
         Intent intent = new Intent(TechnicianTasksMain.this, TechnicianMain.class);
         intent.putExtra("TECH_ID", technician.ID);
@@ -222,6 +223,8 @@ public class TechnicianTasksMain extends AppCompatActivity {
         intent.putExtra("TECH_ID", technician.ID);
         startActivity(intent);
     }
+
+
 
     public void nextPage(View view)
     {
@@ -239,15 +242,15 @@ public class TechnicianTasksMain extends AppCompatActivity {
 
     public void task1(View view)
     {
-        if (tasksForDisplay() != null)
+        //if (tasksForDisplay() != null)
         {
-            if (tasksForDisplay().get(0) != null)
-            {
+            //if (tasksForDisplay().get(0) != null)
+            //{
                 Intent intent = new Intent(TechnicianTasksMain.this, TechnicianTaskDetail.class);
                 intent.putExtra("TASK_ID", tasksForDisplay().get(0).number);
                 intent.putExtra("PLANE_ID", firstPlane.regn);
                 startActivity(intent);
-            }
+            //}
         }
     }
 

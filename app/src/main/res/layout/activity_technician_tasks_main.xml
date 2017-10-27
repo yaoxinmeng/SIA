@@ -37,20 +37,23 @@
 
     <Button
         android:id="@+id/refreshButton"
-        android:background="@drawable/techtask_refreshicon"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:layout_marginEnd="14dp"
-        android:layout_alignTop="@+id/display_task"
-        android:layout_toStartOf="@+id/toolButton" />
+        android:layout_above="@+id/taskbg"
+        android:layout_marginEnd="11dp"
+        android:layout_toStartOf="@+id/toolButton"
+        android:background="@drawable/techtask_refreshicon"
+        android:onClick="refresh" />
 
 
     <Button
         android:id="@+id/toolButton"
-        android:background="@drawable/techtask_equipmenticon"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:layout_alignTop="@+id/refreshButton"
+        android:layout_above="@+id/taskbg"
+        android:layout_alignEnd="@+id/flightinfofragment"
+        android:background="@drawable/techtask_equipmenticon"
+        android:onClick="equipment" />
         android:layout_alignEnd="@+id/flightinfofragment" />
 
     <ImageView
@@ -72,7 +75,9 @@
         android:layout_alignParentStart="true"
         android:layout_marginBottom="10dp"
         android:layout_marginStart="10dp"
-        android:background="@drawable/techunresolved_leftbutton" />
+        android:background="@drawable/techunresolved_leftbutton"
+        android:onClick="backBack"
+        />
 
 
     <FrameLayout
@@ -92,7 +97,8 @@
 
             android:layout_marginStart="16dp"
             android:padding="16dp"
-            android:background="@drawable/techequip_white" />
+            android:background="@drawable/techequip_white"
+            android:onClick="task1"/>
 
         <Button
             android:id="@+id/spare_header_box1"

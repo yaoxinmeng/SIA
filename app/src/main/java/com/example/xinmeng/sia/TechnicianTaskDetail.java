@@ -57,11 +57,12 @@ public class TechnicianTaskDetail extends AppCompatActivity {
 
         for (Defects child : Database.defects)
         {
-            if(taskID.equals(child.number))
-            {
-                task = child;
-                break;
-            }
+            task = child; break;
+//            if(taskID.equals(child.number))
+//            {
+//                task = child;
+//                break;
+//            }
         }
         for (Plane child : Database.planes)
         {
@@ -120,7 +121,7 @@ public class TechnicianTaskDetail extends AppCompatActivity {
             arrived.setVisibility(View.INVISIBLE);
             onTime.setVisibility(View.VISIBLE);
 
-        defectNo.setText(task.number);
+//        defectNo.setText(task.number);
         description.setText(task.description);
         raiseDate.setText(task.dateRaised);
         age.setText(task.age);

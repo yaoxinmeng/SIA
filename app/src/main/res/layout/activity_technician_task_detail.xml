@@ -32,7 +32,7 @@
         android:layout_marginBottom="10dp"
         android:layout_marginStart="10dp"
         android:background="@drawable/techunresolved_leftbutton"
-        android:onClick="back"/>
+        android:onClick="backButton"/>
 
     <TextView
         android:id="@+id/dp_defect"
@@ -222,7 +222,8 @@
         android:background="@drawable/techdetails_unresolvedbutton"
         android:layout_alignBottom="@+id/button"
         android:layout_toStartOf="@+id/resolvedButton"
-        android:layout_marginEnd="12dp" />
+        android:layout_marginEnd="12dp"
+        android:onClick="unresolvedButton"/>
 
     <Button
         android:id="@+id/resolvedButton"
@@ -231,7 +232,8 @@
         android:background="@drawable/techdetails_resolvedbutton"
         android:layout_alignBaseline="@+id/unresolvedButton"
         android:layout_alignBottom="@+id/unresolvedButton"
-        android:layout_alignEnd="@+id/flightinfofragment" />
+        android:layout_alignEnd="@+id/flightinfofragment"
+        android:onClick="resolvedButton"/>
 
 
 </RelativeLayout>

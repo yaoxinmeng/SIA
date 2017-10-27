@@ -65,7 +65,7 @@ public class TechnicianMain extends AppCompatActivity {
     public void equipment(View view)
     {
         Intent intent = new Intent(TechnicianMain.this, TechnicianEquipment.class);
-        intent.putExtra("TECH_ID", technician.ID);
+//        intent.putExtra("TECH_ID", technician.ID);
         startActivity(intent);
     }
 
