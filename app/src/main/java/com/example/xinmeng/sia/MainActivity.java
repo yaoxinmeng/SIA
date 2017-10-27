@@ -51,20 +51,7 @@ public class MainActivity extends AppCompatActivity {
         Database.updateFromDatabase();
         result = databaseGetter.getInstance().getDefectsDataGetter().fetchDefectsData();
         tResult = databaseGetter.getInstance().getTechnicianDataGetter().fetchTechniciansData();
-//        Thread thread = new Thread(new Runnable() {
-//
-//            @Override
-//            public void run() {
-//                try {
-//                    Thread.sleep(2000);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//                Database.updateFromDatabase();
-//            }
-//        });
-//
-//        thread.start();
+//        databaseGetter.getInstance().getDefectsDataGetter().insertData(addStuff());
 
 
         /*Intent display_intent = new Intent(this, userpwDisplay.class);
@@ -158,23 +145,23 @@ public class MainActivity extends AppCompatActivity {
 
     private DefectsFetcher addStuff() {
         DefectsFetcher newDefect = new DefectsFetcher();
-        newDefect.setId("123");
-        newDefect.setAction("test");
-        newDefect.setAgeing(25);
+        newDefect.setId("CD123570");
+        newDefect.setAction("20 OCT: LOCK LATCH DAMAGED TO REPLACE");
+        newDefect.setAgeing(12);
         newDefect.setAssigned(false);
         newDefect.setAta(25);
-        newDefect.setCategory("test");
-        newDefect.setClassCode("test");
-        newDefect.setDateRaised("test date");
-        newDefect.setDefects("I am a defect");
-        newDefect.setDeferralReason("Dunno");
+        newDefect.setCategory("Lavatory");
+        newDefect.setClassCode("First");
+        newDefect.setDateRaised("15-Oct-17");
+        newDefect.setDefects("LAVATORY 33 UNABLE TO LATCH");
+        newDefect.setDeferralReason("No Part Number");
         newDefect.setFleet("A380");
         newDefect.setInProgress(false);
-        newDefect.setPartDetails("test");
-        newDefect.setRegn("test");
+        newDefect.setPartDetails("");
+        newDefect.setRegn("SWM");
         newDefect.setResolved(false);
-        newDefect.setStn("test");
-        newDefect.setTechnicianID("howardbby");
+        newDefect.setStn("SIN");
+        newDefect.setTechnicianID("");
         return newDefect;
     }
     /*public class userpwDisplay extends IntentService{

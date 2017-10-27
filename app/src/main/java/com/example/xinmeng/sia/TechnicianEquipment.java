@@ -60,7 +60,9 @@ public class TechnicianEquipment extends AppCompatActivity {
         for (Defects child : firstPlane.defects)
         {
             String parts = child.parts;
-            equipment.add(parts);
+            if (!parts.equals("")) {
+                equipment.add(parts);
+            }
         }
 
         regn = (TextView) findViewById(R.id.display_acregn);
