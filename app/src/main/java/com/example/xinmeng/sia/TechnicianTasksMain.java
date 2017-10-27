@@ -32,6 +32,9 @@ public class TechnicianTasksMain extends AppCompatActivity {
     ImageView delayed;
     ImageView onTime;
     ImageView arrived;
+    TextView defectHeaders[] = new TextView[4];
+    TextView defectContents[] = new TextView[4];
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +64,10 @@ public class TechnicianTasksMain extends AppCompatActivity {
         delayed =(ImageView) findViewById(R.id.status_delayed);
         onTime =(ImageView) findViewById(R.id.status_ontime);
         arrived = (ImageView) findViewById(R.id.status_arrived);
+        defectHeaders[0] = (TextView) findViewById(R.id.defect_header1);
+        defectHeaders[1] = (TextView) findViewById(R.id.defect_header2);
+        defectHeaders[2] = (TextView) findViewById(R.id.defect_header3);
+        defectHeaders[3] = (TextView) findViewById(R.id.defect_header4);
 
         setupPage();
     }
