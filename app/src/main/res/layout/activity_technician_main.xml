@@ -155,8 +155,8 @@
         android:layout_height="32dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="5dp"
-        android:layout_marginStart="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="10dp"
         android:background="@drawable/techunresolved_leftbutton" />
 
 

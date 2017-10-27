@@ -134,15 +134,7 @@
         android:layout_marginTop="8dp"
         android:layout_alignStart="@+id/flight_bay" />
 
-    <TextView
-        android:id="@+id/flight_status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="12sp"
-        android:layout_below="@+id/flight_actype"
-        android:layout_marginTop="8dp"
-        android:layout_alignStart="@+id/flight_bay" />
+
 
     <ImageView
         android:id="@+id/orangeline"
@@ -163,6 +155,27 @@
         android:layout_marginStart="5dp"
         android:text="TextView"
         android:textSize="16dp" />
+
+
+
+    <ImageView
+    android:id="@+id/status_delayed"
+    android:layout_width="42dp"
+    android:layout_height="17dp"
+    android:layout_alignStart="@+id/flight_actype"
+    android:layout_alignTop="@+id/display_Status"
+    app:srcCompat="@drawable/techmain_delayed"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/status_ontime"
+        android:layout_width="48dp"
+        android:layout_height="20dp"
+        app:srcCompat="@drawable/techmain_ontime"
+        android:visibility="visible"
+        android:layout_alignBottom="@+id/status_delayed"
+        android:layout_alignStart="@+id/status_delayed" />
+
 
 
 </RelativeLayout>
