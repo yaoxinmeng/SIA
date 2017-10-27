@@ -68,8 +68,14 @@ public class TechnicianTasksMain extends AppCompatActivity {
         defectHeaders[1] = (TextView) findViewById(R.id.defect_header2);
         defectHeaders[2] = (TextView) findViewById(R.id.defect_header3);
         defectHeaders[3] = (TextView) findViewById(R.id.defect_header4);
+        defectContents[0] = (TextView) findViewById(R.id.defect_content1);
+        defectContents[1] = (TextView) findViewById(R.id.defect_content2);
+        defectContents[2] = (TextView) findViewById(R.id.defect_content3);
+        defectContents[3] = (TextView) findViewById(R.id.defect_content4);
+
 
         setupPage();
+        setDefectTexts();
     }
 
     private void setupPage()
@@ -291,5 +297,23 @@ public class TechnicianTasksMain extends AppCompatActivity {
         Intent intent = new Intent(TechnicianTasksMain.this, TechnicianMain.class);
         intent.putExtra("TECH_ID", technician.ID);
         startActivity(intent);
+    }
+
+    private void setDefectTexts()
+    {
+        ArrayList<Defects> planeDefectList = technician.currentPlane.defects;
+        for (int i = 0; i< 4; i++)
+        {
+            if(i<planeDefectList.size()) {
+                defectContents[i].setText(planeDefectList.get(i).description);
+                defectHeaders[i].setText(planeDefectList.get(i).number);
+            }
+            else{
+                defectContents[i].setText("");
+                defectHeaders[i].setText("");
+
+            }
+
+        }
     }
 }
