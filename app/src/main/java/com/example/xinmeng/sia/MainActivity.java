@@ -51,20 +51,20 @@ public class MainActivity extends AppCompatActivity {
         Database.updateFromDatabase();
         result = databaseGetter.getInstance().getDefectsDataGetter().fetchDefectsData();
         tResult = databaseGetter.getInstance().getTechnicianDataGetter().fetchTechniciansData();
-        Thread thread = new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                Database.updateFromDatabase();
-            }
-        });
-
-        thread.start();
+//        Thread thread = new Thread(new Runnable() {
+//
+//            @Override
+//            public void run() {
+//                try {
+//                    Thread.sleep(2000);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//                Database.updateFromDatabase();
+//            }
+//        });
+//
+//        thread.start();
 
 
         /*Intent display_intent = new Intent(this, userpwDisplay.class);
@@ -127,7 +127,14 @@ public class MainActivity extends AppCompatActivity {
                             i.putExtra("TECH", loginID);
                             startActivity(i);
                         }
-                            else {
+                        else if (username_field.getText().toString().equals("supervisor") && password_field.getText().toString().equals("password")) {
+                            Intent i = new Intent(MainActivity.this, SupervisorMain.class);
+                            String loginID = username_field.getText().toString();
+                            i.putExtra("loginID", loginID);
+                            startActivity(i);
+                        }
+
+                        else {
 //                            Toast.makeText(MainActivity.this,
 //                                    "Invalid Username / Password", Toast.LENGTH_SHORT).show();
 

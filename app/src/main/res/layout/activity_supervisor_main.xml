@@ -29,15 +29,38 @@
         android:layout_marginRight="20dp"
         android:background="@drawable/supmain_completedtablight"
         android:layout_above="@+id/whitebg"
-        android:layout_alignEnd="@+id/whitebg" />
+        android:layout_alignEnd="@+id/whitebg"
+        android:visibility="visible"/>
+
+    <Button
+        android:id="@+id/completed_tab_clicked"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/supmain_completedtabdark"
+        android:layout_above="@+id/whitebg"
+        android:layout_alignEnd="@+id/whitebg"
+        android:visibility="invisible"/>
 
     <Button
         android:id="@+id/inprogress_tab_unclicked"
         android:layout_width="80dp"
         android:layout_height="40dp"
         android:layout_above="@+id/whitebg"
+        android:background="@drawable/supmain_inprogresstablight"
         android:layout_toStartOf="@+id/completed_tab_unclicked"
+        android:visibility="visible"
  />
+
+    <Button
+        android:id="@+id/inprogress_tab_clicked"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_above="@+id/whitebg"
+        android:background="@drawable/supmain_inprogresstabdark"
+        android:layout_toStartOf="@+id/completed_tab_unclicked"
+        android:visibility="invisible"
+        />
 
     <Button
         android:id="@+id/assigned_tab_unclicked"
@@ -45,13 +68,34 @@
         android:layout_height="40dp"
         android:background="@drawable/supmain_assignedtablight"
         android:layout_above="@+id/whitebg"
-        android:layout_toStartOf="@+id/inprogress_tab_unclicked" />
+        android:layout_toStartOf="@+id/inprogress_tab_unclicked"
+        android:visibility="visible"/>
+
+    <Button
+        android:id="@+id/assigned_tab_clicked"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:background="@drawable/supmain_assignedtabdark"
+        android:layout_above="@+id/whitebg"
+        android:layout_toStartOf="@+id/inprogress_tab_unclicked"
+        android:visibility="visible"/>
 
     <Button
         android:id="@+id/unassigned_tab_unclicked"
         android:layout_width="80dp"
         android:layout_height="40dp"
         android:layout_above="@+id/whitebg"
+        android:background="@drawable/supmain_unassignedtablight"
+        android:layout_toStartOf="@+id/assigned_tab_unclicked"
+        android:visibility="visible"/>
+
+    <Button
+        android:id="@+id/unassigned_tab_clicked"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_above="@+id/whitebg"
+        android:background="@drawable/supmain_unassignedtabdark"
+        android:visibility="invisible"
         android:layout_toStartOf="@+id/assigned_tab_unclicked" />
 
     <ImageView
