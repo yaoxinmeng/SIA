@@ -89,8 +89,7 @@
             android:id="@+id/spare_content_box1"
             android:layout_width="330dp"
             android:layout_height="48dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
+
             android:layout_marginStart="16dp"
             android:padding="16dp"
             android:background="@drawable/techequip_white" />
@@ -167,8 +166,7 @@
             android:id="@+id/spare_content_box2"
             android:layout_width="330dp"
             android:layout_height="48dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
+
             android:layout_marginStart="16dp"
             android:padding="16dp"
             android:background="@drawable/techequip_white" />
@@ -245,8 +243,7 @@
             android:id="@+id/spare_content_box3"
             android:layout_width="330dp"
             android:layout_height="48dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
+
             android:layout_marginStart="16dp"
             android:padding="16dp"
             android:background="@drawable/techequip_white" />
@@ -323,8 +320,6 @@
             android:id="@+id/spare_content_box4"
             android:layout_width="330dp"
             android:layout_height="48dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
             android:layout_marginStart="16dp"
             android:padding="16dp"
             android:background="@drawable/techequip_white" />
@@ -386,6 +381,4 @@
         android:layout_alignTop="@+id/frame4"
         app:srcCompat="@drawable/techtask_nextbutton" />
 
-=======
->>>>>>> 739d0ea833fa8d1e48dc76bbd653132a746aab8a
 </RelativeLayout>
