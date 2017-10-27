@@ -19,6 +19,8 @@ public class TechnicianMain extends AppCompatActivity {
     TextView bay;
     TextView onTime;
     TextView arrTime;
+    TextView defectHeaders[] = new TextView[4];
+    TextView defectContents[] = new TextView[4];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,10 @@ public class TechnicianMain extends AppCompatActivity {
         bay = (TextView) findViewById(R.id.bayData);
         onTime = (TextView) findViewById(R.id.onTime);
         arrTime = (TextView) findViewById(R.id.arrData);
+        defectHeaders[0] = (TextView) findViewById(R.id.defect_header1);
+        defectHeaders[1] = (TextView) findViewById(R.id.defect_header2);
+        defectHeaders[2] = (TextView) findViewById(R.id.defect_header3);
+        defectHeaders[3] = (TextView) findViewById(R.id.defect_header4);
 
         setTexts();
     }
