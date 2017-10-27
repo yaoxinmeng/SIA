@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/comments"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <fragment
+        android:id="@+id/bgfragment4"
+        android:name="com.example.xinmeng.sia.SkyBlueBgFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        tools:layout="@layout/skybluebg" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:text="Additional Comments"
+        android:textSize="24dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/imageView3" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        app:srcCompat="@drawable/techunresolved_commentbox"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageView3"
+        android:layout_alignStart="@+id/imageView3"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="20dp"
+        android:background="@null"
+        android:id="@+id/editText"
+        android:inputType="textMultiLine"
+        />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:background="@drawable/techunresolved_completebutton"
+        android:layout_below="@+id/imageView3"
+        android:layout_alignEnd="@+id/imageView3"
+        android:layout_marginEnd="18dp" />
+    <Button
+        android:id="@+id/button"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="@drawable/techunresolved_leftbutton"
+        android:layout_marginTop="4dp"
+        android:layout_alignTop="@+id/button2"
+
+        android:layout_alignStart="@+id/imageView3" />
+
+
+</RelativeLayout>

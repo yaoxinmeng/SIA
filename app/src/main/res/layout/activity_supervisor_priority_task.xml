@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.xinmeng.sia.SupervisorPlaneDetail">
+    tools:context="com.example.xinmeng.sia.SupervisorPriorityTask">
 
     <EditText
-        android:id="@+id/numberOfTechs"
+        android:id="@+id/editText"
         android:layout_width="1.50in"
         android:layout_height="0.240in"
         android:layout_alignTop="@+id/mainTitleLogo"
@@ -20,5 +20,4 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Caption"
         android:textColor="#FFFFFF"
         android:textSize="18sp" />
-
 </android.support.constraint.ConstraintLayout>

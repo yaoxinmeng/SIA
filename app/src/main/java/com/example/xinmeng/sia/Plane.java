@@ -69,10 +69,11 @@ public class Plane {
         this.arrTime = arrTime;
         this.depTIme = depTIme;
         this.timeLeft = depTIme.getTime() - currentTimeMillis();
+        this.defects = new ArrayList<Defects>();
 
-        for (Object child : Database.defects)
+        for (Defects child : Database.defects)
         {
-            Defects newChild = (Defects) child;
+            Defects newChild = child;
             if (newChild.regn.equals(regn))
                 this.defects.add(newChild);
         }
@@ -90,6 +91,15 @@ public class Plane {
             e.printStackTrace();
         }
         this.timeLeft = depTIme.getTime() - currentTimeMillis();
+        this.defects = new ArrayList<Defects>();
+
+        for (Defects child : Database.defects)
+        {
+            Defects newChild = child;
+            if (newChild.regn.equals(regn))
+                this.defects.add(newChild);
+        }
+        this.numberOfDefects = this.defects.size();
     }
 
     public void autoAssignTechnicians()

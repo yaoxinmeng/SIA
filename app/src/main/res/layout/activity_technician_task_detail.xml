@@ -12,7 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true" />
+        android:layout_alignParentTop="true"
+        tools:layout="@layout/skybluebg" />
 
     <fragment
         android:id="@+id/flightinfofragment"
@@ -21,7 +22,8 @@
         android:layout_height="200dp"
         android:layout_alignParentStart="false"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        tools:layout="@layout/fragment_flight_info" />
     <Button
         android:id="@+id/button"
         android:layout_width="32dp"
@@ -39,7 +41,7 @@
         android:text="Defect No"
         android:layout_below="@+id/flightinfofragment"
         android:layout_toEndOf="@+id/button"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="8dp" />
 
     <TextView
         android:id="@+id/dp_description"
@@ -55,7 +57,7 @@
         android:id="@+id/dp_date_raised"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="42dp"
         android:text="Date Raised"
         android:layout_below="@+id/dp_description"
         android:layout_alignStart="@+id/dp_description" />
@@ -133,6 +135,7 @@
         android:id="@+id/show_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
         android:text="TextView"
         android:layout_alignTop="@+id/dp_description"
         android:layout_alignStart="@+id/show_defectno"

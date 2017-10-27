@@ -10,6 +10,8 @@ import android.widget.TextView;
 import com.example.xinmeng.sia.Adapter.MyAdapter;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,24 +79,12 @@ public class TechnicianTasksMain extends AppCompatActivity {
         regn.setText(firstPlane.regn);
         bay.setText(firstPlane.bay);
         type.setText(firstPlane.type);
+        DateFormat tf = new SimpleDateFormat("HH:mm");
 
-        float arrtime = (float) (firstPlane.arrTime.getTime());
-        int hour = (int) arrtime;
-        int minute = (int) (100 * (arrtime - ((float) hour)));
-        if (hour < 10)
-        {
-            if (minute < 10)
-                arrTime.setText("0" + String.valueOf(hour) + ":0" + String.valueOf(minute));
-            else
-                arrTime.setText("0" + String.valueOf(hour) + ":" + String.valueOf(minute));
-        }
-        else
-        {
-            if (minute < 10)
-                arrTime.setText(String.valueOf(hour) + ":0" + String.valueOf(minute));
-            else
-                arrTime.setText(String.valueOf(hour) + ":" + String.valueOf(minute));
-        }
+//        long arrtime = firstPlane.arrTime.getTime();
+//        long deptime = firstPlane.depTIme.getTime();
+        arrTime.setText(tf.format(firstPlane.arrTime));
+        depTime.setText(tf.format(firstPlane.depTIme));
 
         if (currentTimeMillis() < firstPlane.arrTime.getTime())
             status.setText("Arrived");
@@ -102,6 +92,27 @@ public class TechnicianTasksMain extends AppCompatActivity {
             status.setText("Delayed");
         else
             status.setText("On Time");
+    }
+
+    private String getTime(long time)
+    {
+        float arrtime = (float) time;
+        int hour = (int) arrtime;
+        int minute = (int) (100 * (arrtime - ((float) hour)));
+        if (hour < 10)
+        {
+            if (minute < 10)
+                return "0" + String.valueOf(hour) + ":0" + String.valueOf(minute);
+            else
+                return "0" + String.valueOf(hour) + ":" + String.valueOf(minute);
+        }
+        else
+        {
+            if (minute < 10)
+                return String.valueOf(hour) + ":0" + String.valueOf(minute);
+            else
+                return String.valueOf(hour) + ":" + String.valueOf(minute);
+        }
     }
 
     private ArrayList<Defects> sortTasks(ArrayList<Defects> allTasks)
@@ -142,9 +153,12 @@ public class TechnicianTasksMain extends AppCompatActivity {
 
         for (int x = n - 1; x < n + entryNumber - 1; x++)
         {
-            if (tasks.get(x) == null)
+            try {
+                tempList.add(tasks.get(x));
+            }
+            catch (IndexOutOfBoundsException e) {
                 break;
-            tempList.add(tasks.get(x));
+            }
         }
         return tempList;
     }
@@ -152,7 +166,7 @@ public class TechnicianTasksMain extends AppCompatActivity {
     private void setTasksDisplayed()
     {
         ArrayList<Defects> tempList = tasksForDisplay();
-        for (int n = 0; n < entryNumber; n++)
+        for (int n = 0; n < ((tempList.size()<entryNumber) ? tempList.size() : entryNumber); n++)
         {
             if (tempList.get(n).resolved)
             {

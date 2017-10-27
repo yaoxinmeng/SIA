@@ -12,7 +12,7 @@
         android:name="com.example.xinmeng.sia.SkyBlueBgFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        />
+        tools:layout="@layout/skybluebg" />
 
     <ImageView
         android:id="@+id/mainTitleLogo"

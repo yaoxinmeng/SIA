@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    Thread.sleep(5000);
+                    Thread.sleep(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -124,15 +124,7 @@ public class MainActivity extends AppCompatActivity {
                         if (username_field.getText().toString().equals("technician") && password_field.getText().toString().equals("password")) {
                             Intent i = new Intent(MainActivity.this, TechnicianMain.class);
                             String loginID = username_field.getText().toString();
-                            for (Object child : Database.technicians)
-                            {
-                                Technicians technician = (Technicians) child;
-                                if (technician.ID.equals(loginID))
-                                {
-                                    i.putExtra("TECH", (Serializable) technician);
-                                    break;
-                                }
-                            }
+                            i.putExtra("TECH", loginID);
                             startActivity(i);
                         }
                             else {
@@ -140,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
 //                                    "Invalid Username / Password", Toast.LENGTH_SHORT).show();
 
                             Toast.makeText(MainActivity.this,
-                                    Database.technicians.get(0).ID, Toast.LENGTH_SHORT).show();
+                                    Database.technicians.get(1).ID, Toast.LENGTH_SHORT).show();
 
 
 

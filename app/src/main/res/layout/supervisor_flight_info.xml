@@ -5,20 +5,20 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
+
     <ImageView
-        android:id="@+id/iborder"
+        android:id="@+id/sborder"
         android:layout_width="350dp"
         android:layout_height="200dp"
-        app:srcCompat="@drawable/techtask_gradbox"
+        app:srcCompat="@drawable/suptask_gradbox"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
-
 
     <TextView
         android:id="@+id/display_arr_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/iborder"
+        android:layout_alignEnd="@+id/sborder"
         android:layout_alignParentTop="true"
         android:layout_marginEnd="131dp"
         android:layout_marginTop="44dp"
@@ -77,8 +77,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/display_dep_time"
-        android:layout_alignStart="@+id/iborder"
-        android:layout_alignTop="@+id/iborder"
+        android:layout_alignStart="@+id/sborder"
+        android:layout_alignTop="@+id/sborder"
         android:layout_marginStart="17dp"
         android:layout_marginTop="33dp"
         android:text="AC Regn:"
@@ -94,17 +94,17 @@
         android:layout_alignBottom="@+id/display_bay"
         android:layout_alignStart="@+id/acregn" />
 
-    <TextView
+    <TextClock
         android:id="@+id/flight_time_arrival"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/display_dep_time"
         android:layout_marginStart="18dp"
-        android:layout_toEndOf="@+id/display_dep_time"
         android:text="TextView"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        android:layout_above="@+id/display_dep_time"
+        android:layout_toEndOf="@+id/display_dep_time" />
 
-    <TextView
+    <TextClock
         android:id="@+id/flight_time_departure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -144,11 +144,12 @@
         android:layout_marginTop="8dp"
         android:layout_alignStart="@+id/flight_bay" />
 
+
     <ImageView
-        android:id="@+id/orangeline"
+        android:id="@+id/blueline"
         android:layout_width="100dp"
         android:layout_height="20dp"
-        app:srcCompat="@drawable/techdetails_orangeline"
+        app:srcCompat="@drawable/suptask_blueline"
         android:layout_above="@+id/display_Status"
         android:layout_alignStart="@+id/flight_regn"
         android:layout_marginLeft="8dp"
@@ -158,8 +159,8 @@
         android:id="@+id/fleet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/orangeline"
-        android:layout_below="@+id/orangeline"
+        android:layout_alignStart="@+id/blueline"
+        android:layout_below="@+id/blueline"
         android:layout_marginStart="5dp"
         android:text="TextView"
         android:textSize="16dp" />

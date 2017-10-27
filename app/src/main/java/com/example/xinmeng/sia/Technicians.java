@@ -2,6 +2,7 @@ package com.example.xinmeng.sia;
 
 import java.io.IOException;
 import java.io.ObjectStreamException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.LinkedList;
@@ -12,7 +13,7 @@ import java.util.Queue;
  * Created by Xin Meng on 23/10/2017.
  */
 
-public class Technicians {
+public class Technicians implements Serializable {
     public String planeID;
     public Deque<Plane> planes; //all planes assigned to this technician
     public Deque<Defects> allTasks; //all tasks in the planes queue that are assigned to this technician
@@ -63,16 +64,16 @@ public class Technicians {
         setNumberOfTasks();
     }
 
-    public void updatePlanes()
-    {
+    public void updatePlanes() {
         String[] planeIDs = planeID.split("-");
-        for (String pID : planeIDs)
-        {
-            for (Plane plane : Database.planes)
-            {
+        for (String pID : planeIDs) {
+            for (Plane plane : Database.planes) {
                 if (plane.regn.equals(pID))
                     planes.add(plane);
             }
+        }
+        if (!planes.isEmpty()){
+            currentPlane = planes.getFirst();
         }
     }
 
@@ -101,9 +102,9 @@ public class Technicians {
     {
         planes.addFirst(plane);
         plane.assigned = true;
-        for (Object child : plane.defects)
+        for (Defects child : plane.defects)
         {
-            Defects newChild = (Defects) child;
+            Defects newChild = child;
             allTasks.addFirst(newChild);
         }
         numberOfTasks = allTasks.size();
@@ -114,9 +115,9 @@ public class Technicians {
     {
         planes.add(plane);
         plane.assigned = true;
-        for (Object child : plane.defects)
+        for (Defects child : plane.defects)
         {
-            Defects newChild = (Defects) child;
+            Defects newChild = child;
             allTasks.add(newChild);
         }
         numberOfTasks = allTasks.size();
@@ -124,15 +125,15 @@ public class Technicians {
     }
 
     public void boardPlane() {
-        currentPlane = (Plane) planes.element();
+        currentPlane = planes.element();
         planes.removeFirst();
         currentPlane.inProgress = true;
         updateIDs();
 
         //sets current tasks
-        for (Object child : currentPlane.defects)
+        for (Defects child : currentPlane.defects)
         {
-            Defects newChild = (Defects) child;
+            Defects newChild = child;
             if (newChild.techID.equals(ID))
                 currentTasks.add(newChild);
         }
@@ -143,9 +144,9 @@ public class Technicians {
         boolean allTasksCompleted = true;
 
         //checks if all tasks on this plane have been completed
-        for (Object child : ((Plane) planes.element()).defects)
+        for (Defects child : ( planes.element()).defects)
         {
-            Defects newChild = (Defects) child;
+            Defects newChild = child;
             if (newChild.techID.equals(ID) && !newChild.resolved)
                 allTasksCompleted = false;
         }
@@ -197,9 +198,9 @@ public class Technicians {
     public List tasksArchive()
     {
         List tasksArchive = new ArrayList<Defects>();
-        for (Object child : Database.defects)
+        for (Defects child : Database.defects)
         {
-            Defects newChild = (Defects) child;
+            Defects newChild = child;
             if (newChild.resolved && newChild.techID.equals(this.ID))
                 tasksArchive.add(newChild);
         }
