@@ -122,11 +122,10 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                         else {
-//                            Toast.makeText(MainActivity.this,
-//                                    "Invalid Username / Password", Toast.LENGTH_SHORT).show();
+                          Toast.makeText(MainActivity.this, "Invalid Username / Password", Toast.LENGTH_SHORT).show();
 
-                            Toast.makeText(MainActivity.this,
-                                    Database.technicians.get(1).ID, Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(MainActivity.this,
+//                                    Database.technicians.get(1).ID, Toast.LENGTH_SHORT).show();
 
 
 

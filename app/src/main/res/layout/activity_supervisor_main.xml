@@ -26,11 +26,12 @@
         android:id="@+id/completed_tab_unclicked"
         android:layout_width="80dp"
         android:layout_height="40dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/supmain_completedtablight"
         android:layout_above="@+id/whitebg"
         android:layout_alignEnd="@+id/whitebg"
-        android:visibility="visible"/>
+        android:layout_marginRight="20dp"
+        android:background="@drawable/supmain_completedtablight"
+        android:onClick="completedTab"
+        android:visibility="visible" />
 
     <Button
         android:id="@+id/completed_tab_clicked"
@@ -47,10 +48,10 @@
         android:layout_width="80dp"
         android:layout_height="40dp"
         android:layout_above="@+id/whitebg"
-        android:background="@drawable/supmain_inprogresstablight"
         android:layout_toStartOf="@+id/completed_tab_unclicked"
-        android:visibility="visible"
- />
+        android:background="@drawable/supmain_inprogresstablight"
+        android:onClick="inProgressTab"
+        android:visibility="visible" />
 
     <Button
         android:id="@+id/inprogress_tab_clicked"
@@ -66,37 +67,39 @@
         android:id="@+id/assigned_tab_unclicked"
         android:layout_width="80dp"
         android:layout_height="40dp"
-        android:background="@drawable/supmain_assignedtablight"
         android:layout_above="@+id/whitebg"
         android:layout_toStartOf="@+id/inprogress_tab_unclicked"
-        android:visibility="visible"/>
+        android:background="@drawable/supmain_assignedtablight"
+        android:onClick="assignedTab"
+        android:visibility="visible" />
 
     <Button
         android:id="@+id/assigned_tab_clicked"
         android:layout_width="80dp"
         android:layout_height="40dp"
-        android:background="@drawable/supmain_assignedtabdark"
         android:layout_above="@+id/whitebg"
         android:layout_toStartOf="@+id/inprogress_tab_unclicked"
-        android:visibility="visible"/>
+        android:background="@drawable/supmain_assignedtabdark"
+        android:visibility="invisible" />
 
     <Button
         android:id="@+id/unassigned_tab_unclicked"
         android:layout_width="80dp"
         android:layout_height="40dp"
         android:layout_above="@+id/whitebg"
-        android:background="@drawable/supmain_unassignedtablight"
         android:layout_toStartOf="@+id/assigned_tab_unclicked"
-        android:visibility="visible"/>
+        android:background="@drawable/supmain_unassignedtablight"
+        android:onClick="unassignedTab"
+        android:visibility="visible" />
 
     <Button
         android:id="@+id/unassigned_tab_clicked"
         android:layout_width="80dp"
         android:layout_height="40dp"
         android:layout_above="@+id/whitebg"
+        android:layout_toStartOf="@+id/assigned_tab_unclicked"
         android:background="@drawable/supmain_unassignedtabdark"
-        android:visibility="invisible"
-        android:layout_toStartOf="@+id/assigned_tab_unclicked" />
+        android:visibility="visible" />
 
     <ImageView
         android:id="@+id/aircraft_header"
@@ -154,7 +157,7 @@
             android:layout_width="330dp"
             android:layout_height="60dp"
             android:background="@drawable/supmain_whitewithorangelines"
-            />
+            android:onClick="entry1" />
 
 
 
@@ -220,12 +223,13 @@
         android:layout_alignStart="@+id/aircraft_header"
         android:layout_marginTop="8dp"
         >
-    <Button
-        android:id="@+id/aircraft_table2"
-        android:layout_width="330dp"
-        android:layout_height="60dp"
-        android:background="@drawable/supmain_whitewithorangelines"
-        />
+
+        <Button
+            android:id="@+id/aircraft_table2"
+            android:layout_width="330dp"
+            android:layout_height="60dp"
+            android:background="@drawable/supmain_whitewithorangelines"
+            android:onClick="entry2" />
 
     </FrameLayout>
 
@@ -294,7 +298,8 @@
             android:id="@+id/aircraft_table3"
             android:layout_width="330dp"
             android:layout_height="60dp"
-            android:background="@drawable/supmain_whitewithorangelines" />
+            android:background="@drawable/supmain_whitewithorangelines"
+            android:onClick="entry3" />
     </FrameLayout>
 
     <TextView
@@ -358,13 +363,13 @@
         android:layout_alignStart="@+id/aircraft_header"
         android:layout_marginTop="8dp">
 
-    <Button
-        android:id="@+id/aircraft_table4"
-        android:layout_width="330dp"
-        android:layout_height="60dp"
+        <Button
+            android:id="@+id/aircraft_table4"
+            android:layout_width="330dp"
+            android:layout_height="60dp"
 
-        android:background="@drawable/supmain_whitewithorangelines"
- />
+            android:background="@drawable/supmain_whitewithorangelines"
+            android:onClick="entry4" />
 </FrameLayout>
 
     <TextView
@@ -427,12 +432,14 @@
         android:layout_below="@+id/frame4"
         android:layout_alignStart="@+id/aircraft_header"
         android:layout_marginTop="8dp">
-    <Button
-        android:id="@+id/aircraft_table5"
-        android:layout_width="330dp"
-        android:layout_height="60dp"
-        android:background="@drawable/supmain_whitewithorangelines"
-        android:layout_alignStart="@+id/aircraft_header" />
+
+        <Button
+            android:id="@+id/aircraft_table5"
+            android:layout_width="330dp"
+            android:layout_height="60dp"
+            android:layout_alignStart="@+id/aircraft_header"
+            android:background="@drawable/supmain_whitewithorangelines"
+            android:onClick="entry5" />
 </FrameLayout>
 
     <TextView

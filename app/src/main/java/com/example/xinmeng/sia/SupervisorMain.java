@@ -34,6 +34,7 @@ public class SupervisorMain extends AppCompatActivity {
     TextView[] arrTimeDisp= new TextView[5];
     TextView[] depTimeDisp = new TextView[5];
     TextView[] numberDefectsDisp = new TextView[5];
+    Button[] entry = new Button[5];
 
 
     @Override
@@ -67,6 +68,13 @@ public class SupervisorMain extends AppCompatActivity {
         numberDefectsDisp[2] = (TextView) findViewById(R.id.ac_table_3_4);
         numberDefectsDisp[3] = (TextView) findViewById(R.id.ac_table_4_4);
         numberDefectsDisp[4] = (TextView) findViewById(R.id.ac_table_5_4);
+        entry[0] = (Button) findViewById(R.id.aircraft_table1);
+        entry[1] = (Button) findViewById(R.id.aircraft_table2);
+        entry[2] = (Button) findViewById(R.id.aircraft_table3);
+        entry[3] = (Button) findViewById(R.id.aircraft_table4);
+        entry[4] = (Button) findViewById(R.id.aircraft_table5);
+
+        planeDisplay = cutList(planesUnassigned(), page);
         update();
     }
 
@@ -170,19 +178,20 @@ public class SupervisorMain extends AppCompatActivity {
             //Sorts in tempList
             for (Plane plane : planes)
             {
-                if (tempList.size() == 0)
-                    tempList.add(plane);
-                else
-                {
-                    for (int n = 0; n < tempList.size(); n++)
-                    {
-                        if(plane.depTIme.getTime() < ((Plane) tempList.get(n)).depTIme.getTime())
-                        {
-                            tempList.add(n, plane);
-                            break;
-                        }
-                    }
-                }
+                tempList.add(plane);
+//                if (tempList.size() == 0)
+//                    tempList.add(plane);
+//                else
+//                {
+//                    for (int n = 0; n < tempList.size(); n++)
+//                    {
+//                        if(plane.depTIme.getTime() < ((Plane) tempList.get(n)).depTIme.getTime())
+//                        {
+//                            tempList.add(n, plane);
+//                            break;
+//                        }
+//                    }
+//                }
             }
             return tempList;
         }
@@ -202,16 +211,15 @@ public class SupervisorMain extends AppCompatActivity {
 
         for (int x = n - 1; x < n + entryNumber - 1; x++)
         {
-            if (planes.get(x) == null)
+            if (x>=planes.size() || planes.get(x) == null)
                 break;
-            tempList.add(n, planes.get(x));
+            tempList.add(planes.get(x));
         }
         return tempList;
     }
 
     private void checkPage()
     {
-        page=1;
         if (unassigned)
             planeDisplay = cutList(planesUnassigned(), page);
         else if (assigned)
@@ -222,10 +230,25 @@ public class SupervisorMain extends AppCompatActivity {
             planeDisplay = cutList(planesCompleted(), page);
 
         //transfers planeDisplay to buttons
-        for (Plane plane : planeDisplay)
+        DateFormat tf = new SimpleDateFormat("HH:mm");
+        for (int n = 0; n < entryNumber; n++)
         {
-
-
+            if (planeDisplay.get(n) != null)
+            {
+                regnDisp[n].setText(planeDisplay.get(n).regn);
+                arrTimeDisp[n].setText(tf.format(planeDisplay.get(n).arrTime));
+                depTimeDisp[n].setText(tf.format(planeDisplay.get(n).depTIme));
+                numberDefectsDisp[n].setText(Integer.toString(planeDisplay.get(n).numberOfDefects));
+                entry[n].setVisibility(View.VISIBLE);
+            }
+            else
+            {
+                regnDisp[n].setText("");
+                arrTimeDisp[n].setText("");
+                depTimeDisp[n].setText("");
+                numberDefectsDisp[n].setText(Integer.toString(planeDisplay.get(n).numberOfDefects));
+                entry[n].setVisibility(View.INVISIBLE);
+            }
         }
     }
 
@@ -320,6 +343,7 @@ public class SupervisorMain extends AppCompatActivity {
         assigned = false;
         inProgress = false;
         completed = false;
+        page = 1;
         checkPage();
     }
 
@@ -329,6 +353,7 @@ public class SupervisorMain extends AppCompatActivity {
         assigned = true;
         inProgress = false;
         completed = false;
+        page = 1;
         checkPage();
     }
 
@@ -338,6 +363,7 @@ public class SupervisorMain extends AppCompatActivity {
         assigned = true;
         inProgress = false;
         completed = false;
+        page = 1;
         checkPage();
     }
 
@@ -347,6 +373,7 @@ public class SupervisorMain extends AppCompatActivity {
         assigned = false;
         inProgress = false;
         completed = true;
+        page = 1;
         checkPage();
     }
 
