@@ -96,51 +96,354 @@
         android:layout_toLeftOf="@+id/pagenumber"
         android:layout_marginBottom="2dp"/>
 
-    <Button
-        android:id="@+id/aircraft_table1"
-        android:layout_width="330dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/supmain_whitewithorangelines"
+    <FrameLayout
+        android:id = "@+id/frame1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/aircraft_header"
-        android:layout_alignStart="@+id/aircraft_header" />
+        android:layout_alignStart="@+id/aircraft_header"
+        android:layout_marginTop="6dp"
+       >
 
+        <Button
+            android:id="@+id/aircraft_table1"
+            android:layout_width="330dp"
+            android:layout_height="60dp"
+            android:background="@drawable/supmain_whitewithorangelines"
+            />
+
+
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/ac_table_1.1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SwG"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="24sp"
+        android:layout_alignBottom="@+id/frame1"
+        android:layout_marginBottom="16dp"
+        android:layout_alignStart="@+id/frame1"
+        android:layout_marginStart="15dp"
+        />
+    <TextView
+        android:id="@+id/ac_table_1.2"
+        android:layout_width="62dp"
+        android:layout_height="wrap_content"
+        android:text="17:02"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="24sp"
+        android:layout_marginLeft="24dp"
+        android:layout_alignBottom="@+id/frame1"
+        android:layout_marginBottom="16dp"
+        android:layout_toRightOf="@id/ac_table_1.1" />
+
+    <TextView
+        android:id="@+id/ac_table_1.3"
+        android:layout_width="62dp"
+        android:layout_height="wrap_content"
+        android:text="17:02"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="24sp"
+        android:layout_marginLeft="18dp"
+        android:layout_alignBottom="@+id/frame1"
+        android:layout_marginBottom="16dp"
+        android:layout_toRightOf="@id/ac_table_1.2" />
+
+    <TextView
+        android:id="@+id/ac_table_1.4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="24sp"
+        android:layout_marginLeft="48dp"
+        android:layout_alignBottom="@+id/frame1"
+        android:layout_marginBottom="16dp"
+        android:layout_toRightOf="@id/ac_table_1.3" />
+
+
+    <FrameLayout
+        android:id = "@+id/frame2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/frame1"
+        android:layout_alignStart="@+id/aircraft_header"
+        android:layout_marginTop="8dp"
+        >
     <Button
         android:id="@+id/aircraft_table2"
         android:layout_width="330dp"
         android:layout_height="60dp"
-        android:layout_marginTop="8dp"
         android:background="@drawable/supmain_whitewithorangelines"
-        android:layout_below="@+id/aircraft_table1"
-        android:layout_alignStart="@+id/aircraft_header" />
+        />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/ac_table_2.1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SwG"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="24sp"
+        android:layout_alignBottom="@+id/frame2"
+        android:layout_marginBottom="16dp"
+        android:layout_alignStart="@+id/frame2"
+        android:layout_marginStart="15dp"
+        />
+    <TextView
+        android:id="@+id/ac_table_2.2"
+        android:layout_width="62dp"
+        android:layout_height="wrap_content"
+        android:text="17:02"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="24sp"
+        android:layout_marginLeft="24dp"
+        android:layout_alignBottom="@+id/frame2"
+        android:layout_marginBottom="16dp"
+        android:layout_toRightOf="@id/ac_table_2.1" />
+
+    <TextView
+        android:id="@+id/ac_table_2.3"
+        android:layout_width="62dp"
+        android:layout_height="wrap_content"
+        android:text="17:02"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="24sp"
+        android:layout_marginLeft="18dp"
+        android:layout_alignBottom="@+id/frame2"
+        android:layout_marginBottom="16dp"
+        android:layout_toRightOf="@id/ac_table_2.2" />
+
+    <TextView
+        android:id="@+id/ac_table_2.4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="24sp"
+        android:layout_marginLeft="48dp"
+        android:layout_alignBottom="@+id/frame2"
+        android:layout_marginBottom="16dp"
+        android:layout_toRightOf="@id/ac_table_2.3" />
+
+
+    <FrameLayout
+        android:id = "@+id/frame3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/frame2"
+        android:layout_alignStart="@+id/aircraft_header"
+        android:layout_marginTop="8dp">
 
     <Button
         android:id="@+id/aircraft_table3"
         android:layout_width="330dp"
         android:layout_height="60dp"
-        android:layout_marginTop="8dp"
         android:background="@drawable/supmain_whitewithorangelines"
-        android:layout_below="@+id/aircraft_table2"
-        android:layout_alignStart="@+id/aircraft_header" />
+         />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/ac_table_3.1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SwG"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="24sp"
+        android:layout_alignBottom="@+id/frame3"
+        android:layout_marginBottom="16dp"
+        android:layout_alignStart="@+id/frame3"
+        android:layout_marginStart="15dp"
+        />
+    <TextView
+        android:id="@+id/ac_table_3.2"
+        android:layout_width="62dp"
+        android:layout_height="wrap_content"
+        android:text="17:02"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="24sp"
+        android:layout_marginLeft="24dp"
+        android:layout_alignBottom="@+id/frame3"
+        android:layout_marginBottom="16dp"
+        android:layout_toRightOf="@id/ac_table_2.1" />
+
+    <TextView
+        android:id="@+id/ac_table_3.3"
+        android:layout_width="62dp"
+        android:layout_height="wrap_content"
+        android:text="17:02"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="24sp"
+        android:layout_marginLeft="18dp"
+        android:layout_alignBottom="@+id/frame3"
+        android:layout_marginBottom="16dp"
+        android:layout_toRightOf="@id/ac_table_2.2" />
+
+    <TextView
+        android:id="@+id/ac_table_3.4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="24sp"
+        android:layout_marginLeft="48dp"
+        android:layout_alignBottom="@+id/frame3"
+        android:layout_marginBottom="16dp"
+        android:layout_toRightOf="@id/ac_table_2.3" />
+
+
+    <FrameLayout
+        android:id = "@+id/frame4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/frame3"
+        android:layout_alignStart="@+id/aircraft_header"
+        android:layout_marginTop="8dp">
 
     <Button
         android:id="@+id/aircraft_table4"
         android:layout_width="330dp"
         android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/supmain_whitewithorangelines"
-        android:layout_below="@+id/aircraft_table3"
-        android:layout_alignStart="@+id/aircraft_header" />
 
+        android:background="@drawable/supmain_whitewithorangelines"
+ />
+</FrameLayout>
+
+    <TextView
+        android:id="@+id/ac_table_4.1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SwG"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="24sp"
+        android:layout_alignBottom="@+id/frame4"
+        android:layout_marginBottom="16dp"
+        android:layout_alignStart="@+id/frame3"
+        android:layout_marginStart="15dp"
+        />
+    <TextView
+        android:id="@+id/ac_table_4.2"
+        android:layout_width="62dp"
+        android:layout_height="wrap_content"
+        android:text="17:02"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="24sp"
+        android:layout_marginLeft="24dp"
+        android:layout_alignBottom="@+id/frame4"
+        android:layout_marginBottom="16dp"
+        android:layout_toRightOf="@id/ac_table_2.1" />
+
+    <TextView
+        android:id="@+id/ac_table_4.3"
+        android:layout_width="62dp"
+        android:layout_height="wrap_content"
+        android:text="17:02"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="24sp"
+        android:layout_marginLeft="18dp"
+        android:layout_alignBottom="@+id/frame4"
+        android:layout_marginBottom="16dp"
+        android:layout_toRightOf="@id/ac_table_2.2" />
+
+    <TextView
+        android:id="@+id/ac_table_4.4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="24sp"
+        android:layout_marginLeft="48dp"
+        android:layout_alignBottom="@+id/frame4"
+        android:layout_marginBottom="16dp"
+        android:layout_toRightOf="@id/ac_table_2.3" />
+
+
+    <FrameLayout
+        android:id = "@+id/frame5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/frame4"
+        android:layout_alignStart="@+id/aircraft_header"
+        android:layout_marginTop="8dp">
     <Button
         android:id="@+id/aircraft_table5"
         android:layout_width="330dp"
         android:layout_height="60dp"
-        android:layout_marginTop="8dp"
         android:background="@drawable/supmain_whitewithorangelines"
-        android:layout_below="@+id/aircraft_table4"
         android:layout_alignStart="@+id/aircraft_header" />
+</FrameLayout>
 
+    <TextView
+        android:id="@+id/ac_table_5.1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SwG"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="24sp"
+        android:layout_alignBottom="@+id/frame5"
+        android:layout_marginBottom="16dp"
+        android:layout_alignStart="@+id/frame3"
+        android:layout_marginStart="15dp"
+        />
+    <TextView
+        android:id="@+id/ac_table_5.2"
+        android:layout_width="62dp"
+        android:layout_height="wrap_content"
+        android:text="17:02"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="24sp"
+        android:layout_marginLeft="24dp"
+        android:layout_alignBottom="@+id/frame5"
+        android:layout_marginBottom="16dp"
+        android:layout_toRightOf="@id/ac_table_2.1" />
+
+    <TextView
+        android:id="@+id/ac_table_5.3"
+        android:layout_width="62dp"
+        android:layout_height="wrap_content"
+        android:text="17:02"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="24sp"
+        android:layout_marginLeft="18dp"
+        android:layout_alignBottom="@+id/frame5"
+        android:layout_marginBottom="16dp"
+        android:layout_toRightOf="@id/ac_table_2.2" />
+
+    <TextView
+        android:id="@+id/ac_table_5.4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="24sp"
+        android:layout_marginLeft="48dp"
+        android:layout_alignBottom="@+id/frame5"
+        android:layout_marginBottom="16dp"
+        android:layout_toRightOf="@id/ac_table_2.3" />
 
 
 
