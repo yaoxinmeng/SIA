@@ -49,7 +49,7 @@ public class TechnicianTaskDetail extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_technician_tasks_main);
+        setContentView(R.layout.activity_technician_task_detail);
 
         Bundle extras = getIntent().getExtras();
         taskID = extras.getString("TASK_ID");
@@ -96,8 +96,7 @@ public class TechnicianTaskDetail extends AppCompatActivity {
         setTexts();
     }
 
-    private void setTexts()
-    {
+    private void setTexts() {
         regn.setText(plane.regn);
         bay.setText(plane.bay);
         type.setText(plane.type);
@@ -107,45 +106,44 @@ public class TechnicianTaskDetail extends AppCompatActivity {
         long deptime = plane.depTIme.getTime();
         depTime.setText(getTime(deptime));
 
-        if (currentTimeMillis() < plane.arrTime.getTime()){
+        if (currentTimeMillis() < plane.arrTime.getTime()) {
             onTime.setVisibility(View.INVISIBLE);
             delayed.setVisibility(View.INVISIBLE);
-            arrived.setVisibility(View.VISIBLE);}
-
-        else if (plane.delay){
+            arrived.setVisibility(View.VISIBLE);
+        } else if (plane.delay) {
             onTime.setVisibility(View.INVISIBLE);
             arrived.setVisibility(View.INVISIBLE);
-            delayed.setVisibility(View.VISIBLE);}
-        else
+            delayed.setVisibility(View.VISIBLE);
+        } else {
             delayed.setVisibility(View.INVISIBLE);
             arrived.setVisibility(View.INVISIBLE);
             onTime.setVisibility(View.VISIBLE);
 
-//        defectNo.setText(task.number);
-        description.setText(task.description);
-        raiseDate.setText(task.dateRaised);
-        age.setText(task.age);
-        ATA.setText(task.ata);
-        category.setText(task.category);
-        deferral.setText(task.deferralReason);
-        parts.setText(task.parts);
-        switch (task.classCode)
-        {
-            case Database.Economy:
-                classcode.setText("Economy");
-                break;
-            case Database.Premium:
-                classcode.setText("Premium");
-                break;
-            case Database.Business:
-                classcode.setText("Business");
-                break;
-            case Database.First:
-                classcode.setText("First");
-                break;
-            default:
-                classcode.setText("");
-                break;
+            defectNo.setText(task.number);
+            description.setText(task.description);
+            raiseDate.setText(task.dateRaised);
+            age.setText(Integer.toString(task.age));
+            ATA.setText(Integer.toString(task.ata));
+            category.setText(task.category);
+            deferral.setText(task.deferralReason);
+            parts.setText(task.parts);
+            switch (task.classCode) {
+                case Database.Economy:
+                    classcode.setText("Economy");
+                    break;
+                case Database.Premium:
+                    classcode.setText("Premium");
+                    break;
+                case Database.Business:
+                    classcode.setText("Business");
+                    break;
+                case Database.First:
+                    classcode.setText("First");
+                    break;
+                default:
+                    classcode.setText("");
+                    break;
+            }
         }
     }
 

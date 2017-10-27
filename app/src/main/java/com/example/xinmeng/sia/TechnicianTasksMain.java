@@ -241,16 +241,17 @@ public class TechnicianTasksMain extends AppCompatActivity {
     }
 
     public void task1(View view)
-    {
-        //if (tasksForDisplay() != null)
+    {Defects plane = tasksForDisplay().get(0);
+        if (tasksForDisplay() != null)
+
         {
-            //if (tasksForDisplay().get(0) != null)
-            //{
+            if (tasksForDisplay().get(0) != null)
+            {
                 Intent intent = new Intent(TechnicianTasksMain.this, TechnicianTaskDetail.class);
-                intent.putExtra("TASK_ID", tasksForDisplay().get(0).number);
+                intent.putExtra("TASK_ID", plane.number);
                 intent.putExtra("PLANE_ID", firstPlane.regn);
                 startActivity(intent);
-            //}
+            }
         }
     }
 
