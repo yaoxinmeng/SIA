@@ -28,7 +28,7 @@ public class TechnicianMain extends AppCompatActivity {
         String techName = getIntent().getStringExtra("loginID");
         for (Technicians child : Database.technicians)
         {
-            if (child.ID.equals("technician"))
+            if (child.ID.equals(techName))
             {
                 technician = child;
                 break;

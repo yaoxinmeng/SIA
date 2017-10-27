@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
@@ -28,6 +30,12 @@ public class SupervisorMain extends AppCompatActivity {
     private boolean completed;
     private ArrayList<Plane> planeDisplay = new ArrayList<Plane>();
 
+    TextView[] regnDisp= new TextView[5];
+    TextView[] arrTimeDisp= new TextView[5];
+    TextView[] depTimeDisp = new TextView[5];
+    TextView[] numberDefectsDisp = new TextView[5];
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +47,26 @@ public class SupervisorMain extends AppCompatActivity {
         inProgress = false;
         completed = false;
         maxPage = (int) (Database.planes.size() / entryNumber) + 1;
-
+        regnDisp[0] = (TextView) findViewById(R.id.ac_table_1_1);
+        regnDisp[1] = (TextView) findViewById(R.id.ac_table_2_1);
+        regnDisp[2] = (TextView) findViewById(R.id.ac_table_3_1);
+        regnDisp[3] = (TextView) findViewById(R.id.ac_table_4_1);
+        regnDisp[4] = (TextView) findViewById(R.id.ac_table_5_1);
+        arrTimeDisp[0] = (TextView) findViewById(R.id.ac_table_1_2);
+        arrTimeDisp[1] = (TextView) findViewById(R.id.ac_table_2_2);
+        arrTimeDisp[2] = (TextView) findViewById(R.id.ac_table_3_2);
+        arrTimeDisp[3] = (TextView) findViewById(R.id.ac_table_4_2);
+        arrTimeDisp[4] = (TextView) findViewById(R.id.ac_table_5_2);
+        depTimeDisp[0] = (TextView) findViewById(R.id.ac_table_1_3);
+        depTimeDisp[1] = (TextView) findViewById(R.id.ac_table_2_3);
+        depTimeDisp[2] = (TextView) findViewById(R.id.ac_table_3_3);
+        depTimeDisp[3] = (TextView) findViewById(R.id.ac_table_4_3);
+        depTimeDisp[4] = (TextView) findViewById(R.id.ac_table_5_3);
+        numberDefectsDisp[0] = (TextView) findViewById(R.id.ac_table_1_4);
+        numberDefectsDisp[1] = (TextView) findViewById(R.id.ac_table_2_4);
+        numberDefectsDisp[2] = (TextView) findViewById(R.id.ac_table_3_4);
+        numberDefectsDisp[3] = (TextView) findViewById(R.id.ac_table_4_4);
+        numberDefectsDisp[4] = (TextView) findViewById(R.id.ac_table_5_4);
         update();
     }
 
@@ -56,20 +83,15 @@ public class SupervisorMain extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                try {
                     //whatever that needs to be updated
+                    setPlaneDisplay();
                     for (Plane child : planeDisplay) {
                         child.timeLeft = child.depTIme.getTime() - currentTimeMillis();
                     }
-
+                    Thread.sleep(10000);
                     Database.updateFromDatabase();
 
                     //waits 10 sec before next loop
-                    Thread.sleep(10000);
                     update();
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -325,6 +347,19 @@ public class SupervisorMain extends AppCompatActivity {
         completed = true;
         checkPage();
     }
+
+    public void setPlaneDisplay()
+    {
+        List<Plane> planeList = Database.planes;
+        DateFormat tf = new SimpleDateFormat("HH:mm");
+        for (int i = 0; i< ((5<planeList.size())? 5 : planeList.size()); i++){
+            regnDisp[i].setText(planeList.get(i).regn);
+            arrTimeDisp[i].setText(tf.format(planeList.get(i).arrTime));
+            depTimeDisp[i].setText(tf.format(planeList.get(i).depTIme));
+            numberDefectsDisp[i].setText(Integer.toString(planeList.get(i).numberOfDefects));
+        }
+    }
+
 }
 
 
