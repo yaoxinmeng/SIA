@@ -12,6 +12,8 @@ public class SupervisorPriorityTask extends AppCompatActivity {
     private Plane plane;
     private int NUMBER_OF_TECHS;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
