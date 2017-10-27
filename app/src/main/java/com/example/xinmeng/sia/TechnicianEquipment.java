@@ -24,6 +24,7 @@ public class TechnicianEquipment extends AppCompatActivity {
     private Plane firstPlane;
     private ArrayList<String> equipment = new ArrayList<>();
 
+
     TextView arrTime;
     TextView depTime;
     TextView bay;
@@ -39,8 +40,12 @@ public class TechnicianEquipment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_technician_equipment);
 
+
+
+
+
         ListView mListView = (ListView) findViewById(R.id.spare_list);
-        SpareListAdapter adapter = new SpareListAdapter(this,R.layout.tech_tabinterface,DefectsList);
+        SpareListAdapter adapter = new SpareListAdapter(this,R.layout.tech_tabinterface,equipment);
         mListView.setAdapter(adapter);
 
 

@@ -17,13 +17,13 @@ import com.example.xinmeng.sia.R;
 import java.util.ArrayList;
 
 
-public class SpareListAdapter extends ArrayAdapter<DefectsFetcher>{
+public class SpareListAdapter extends ArrayAdapter<String>{
 
     private Context mContext;
     int mResource;
 
 
-    public SpareListAdapter(@NonNull Context context, @LayoutRes int resource,  ArrayList<DefectsFetcher> objects) {
+    public SpareListAdapter(@NonNull Context context, @LayoutRes int resource,  ArrayList<String> objects) {
         super(context, resource,objects);
 
         mContext = context;
@@ -37,12 +37,12 @@ public class SpareListAdapter extends ArrayAdapter<DefectsFetcher>{
         LayoutInflater myInflater = LayoutInflater.from(mContext);
         View customView = myInflater.inflate(mResource,parent,false);
 
-        TextView spare_header = (TextView) customView.findViewById(R.id.spare_header);
+        //TextView spare_header = (TextView) customView.findViewById(R.id.spare_header);
         TextView spare_content = (TextView) customView.findViewById(R.id.spare_content);
 
 
-        spare_header.setText(getItem(position).getId());
-        spare_content.setText(getItem(position).getPartDetails());
+        //spare_header.setText(getItem(position).getId());
+        spare_content.setText(getItem(position).toString());
         return customView;
 
     }
